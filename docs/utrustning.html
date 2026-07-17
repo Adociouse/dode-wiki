@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Utrustning — D&amp;DE Expert — DoDE Wiki</title>
+<style>
+:root {
+  --red:      #6B1A1A;
+  --red-dark: #4A0E0E;
+  --paper:    #FAF3F0;
+  --text:     #2A0808;
+  --gold:     #D4956B;
+  --border:   #C4907A;
+  --link:     #6B1A1A;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --red:      #C05050;
+    --red-dark: #8B2020;
+    --paper:    #1E1010;
+    --text:     #F0DDD5;
+    --gold:     #D4956B;
+    --border:   #6B3A2A;
+    --link:     #E07070;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+  background: var(--paper);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── TOPPNAV ── */
+#topnav {
+  background: var(--red-dark);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 2px solid var(--gold);
+}
+#topnav .site-title {
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 10px 16px 10px 0;
+  white-space: nowrap;
+  border-right: 1px solid rgba(212,149,107,0.3);
+  margin-right: 8px;
+}
+#topnav a {
+  color: #F5E6D3;
+  text-decoration: none;
+  padding: 10px 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+#topnav a:hover { color: #fff; border-bottom-color: var(--gold); }
+#topnav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+.nav-section {
+  color: rgba(212,149,107,0.55);
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 6px 10px 10px;
+  white-space: nowrap;
+  border-left: 1px solid rgba(212,149,107,0.25);
+  margin-left: 4px;
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+/* ── TYPOGRAFI ── */
+h1 { font-size: 2rem; color: var(--red); border-bottom: 3px solid var(--gold); padding-bottom: 10px; margin-bottom: 28px; }
+h2 { font-size: 1.4rem; color: var(--red-dark); margin: 32px 0 12px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.1rem; color: var(--red); margin: 22px 0 8px; }
+h4 { font-size: 1rem; font-weight: bold; margin: 16px 0 6px; }
+p  { line-height: 1.75; margin-bottom: 12px; }
+ul, ol { margin: 8px 0 14px 24px; line-height: 1.75; }
+li { margin-bottom: 4px; }
+
+/* ── WIKILÄNKAR ── */
+a { color: var(--link); }
+a:hover { text-decoration: underline; }
+a.wikilink { border-bottom: 1px dotted var(--gold); text-decoration: none; color: var(--link); }
+a.wikilink:hover { border-bottom-style: solid; }
+
+/* ── TABELLER ── */
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 400px; }
+th { background: var(--red); color: var(--gold); padding: 8px 10px; text-align: left; white-space: nowrap; }
+td { padding: 7px 10px; border-bottom: 1px solid var(--border); }
+tr:nth-child(even) td { background: rgba(196,144,122,0.08); }
+tr:hover td { background: rgba(196,144,122,0.16); }
+
+/* ── KAMPANJRUTA ── */
+.kampanj-ruta { background: rgba(107,26,26,0.07); border: 1px solid rgba(107,26,26,0.35); border-left: 4px solid var(--red); border-radius: 6px; padding: 18px 20px; margin: 24px 0 32px; }
+.kampanj-ruta .kr-rubrik { font-size: 0.72rem; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+.kampanj-ruta p { font-size: 0.92rem; line-height: 1.65; margin: 0 0 10px; }
+.kampanj-ruta p:last-child { margin-bottom: 0; }
+.kampanj-ruta ul { margin: 8px 0 10px 18px; padding: 0; }
+.kampanj-ruta li { font-size: 0.92rem; line-height: 1.6; margin-bottom: 4px; }
+
+/* ── KOD / BLOCKQUOTE ── */
+code { background: rgba(107,26,26,0.08); padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 0.88em; }
+pre  { background: rgba(107,26,26,0.06); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; overflow-x: auto; margin: 14px 0; }
+pre code { background: none; padding: 0; }
+blockquote { border-left: 4px solid var(--gold); padding: 10px 16px; margin: 14px 0; background: rgba(212,149,107,0.08); font-style: italic; }
+
+/* ── FOOTER ── */
+footer { margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer-meta { font-style: italic; }
+main img { max-width: 100%; height: auto; border: 1px solid var(--border); border-radius: 4px; margin: 16px 0; }
+
+/* ── NYCKELORDSINDEX ── */
+.kw-index { column-count: 3; column-gap: 32px; }
+@media (max-width: 600px) { .kw-index { column-count: 1; } main { padding: 24px 16px; } }
+.kw-entry { break-inside: avoid; margin-bottom: 10px; font-size: 0.9rem; line-height: 1.5; }
+.kw-entry .kw-term { font-weight: bold; color: var(--red); }
+.kw-entry .kw-pages a { font-size: 0.82rem; color: var(--link); margin-right: 6px; }
+</style>
+
+</head>
+<body>
+<nav id="topnav">
+  <span class="site-title">⚔ DoDE Expert</span>
+  <a href="index.html">📖 Index</a>
+<a href="grundegenskaper.html">💪 Grundegenskaper</a>
+<a href="strid.html">⚔️ Strid & Vapen</a>
+<a href="fardigheter.html">🎯 Färdigheter</a>
+<a href="raser.html">🧝 Raser</a>
+<a href="yrken.html">🛡️ Yrken</a>
+<a href="magi.html">✨ Magi</a>
+<a href="utrustning.html" class="active">🗡️ Utrustning</a>
+<a href="hjaltar.html">🌟 Hjältar</a>
+<a href="monster.html">🐉 Varelser</a>
+<a href="drakar.html">🔥 Drakar</a>
+<a href="demonologi.html">🔮 Demonologi</a>
+<a href="kallor.html">📚 Källor</a>
+
+</nav>
+<main>
+<h1>Utrustning — D&amp;DE Expert</h1>
+<blockquote>
+<p><strong>Källa:</strong> REG s.49–62 (vapen &amp; rustning) · RP s.28–31 (priser &amp; startkapital)</p>
+</blockquote>
+<hr />
+<h2 id="valuta">Valuta</h2>
+<ul>
+<li><strong>Silvermynt (sm)</strong> är basvalutan</li>
+<li><strong>Belastningspoäng (BEP)</strong> = viktenhet ≈ 3 kg</li>
+</ul>
+<hr />
+<h2 id="rustningar">Rustningar</h2>
+<h3 id="enkelt-stridssystem-helkroppsrustning-reg-s-53">Enkelt stridssystem — Helkroppsrustning (REG s.53)</h3>
+<p><em>Används för varelser som INTE använder det alternativa stridssystemet med kroppsdelar.</em></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Rustning</th>
+<th>Abs</th>
+<th>Vikt</th>
+<th>Pris/BEP (sm)</th>
+<th>Not</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tjockt tyg</td>
+<td>1</td>
+<td>A</td>
+<td>20</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Läder</td>
+<td>2</td>
+<td>C</td>
+<td>25</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Nitläder</td>
+<td>3</td>
+<td>E</td>
+<td>70</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Lätt fjällpansar</td>
+<td>4</td>
+<td>F</td>
+<td>150</td>
+<td>⚠ Abs saknas i enkel tabell — verifiera</td>
+</tr>
+<tr>
+<td>Fjällpansar</td>
+<td>5</td>
+<td>G</td>
+<td>150</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Ringbrynja</td>
+<td>6</td>
+<td>H</td>
+<td>175</td>
+<td>Klirrar: Smyga halverad</td>
+</tr>
+<tr>
+<td>Förstärkt ringbrynja</td>
+<td>7</td>
+<td>J</td>
+<td>175</td>
+<td>Klirrar: Smyga halverad</td>
+</tr>
+<tr>
+<td>Helrustning (metall)</td>
+<td>8</td>
+<td>K</td>
+<td>200</td>
+<td>Halverar uppmärksamhetsfärdigheter; magiker KAN INTE kasta besvärjelser; enbart dvärgsmeder</td>
+</tr>
+</tbody>
+</table></div>
+<p>Rustningsvikten (vikt-bokstäver A–K) beror på <strong>bärarens STO</strong> — se vikttabell nedan.</p>
+<h3 id="helmrustning-vikttabell-reg-s-54">Helmrustning Vikttabell (REG s.54)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Viktbokstav</th>
+<th>STO 5–8</th>
+<th>STO 9–12</th>
+<th>STO 13–16</th>
+<th>STO 17–20</th>
+<th>STO 21–25</th>
+<th>STO 26–30</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>1,5</td>
+<td>2,0</td>
+<td>2,5</td>
+<td>3,0</td>
+<td>3,5</td>
+<td>4,0</td>
+</tr>
+<tr>
+<td>B</td>
+<td>2,0</td>
+<td>2,5</td>
+<td>3,0</td>
+<td>3,5</td>
+<td>4,0</td>
+<td>4,5</td>
+</tr>
+<tr>
+<td>C</td>
+<td>2,5</td>
+<td>3,0</td>
+<td>3,5</td>
+<td>4,5</td>
+<td>5,0</td>
+<td>6,0</td>
+</tr>
+<tr>
+<td>D</td>
+<td>3,0</td>
+<td>4,0</td>
+<td>5,0</td>
+<td>6,0</td>
+<td>7,0</td>
+<td>8,0</td>
+</tr>
+<tr>
+<td>E</td>
+<td>4,0</td>
+<td>5,0</td>
+<td>6,5</td>
+<td>7,5</td>
+<td>9,0</td>
+<td>10,0</td>
+</tr>
+<tr>
+<td>F</td>
+<td>4,5</td>
+<td>6,0</td>
+<td>7,5</td>
+<td>9,0</td>
+<td>10,5</td>
+<td>12,0</td>
+</tr>
+<tr>
+<td>G</td>
+<td>5,5</td>
+<td>7,0</td>
+<td>9,0</td>
+<td>10,5</td>
+<td>11,5</td>
+<td>13,0</td>
+</tr>
+<tr>
+<td>H</td>
+<td>6,0</td>
+<td>8,0</td>
+<td>10,0</td>
+<td>12,0</td>
+<td>14,0</td>
+<td>16,0</td>
+</tr>
+<tr>
+<td>J</td>
+<td>7,0</td>
+<td>9,0</td>
+<td>11,5</td>
+<td>13,5</td>
+<td>16,0</td>
+<td>18,5</td>
+</tr>
+<tr>
+<td>K</td>
+<td>7,5</td>
+<td>10,0</td>
+<td>12,5</td>
+<td>15,0</td>
+<td>17,5</td>
+<td>20,0</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(Vikt i BEP. 1 BEP ≈ 3 kg)</em></p>
+<h3 id="hjalmar-reg-s-53-54">Hjälmar (REG s.53–54)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Hjälm</th>
+<th>Abs (huvud)</th>
+<th>Pris (sm)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Läderhuva</td>
+<td>2</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Nitläderhuva</td>
+<td>3</td>
+<td>35</td>
+</tr>
+<tr>
+<td>Öppen hjälm</td>
+<td>4</td>
+<td>100</td>
+</tr>
+<tr>
+<td>Romersk hjälm</td>
+<td>6</td>
+<td>200</td>
+</tr>
+<tr>
+<td>Tunnhjälm</td>
+<td>8</td>
+<td>300</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>Tunnhjälm halverar alla uppmärksamhetsfärdigheter (Lyssna, Spana etc.) — REG s.53</p>
+</blockquote>
+<h3 id="skoldar">Sköldar</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Sköld</th>
+<th>Skyddar (grundsystem)</th>
+<th>Skyddar (alternativt system)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stor sköld</td>
+<td>1/20 chans att parerade projektiler fastnar</td>
+<td>Sköldarm + mage + bröst ELLER sköldarm + människokropp (kentaur)</td>
+</tr>
+<tr>
+<td>Medelstor sköld</td>
+<td>—</td>
+<td>Sköldarm + bröst ELLER sköldarm + människokropp (kentaur)</td>
+</tr>
+<tr>
+<td>Liten sköld</td>
+<td>—</td>
+<td>Sköldarm</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Sköldtålighet:</strong> 1/20 (5%) chans att skölden totalförstörs vid varje <strong>lyckad</strong> parering (REG s.56).</p>
+<hr />
+<h2 id="narstridsvapen-reg-s-58">Närstridsvapen (REG s.58)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Fattning</th>
+<th>STY-gr</th>
+<th>Vapen</th>
+<th>Skada</th>
+<th>Längd</th>
+<th>BEP</th>
+<th>BV</th>
+<th>Typ</th>
+<th>Pris (sm)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1H</td>
+<td>—</td>
+<td>Näve</td>
+<td>1T3</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>L</td>
+<td>—</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>—</td>
+<td>Spark</td>
+<td>1T6</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>L</td>
+<td>—</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>1</td>
+<td>Dolk</td>
+<td>1T4+1</td>
+<td>0,5</td>
+<td>0,5</td>
+<td>9</td>
+<td>L</td>
+<td>40</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>1</td>
+<td>Dirk</td>
+<td>1T4+2</td>
+<td>1</td>
+<td>0,5</td>
+<td>9</td>
+<td>L</td>
+<td>60</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>1</td>
+<td>Parerdolk</td>
+<td>1T4+1</td>
+<td>1</td>
+<td>0,5</td>
+<td>13</td>
+<td>L</td>
+<td>80</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>1</td>
+<td>Tanto ¹</td>
+<td>1T4+1</td>
+<td>0,6</td>
+<td>—</td>
+<td>9</td>
+<td>L</td>
+<td>40</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>1</td>
+<td>Hammare</td>
+<td>1T6</td>
+<td>1</td>
+<td>—</td>
+<td>7</td>
+<td>L</td>
+<td>25</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>1</td>
+<td>Kortsvärd</td>
+<td>1T6+1</td>
+<td>1</td>
+<td>1</td>
+<td>15</td>
+<td>L</td>
+<td>190</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>1</td>
+<td>Wakizashi ¹</td>
+<td>1T6+1</td>
+<td>1</td>
+<td>1</td>
+<td>15</td>
+<td>L</td>
+<td>200</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>1</td>
+<td>Knogjärn ²</td>
+<td>+1T3</td>
+<td>—</td>
+<td>0,3</td>
+<td>—</td>
+<td>L</td>
+<td>25</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>1</td>
+<td>Oxpiska</td>
+<td>1T2</td>
+<td>4</td>
+<td>2</td>
+<td>3</td>
+<td>L</td>
+<td>30</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>1</td>
+<td>Träklubba</td>
+<td>1T6</td>
+<td>1</td>
+<td>1</td>
+<td>7</td>
+<td>L</td>
+<td>—</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>2</td>
+<td>Handyxa</td>
+<td>1T6+2</td>
+<td>1</td>
+<td>—</td>
+<td>11</td>
+<td>L</td>
+<td>60</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>2</td>
+<td>Bredsvärd</td>
+<td>1T8+1</td>
+<td>1</td>
+<td>1</td>
+<td>15</td>
+<td>T</td>
+<td>200</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>2</td>
+<td>Huggare</td>
+<td>1T8</td>
+<td>1</td>
+<td>1</td>
+<td>15</td>
+<td>T</td>
+<td>175</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>2</td>
+<td>Ninjato ¹</td>
+<td>1T6+2</td>
+<td>1</td>
+<td>1</td>
+<td>15</td>
+<td>T</td>
+<td>200</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>2</td>
+<td>Kofot</td>
+<td>1T6</td>
+<td>1</td>
+<td>—</td>
+<td>15</td>
+<td>L</td>
+<td>25</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>2</td>
+<td>Stridsklubba</td>
+<td>1T8</td>
+<td>1</td>
+<td>1</td>
+<td>15</td>
+<td>T</td>
+<td>150</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>2</td>
+<td>Stridshammare</td>
+<td>1T6+2</td>
+<td>1</td>
+<td>2</td>
+<td>15</td>
+<td>T</td>
+<td>340</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>3</td>
+<td>Lans</td>
+<td>1T10+1</td>
+<td>5</td>
+<td>3</td>
+<td>15</td>
+<td>T</td>
+<td>125</td>
+</tr>
+<tr>
+<td>1–2H</td>
+<td>1</td>
+<td>Kortspjut</td>
+<td>1T6+1</td>
+<td>2</td>
+<td>2</td>
+<td>11</td>
+<td>L</td>
+<td>75</td>
+</tr>
+<tr>
+<td>1–2H</td>
+<td>2</td>
+<td>Kroksabel</td>
+<td>1T8+2</td>
+<td>1</td>
+<td>2</td>
+<td>15</td>
+<td>T</td>
+<td>310</td>
+</tr>
+<tr>
+<td>1–2H</td>
+<td>2</td>
+<td>Stridsslaga ³</td>
+<td>1T10</td>
+<td>3</td>
+<td>3</td>
+<td>11</td>
+<td>T</td>
+<td>300</td>
+</tr>
+<tr>
+<td>1–2H</td>
+<td>2</td>
+<td>Hacka</td>
+<td>1T10</td>
+<td>2</td>
+<td>2</td>
+<td>11</td>
+<td>T</td>
+<td>120</td>
+</tr>
+<tr>
+<td>1–2H</td>
+<td>2</td>
+<td>Bredyxa</td>
+<td>1T8+2</td>
+<td>1</td>
+<td>2</td>
+<td>11</td>
+<td>T</td>
+<td>125</td>
+</tr>
+<tr>
+<td>1–2H</td>
+<td>2</td>
+<td>Katana ¹</td>
+<td>1T8+2</td>
+<td>2</td>
+<td>2</td>
+<td>15</td>
+<td>T</td>
+<td>300</td>
+</tr>
+<tr>
+<td>1–2H</td>
+<td>2</td>
+<td>Treudd</td>
+<td>1T8+2</td>
+<td>3</td>
+<td>3</td>
+<td>11</td>
+<td>L</td>
+<td>200</td>
+</tr>
+<tr>
+<td>1–2H</td>
+<td>2</td>
+<td>Slagsvärd</td>
+<td>1T10+1</td>
+<td>2</td>
+<td>2</td>
+<td>13</td>
+<td>T</td>
+<td>500</td>
+</tr>
+<tr>
+<td>1–2H</td>
+<td>2</td>
+<td>Stridsgissel ³</td>
+<td>1T10</td>
+<td>1</td>
+<td>2</td>
+<td>11</td>
+<td>T</td>
+<td>300</td>
+</tr>
+<tr>
+<td>1–2H</td>
+<td>2</td>
+<td>Stridssyxa</td>
+<td>1T10+1</td>
+<td>2</td>
+<td>2</td>
+<td>11</td>
+<td>T</td>
+<td>140</td>
+</tr>
+<tr>
+<td>1–2H</td>
+<td>3</td>
+<td>Stridsspjut</td>
+<td>1T10+2</td>
+<td>2</td>
+<td>2</td>
+<td>11</td>
+<td>T</td>
+<td>190</td>
+</tr>
+<tr>
+<td>1–2H</td>
+<td>4</td>
+<td>Morgonstjärna</td>
+<td>2T8+2</td>
+<td>1</td>
+<td>3</td>
+<td>11</td>
+<td>T</td>
+<td>250</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>1</td>
+<td>Trästav</td>
+<td>2T4</td>
+<td>3</td>
+<td>2</td>
+<td>7</td>
+<td>L</td>
+<td>12</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>2</td>
+<td>Långspjut</td>
+<td>1T10+1</td>
+<td>4</td>
+<td>3</td>
+<td>11</td>
+<td>T</td>
+<td>100</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>2</td>
+<td>No-dachi ¹</td>
+<td>2T8+2</td>
+<td>3</td>
+<td>2</td>
+<td>13</td>
+<td>T</td>
+<td>500</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>2</td>
+<td>Högaffel</td>
+<td>2T4+1</td>
+<td>3</td>
+<td>3</td>
+<td>9</td>
+<td>L</td>
+<td>75</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>2</td>
+<td>Spade</td>
+<td>2T4</td>
+<td>2</td>
+<td>2</td>
+<td>9</td>
+<td>L</td>
+<td>100</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>2</td>
+<td>Hillebard</td>
+<td>3T4</td>
+<td>4</td>
+<td>3</td>
+<td>11</td>
+<td>T</td>
+<td>375</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>2</td>
+<td>Pik</td>
+<td>1T10+3</td>
+<td>5</td>
+<td>4</td>
+<td>11</td>
+<td>T</td>
+<td>375</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>3</td>
+<td>Naginata ¹</td>
+<td>2T8+1</td>
+<td>4</td>
+<td>4</td>
+<td>11</td>
+<td>T</td>
+<td>350</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>3</td>
+<td>Spetum</td>
+<td>2T8</td>
+<td>4</td>
+<td>3</td>
+<td>11</td>
+<td>T</td>
+<td>150</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>3</td>
+<td>Stor träklubba</td>
+<td>2T8</td>
+<td>2</td>
+<td>3</td>
+<td>9</td>
+<td>T</td>
+<td>90</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>4</td>
+<td>Tvåhandssvärd ⁴</td>
+<td>2T10</td>
+<td>3</td>
+<td>2</td>
+<td>11</td>
+<td>T</td>
+<td>560</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>4</td>
+<td>Tvåhandsyxa ⁵</td>
+<td>2T10+2</td>
+<td>3</td>
+<td>2</td>
+<td>11</td>
+<td>T</td>
+<td>375</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>4</td>
+<td>Pålyxa</td>
+<td>3T6</td>
+<td>4</td>
+<td>3</td>
+<td>11</td>
+<td>T</td>
+<td>125</td>
+</tr>
+</tbody>
+</table></div>
+<p>¹ Japanskt vapen — varje SL avgör om det passar i världen
+² Adderas till knytnävsskada. Kan BARA användas med Slagsmål-färdigheten
+³ Kättingvapen: parering halverar CL; 18–20 = automatisk miss med fummelrisk
+⁴ Kallas även storsvärd
+⁵ Kallas även dubbelyxa</p>
+<hr />
+<h2 id="projektilvapen-reg-s-59">Projektilvapen (REG s.59)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Fattning</th>
+<th>STY-gr</th>
+<th>Vapen</th>
+<th>Skada</th>
+<th>BEP</th>
+<th>BV</th>
+<th>Typ</th>
+<th>Pris (sm)</th>
+<th>Räckvidd</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2H</td>
+<td>1</td>
+<td>Liten båge</td>
+<td>1T4+1</td>
+<td>1</td>
+<td>—</td>
+<td>L</td>
+<td>125</td>
+<td>135 m</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>2</td>
+<td>Kortbåge</td>
+<td>1T6+1</td>
+<td>2</td>
+<td>—</td>
+<td>L</td>
+<td>190</td>
+<td>135 m</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>3</td>
+<td>Långbåge</td>
+<td>1T8+1</td>
+<td>2</td>
+<td>—</td>
+<td>T</td>
+<td>250</td>
+<td>180 m</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>3</td>
+<td>Sammansatt båge</td>
+<td>1T10+1</td>
+<td>2</td>
+<td>—</td>
+<td>T</td>
+<td>500</td>
+<td>180 m</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>1</td>
+<td>Slunga</td>
+<td>1T6</td>
+<td>0,25</td>
+<td>—</td>
+<td>L</td>
+<td>12</td>
+<td>90 m</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>2</td>
+<td>Stavslunga</td>
+<td>1T8</td>
+<td>1</td>
+<td>—</td>
+<td>L</td>
+<td>50</td>
+<td>120 m</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>1</td>
+<td>Blåsrör</td>
+<td>Spec ¹</td>
+<td>2</td>
+<td>—</td>
+<td>T</td>
+<td>50</td>
+<td>20 m</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>2</td>
+<td>Lätt armborst</td>
+<td>2T4+2</td>
+<td>2</td>
+<td>9</td>
+<td>L</td>
+<td>310</td>
+<td>150 m</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>2</td>
+<td>Tungt armborst</td>
+<td>2T6+2</td>
+<td>2</td>
+<td>11</td>
+<td>T</td>
+<td>625</td>
+<td>225 m</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>3</td>
+<td>Arbalest</td>
+<td>3T6+3</td>
+<td>3</td>
+<td>11</td>
+<td>T</td>
+<td>750</td>
+<td>250 m</td>
+</tr>
+</tbody>
+</table></div>
+<p>¹ Blåsrör: pilen gör ingen skada mot KP — pil är giftig; giftets STY &gt; Abs = penetrerar huden.</p>
+<p><strong>Laddningstider:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Vapen</th>
+<th>Laddning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stavslunga</td>
+<td>1 SR</td>
+</tr>
+<tr>
+<td>Lätt armborst</td>
+<td>3 SR</td>
+</tr>
+<tr>
+<td>Tungt armborst</td>
+<td>6 SR</td>
+</tr>
+<tr>
+<td>Arbalest</td>
+<td>12 SR</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="kastvapen-reg-s-59">Kastvapen (REG s.59)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Fattning</th>
+<th>STY-gr</th>
+<th>Vapen</th>
+<th>Skada</th>
+<th>Längd</th>
+<th>BEP</th>
+<th>BV</th>
+<th>Typ</th>
+<th>Pris (sm)</th>
+<th>Räckvidd</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1H</td>
+<td>1</td>
+<td>Kaststjärna</td>
+<td>1T4</td>
+<td>—</td>
+<td>0,2</td>
+<td>—</td>
+<td>L</td>
+<td>30</td>
+<td>SMI×1 rutor</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>1</td>
+<td>Kastspjut</td>
+<td>1T6+1</td>
+<td>2</td>
+<td>2</td>
+<td>9</td>
+<td>L</td>
+<td>100</td>
+<td>STY×1 rutor</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>1</td>
+<td>Kastkniv</td>
+<td>1T4+1</td>
+<td>—</td>
+<td>0,5</td>
+<td>9</td>
+<td>L</td>
+<td>75</td>
+<td>STY×1 rutor</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>2</td>
+<td>Kastyxa</td>
+<td>1T6+2</td>
+<td>1</td>
+<td>1</td>
+<td>11</td>
+<td>L</td>
+<td>90</td>
+<td>STY×1 rutor</td>
+</tr>
+<tr>
+<td>1H</td>
+<td>2</td>
+<td>Bola</td>
+<td>Spec ¹</td>
+<td>1</td>
+<td>1</td>
+<td>—</td>
+<td>L</td>
+<td>5</td>
+<td>STY×1 rutor</td>
+</tr>
+<tr>
+<td>2H</td>
+<td>1</td>
+<td>Lasso</td>
+<td>Spec ²</td>
+<td>5</td>
+<td>2</td>
+<td>5</td>
+<td>L</td>
+<td>17</td>
+<td>7 rutor</td>
+</tr>
+</tbody>
+</table></div>
+<p>¹ Bola: vid träff → slå FV-kast. Lyckas = avsett effekt (faller, arm fast etc.); misslyckas = 1T4 skada
+² Lasso: träff → FV-kast. Lyckas = avsett; miss = inget händer</p>
+<hr />
+<h2 id="vapentabell-kolumnforklaring">Vapentabell — Kolumnförklaring</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Kolumn</th>
+<th>Förklaring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fattning</strong></td>
+<td>1H = enhand, 2H = tvåhand, 1–2H = bägge</td>
+</tr>
+<tr>
+<td><strong>STY-grupp</strong></td>
+<td>Lägsta STY-grupp (<a class="wikilink" href="grundegenskaper.html#grupp">Grupp</a>-tabell) för att hantera vapnet korrekt</td>
+</tr>
+<tr>
+<td><strong>Skada</strong></td>
+<td>Grundskada (+ skadebonus vid närstrid)</td>
+</tr>
+<tr>
+<td><strong>Längd</strong></td>
+<td>Vapenlängd i meter → konverteras till kategori 0–5 (se tabell nedan)</td>
+</tr>
+<tr>
+<td><strong>BEP</strong></td>
+<td>Vikt i Belastningspoäng</td>
+</tr>
+<tr>
+<td><strong>BV</strong></td>
+<td>Basvärde = FV man börjar med vid träning (BC för vapenfärdigheter)</td>
+</tr>
+<tr>
+<td><strong>Typ</strong></td>
+<td>L = Lätt (inte STY-hindrade vid parering), T = Tungt</td>
+</tr>
+<tr>
+<td><strong>Pris</strong></td>
+<td>I silvermynt (sm)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Vapenlängdkonvertering:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Längd (m)</th>
+<th>Vapenlängd</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0,0–0,4</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0,5–0,9</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1,0–1,4</td>
+<td>2</td>
+</tr>
+<tr>
+<td>1,5–1,9</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2,0–2,9</td>
+<td>4</td>
+</tr>
+<tr>
+<td>3,0+</td>
+<td>5</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="stridsregler-for-vapen">Stridsregler för vapen</h2>
+<h3 id="sty-krav">STY-krav</h3>
+<ul>
+<li>Vapnets STY-grupp <strong>1 steg för hög</strong> → kan använda tvåhänt (om fästet tillåter) som separat färdighet</li>
+<li>Vapnets STY-grupp <strong>2+ steg för hög</strong> → CL halverad (kan tvåhänt ej hjälpa)</li>
+<li>Vapen märkt <strong>1–2H</strong> → enhand kräver STY-grupp 1 HÖGRE än angivet</li>
+</ul>
+<h3 id="avstand-och-cl">Avstånd och CL</h3>
+<p><strong>Rörelsemodifikation:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Målets rörelse</th>
+<th>CL-faktor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stilla</td>
+<td>×1</td>
+</tr>
+<tr>
+<td>Går</td>
+<td>×3/4</td>
+</tr>
+<tr>
+<td>Springer</td>
+<td>×1/2</td>
+</tr>
+<tr>
+<td>Flyger</td>
+<td>×1/4</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Avståndstabell FV 0–15:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Avstånd (rutor)</th>
+<th>Kastvapen</th>
+<th>Projektilvapen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Går ej</td>
+<td>Går ej</td>
+</tr>
+<tr>
+<td>2–3</td>
+<td>±0</td>
+<td>±0</td>
+</tr>
+<tr>
+<td>4–6</td>
+<td>−1</td>
+<td>±0</td>
+</tr>
+<tr>
+<td>7–10</td>
+<td>−2</td>
+<td>−1</td>
+</tr>
+<tr>
+<td>11–15</td>
+<td>−3</td>
+<td>−1</td>
+</tr>
+<tr>
+<td>16–20</td>
+<td>−4</td>
+<td>−2</td>
+</tr>
+<tr>
+<td>+10 m</td>
+<td>−1</td>
+<td>−1</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Avståndstabell FV 16+:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Avstånd (rutor/m)</th>
+<th>Kastvapen</th>
+<th>Projektilvapen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Går ej</td>
+<td>Går ej</td>
+</tr>
+<tr>
+<td>2–3</td>
+<td>±0</td>
+<td>±0</td>
+</tr>
+<tr>
+<td>4–6</td>
+<td>−1</td>
+<td>±0</td>
+</tr>
+<tr>
+<td>7–10</td>
+<td>−2</td>
+<td>−1</td>
+</tr>
+<tr>
+<td>11–15</td>
+<td>−3</td>
+<td>−1</td>
+</tr>
+<tr>
+<td>16–20</td>
+<td>−4</td>
+<td>−2</td>
+</tr>
+<tr>
+<td>31–50 m</td>
+<td>−5</td>
+<td>−3</td>
+</tr>
+<tr>
+<td>51–75 m</td>
+<td>−6</td>
+<td>−4</td>
+</tr>
+<tr>
+<td>76–100 m</td>
+<td>−7</td>
+<td>−5</td>
+</tr>
+<tr>
+<td>101–150 m</td>
+<td>−8</td>
+<td>−6</td>
+</tr>
+<tr>
+<td>151–200 m</td>
+<td>−9</td>
+<td>−7</td>
+</tr>
+<tr>
+<td>201–250 m</td>
+<td>—</td>
+<td>−8</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="speciella-vapen">Speciella vapen</h3>
+<p><strong>Bola:</strong>
+1. Slå anfallskast → träff
+2. Slå FV-kast
+   - Lyckas: avsett effekt (faller, arm fast, omtumlad)
+   - Miss: 1T4 skada
+- 2 ben snodda → kan ej förflytta sig, springande varelse faller
+- 1 arm snodd → kan ej använda armen
+- Huvud snodat → 1T3 SR omtumling
+- Avlägsna: 1T3 SR</p>
+<p><strong>Lasso:</strong>
+1. Slå anfallskast → träff
+2. Slå FV-kast
+   - Lyckas: avsett
+   - Miss: ingenting
+- Offret övervinner STY + SMI / 2 (försvarar STY) för att bryta sig fri
+- Kring halsen/2 ben: anfallaren STY ×2</p>
+<p><strong>Oxpiska:</strong>
+- Fungerar som lasso MEN
+- Ger 1T2 skada oavsett FV-kast
+- Greppet varar bara den SR den träffar</p>
+<p><strong>Spjut mot springande:</strong>
+- Spjut/långspjut mot anstormande → vapnet sätts emot marken
+- Fungerar som vanlig attack under stridens FÖRSTA SR
+- Lyckas: normal skada + <strong>målets skadebonus</strong> (hästens SB om ryttare)
+- Från SR 2: normal strid</p>
+<p><strong>Lans/spjut från galopperande riddjur:</strong>
+- Kräver minst 15 m ansats
+- Använd <strong>hästens SB</strong> istf din
+- Om skada &gt; målets STO: kastas 1T4 meter ur sadeln (fallskada)</p>
+<hr />
+<h2 id="specialmaterial">Specialmaterial</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Material</th>
+<th>Effekt</th>
+<th>Notering</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trä</td>
+<td>Normal för klubbor och påkar</td>
+<td>Ej för svärd</td>
+</tr>
+<tr>
+<td>Sten</td>
+<td>Dolk/spjut/slunga/pil: −2 skada. Stendolk: BV −4</td>
+<td>Primitiva kulturer</td>
+</tr>
+<tr>
+<td>Tänder</td>
+<td>Spjut/pilar: −2 skada</td>
+<td>Primitiva kulturer</td>
+</tr>
+<tr>
+<td>Brons</td>
+<td>Skärande vapen: −1 skada; dolkar/svärd BV −2; 80% av järnpris</td>
+<td>Föriron-ålder</td>
+</tr>
+<tr>
+<td>Silver</td>
+<td>Vissa varelser kan bara skadas av silver</td>
+<td>9× normalt pris</td>
+</tr>
+<tr>
+<td>Mithril</td>
+<td>Skärande vapen +1 skada; svärd/dolkar BV +2; rustning Abs +1 &amp; vikt −1 BEP</td>
+<td>Sällsynt; 16–20× normalt pris. Enbart dvärgsmeder</td>
+</tr>
+<tr>
+<td>Jade</td>
+<td>−2 skada (normalt), men normal mot jade-känsliga varelser</td>
+<td>—</td>
+</tr>
+<tr>
+<td><a class="wikilink" href="drakar.html">Drake</a></td>
+<td>Drakskinn = läder Abs men immun mot eld/syra. Draktänder = spjutspetsar +2 skada</td>
+<td>Inte till salu</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="rustningsregler">Rustningsregler</h2>
+<h3 id="pasattning-av-rustning">Påsättning av rustning</h3>
+<ul>
+<li>Ostörd med hjälp: 2 minuter per rustningsdel</li>
+<li>Utan hjälp: längre tid (⚠ exakt tid — se REG)</li>
+<li>Fjällpansar och tyngre: klirrar → Smyga halveras</li>
+</ul>
+<h3 id="varelser-med-sto-1-4">Varelser med STO 1–4</h3>
+<p>Kan enbart använda <strong>läderrustning</strong> som täcker hela kroppen.
+- Väger 5 BEP per STO
+- Abs = 2 (REG s.53 not 6)</p>
+<h3 id="bevisade-humanoider">Bevisade humanoider</h3>
+<p>Kan INTE ha tyngre rustning än <strong>läder på bröstkorg och mage</strong>. Vingar kan inte pansras.</p>
+</main>
+<footer><span>Drakar och Demoner Expert Wiki · Baserad på originalreglerna</span><span class="footer-meta">v2026.07.14 · Uppdaterad 2026-07-14</span></footer>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Build output
+export/
+dev/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

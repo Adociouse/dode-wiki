@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚔ Drakar och Demoner Expert — Spelarviki — DoDE Wiki</title>
+<style>
+:root {
+  --red:      #6B1A1A;
+  --red-dark: #4A0E0E;
+  --paper:    #FAF3F0;
+  --text:     #2A0808;
+  --gold:     #D4956B;
+  --border:   #C4907A;
+  --link:     #6B1A1A;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --red:      #C05050;
+    --red-dark: #8B2020;
+    --paper:    #1E1010;
+    --text:     #F0DDD5;
+    --gold:     #D4956B;
+    --border:   #6B3A2A;
+    --link:     #E07070;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+  background: var(--paper);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── TOPPNAV ── */
+#topnav {
+  background: var(--red-dark);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 2px solid var(--gold);
+}
+#topnav .site-title {
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 10px 16px 10px 0;
+  white-space: nowrap;
+  border-right: 1px solid rgba(212,149,107,0.3);
+  margin-right: 8px;
+}
+#topnav a {
+  color: #F5E6D3;
+  text-decoration: none;
+  padding: 10px 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+#topnav a:hover { color: #fff; border-bottom-color: var(--gold); }
+#topnav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+.nav-section {
+  color: rgba(212,149,107,0.55);
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 6px 10px 10px;
+  white-space: nowrap;
+  border-left: 1px solid rgba(212,149,107,0.25);
+  margin-left: 4px;
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+/* ── TYPOGRAFI ── */
+h1 { font-size: 2rem; color: var(--red); border-bottom: 3px solid var(--gold); padding-bottom: 10px; margin-bottom: 28px; }
+h2 { font-size: 1.4rem; color: var(--red-dark); margin: 32px 0 12px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.1rem; color: var(--red); margin: 22px 0 8px; }
+h4 { font-size: 1rem; font-weight: bold; margin: 16px 0 6px; }
+p  { line-height: 1.75; margin-bottom: 12px; }
+ul, ol { margin: 8px 0 14px 24px; line-height: 1.75; }
+li { margin-bottom: 4px; }
+
+/* ── WIKILÄNKAR ── */
+a { color: var(--link); }
+a:hover { text-decoration: underline; }
+a.wikilink { border-bottom: 1px dotted var(--gold); text-decoration: none; color: var(--link); }
+a.wikilink:hover { border-bottom-style: solid; }
+
+/* ── TABELLER ── */
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 400px; }
+th { background: var(--red); color: var(--gold); padding: 8px 10px; text-align: left; white-space: nowrap; }
+td { padding: 7px 10px; border-bottom: 1px solid var(--border); }
+tr:nth-child(even) td { background: rgba(196,144,122,0.08); }
+tr:hover td { background: rgba(196,144,122,0.16); }
+
+/* ── KAMPANJRUTA ── */
+.kampanj-ruta { background: rgba(107,26,26,0.07); border: 1px solid rgba(107,26,26,0.35); border-left: 4px solid var(--red); border-radius: 6px; padding: 18px 20px; margin: 24px 0 32px; }
+.kampanj-ruta .kr-rubrik { font-size: 0.72rem; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+.kampanj-ruta p { font-size: 0.92rem; line-height: 1.65; margin: 0 0 10px; }
+.kampanj-ruta p:last-child { margin-bottom: 0; }
+.kampanj-ruta ul { margin: 8px 0 10px 18px; padding: 0; }
+.kampanj-ruta li { font-size: 0.92rem; line-height: 1.6; margin-bottom: 4px; }
+
+/* ── KOD / BLOCKQUOTE ── */
+code { background: rgba(107,26,26,0.08); padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 0.88em; }
+pre  { background: rgba(107,26,26,0.06); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; overflow-x: auto; margin: 14px 0; }
+pre code { background: none; padding: 0; }
+blockquote { border-left: 4px solid var(--gold); padding: 10px 16px; margin: 14px 0; background: rgba(212,149,107,0.08); font-style: italic; }
+
+/* ── FOOTER ── */
+footer { margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer-meta { font-style: italic; }
+main img { max-width: 100%; height: auto; border: 1px solid var(--border); border-radius: 4px; margin: 16px 0; }
+
+/* ── NYCKELORDSINDEX ── */
+.kw-index { column-count: 3; column-gap: 32px; }
+@media (max-width: 600px) { .kw-index { column-count: 1; } main { padding: 24px 16px; } }
+.kw-entry { break-inside: avoid; margin-bottom: 10px; font-size: 0.9rem; line-height: 1.5; }
+.kw-entry .kw-term { font-weight: bold; color: var(--red); }
+.kw-entry .kw-pages a { font-size: 0.82rem; color: var(--link); margin-right: 6px; }
+</style>
+
+</head>
+<body>
+<nav id="topnav">
+  <span class="site-title">⚔ DoDE Expert</span>
+  <a href="index.html" class="active">📖 Index</a>
+<a href="grundegenskaper.html">💪 Grundegenskaper</a>
+<a href="strid.html">⚔️ Strid & Vapen</a>
+<a href="fardigheter.html">🎯 Färdigheter</a>
+<a href="raser.html">🧝 Raser</a>
+<a href="yrken.html">🛡️ Yrken</a>
+<a href="magi.html">✨ Magi</a>
+<a href="utrustning.html">🗡️ Utrustning</a>
+<a href="hjaltar.html">🌟 Hjältar</a>
+<a href="monster.html">🐉 Varelser</a>
+<a href="drakar.html">🔥 Drakar</a>
+<a href="demonologi.html">🔮 Demonologi</a>
+<a href="kallor.html">📚 Källor</a>
+
+</nav>
+<main>
+
+<h1>⚔ Drakar och Demoner Expert — Spelarviki</h1>
+<p>Regelreferens och världsinformation för spelare. Baserad på originalböckerna.</p>
+
+<h2 style="margin-top:0;margin-bottom:12px">Sidor</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-bottom:8px;">
+<a href="grundegenskaper.html" style="display:block;padding:12px 16px;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text);transition:background 0.1s;" onmouseover="this.style.background='rgba(196,144,122,0.12)'" onmouseout="this.style.background=''"><span style="font-size:1.2rem;margin-right:8px">💪</span><strong style="color:var(--red)">Grundegenskaper</strong></a>
+<a href="strid.html" style="display:block;padding:12px 16px;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text);transition:background 0.1s;" onmouseover="this.style.background='rgba(196,144,122,0.12)'" onmouseout="this.style.background=''"><span style="font-size:1.2rem;margin-right:8px">⚔️</span><strong style="color:var(--red)">Strid &amp; Vapen</strong></a>
+<a href="fardigheter.html" style="display:block;padding:12px 16px;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text);transition:background 0.1s;" onmouseover="this.style.background='rgba(196,144,122,0.12)'" onmouseout="this.style.background=''"><span style="font-size:1.2rem;margin-right:8px">🎯</span><strong style="color:var(--red)">Färdigheter</strong></a>
+<a href="raser.html" style="display:block;padding:12px 16px;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text);transition:background 0.1s;" onmouseover="this.style.background='rgba(196,144,122,0.12)'" onmouseout="this.style.background=''"><span style="font-size:1.2rem;margin-right:8px">🧝</span><strong style="color:var(--red)">Raser</strong></a>
+<a href="yrken.html" style="display:block;padding:12px 16px;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text);transition:background 0.1s;" onmouseover="this.style.background='rgba(196,144,122,0.12)'" onmouseout="this.style.background=''"><span style="font-size:1.2rem;margin-right:8px">🛡️</span><strong style="color:var(--red)">Yrken</strong></a>
+<a href="magi.html" style="display:block;padding:12px 16px;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text);transition:background 0.1s;" onmouseover="this.style.background='rgba(196,144,122,0.12)'" onmouseout="this.style.background=''"><span style="font-size:1.2rem;margin-right:8px">✨</span><strong style="color:var(--red)">Magi</strong></a>
+<a href="utrustning.html" style="display:block;padding:12px 16px;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text);transition:background 0.1s;" onmouseover="this.style.background='rgba(196,144,122,0.12)'" onmouseout="this.style.background=''"><span style="font-size:1.2rem;margin-right:8px">🗡️</span><strong style="color:var(--red)">Utrustning</strong></a>
+<a href="hjaltar.html" style="display:block;padding:12px 16px;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text);transition:background 0.1s;" onmouseover="this.style.background='rgba(196,144,122,0.12)'" onmouseout="this.style.background=''"><span style="font-size:1.2rem;margin-right:8px">🌟</span><strong style="color:var(--red)">Hjältar</strong></a>
+<a href="monster.html" style="display:block;padding:12px 16px;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text);transition:background 0.1s;" onmouseover="this.style.background='rgba(196,144,122,0.12)'" onmouseout="this.style.background=''"><span style="font-size:1.2rem;margin-right:8px">🐉</span><strong style="color:var(--red)">Varelser</strong></a>
+
+<a href="drakar.html" style="display:block;padding:12px 16px;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text);transition:background 0.1s;" onmouseover="this.style.background='rgba(196,144,122,0.12)'" onmouseout="this.style.background=''"><span style="font-size:1.2rem;margin-right:8px">🔥</span><strong style="color:var(--red)">Drakar</strong></a>
+<a href="demonologi.html" style="display:block;padding:12px 16px;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text);transition:background 0.1s;" onmouseover="this.style.background='rgba(196,144,122,0.12)'" onmouseout="this.style.background=''"><span style="font-size:1.2rem;margin-right:8px">🔮</span><strong style="color:var(--red)">Demonologi</strong></a>
+<a href="kallor.html" style="display:block;padding:12px 16px;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text);transition:background 0.1s;" onmouseover="this.style.background='rgba(196,144,122,0.12)'" onmouseout="this.style.background=''"><span style="font-size:1.2rem;margin-right:8px">📚</span><strong style="color:var(--red)">Källförteckning</strong></a>
+</div>
+
+
+<h2>Nyckelordsindex</h2>
+<p style="font-size:0.88rem;color:var(--border);margin-bottom:16px;">
+  Klicka på en sida för att hoppa direkt dit.
+</p>
+<div class="kw-index">
+<div class="kw-entry"><span class="kw-term">Alkemi</span><br><span class="kw-pages"><a href="fardigheter.html#sekundara-fardigheter-urval-med-grundegenskap">Färdighetssystemet — D&amp;DE Expert</a> <a href="magi.html#alkemi">Magi — D&amp;DE Expert</a> <a href="yrken.html#helare-rp-s-13">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Alv</span><br><span class="kw-pages"><a href="magi.html#raser-och-magiskolor">Magi — D&amp;DE Expert</a> <a href="raser.html#alv">Raser — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Alver</span><br><span class="kw-pages"> <a href="grundegenskaper.html#psykisk-kraft-psy">Grundegenskaper — D&amp;DE Expert</a> <a href="raser.html#alv">Raser — D&amp;DE Expert</a> <a href="yrken.html#tjuv-rp-s-21">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Animism</span><br><span class="kw-pages"> <a href="fardigheter.html#sekundara-fardigheter-urval-med-grundegenskap">Färdighetssystemet — D&amp;DE Expert</a> <a href="magi.html#animism">Magi — D&amp;DE Expert</a> <a href="yrken.html#snabbreferens-grundyrken">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Anka</span><br><span class="kw-pages"><a href="raser.html#anka">Raser — D&amp;DE Expert</a> <a href="strid.html#grundmoral">Strid &amp; Vapen — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Barbar</span><br><span class="kw-pages"><a href="raser.html#injir-hastbroderna">Raser — D&amp;DE Expert</a> <a href="yrken.html#barbar">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Bard</span><br><span class="kw-pages"><a href="raser.html#ras-och-yrke">Raser — D&amp;DE Expert</a> <a href="yrken.html#bard">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Baschans</span><br><span class="kw-pages"><a href="fardigheter.html#bc">Färdighetssystemet — D&amp;DE Expert</a> <a href="grundegenskaper.html#grupp-tabell">Grundegenskaper — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Bärförmåga</span><br><span class="kw-pages"><a href="grundegenskaper.html#barformaga">Grundegenskaper — D&amp;DE Expert</a> <a href="magi.html#spiritism-sp">Magi — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Bärsärk</span><br><span class="kw-pages"><a href="magi.html#harmonism-h">Magi — D&amp;DE Expert</a> <a href="strid.html#barsark">Strid &amp; Vapen — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Demonologi</span><br><span class="kw-pages"><a href="demonologi.html">Demonologi — Förbjuden Kunskap</a> <a href="magi.html#de-13-magiskolorna">Magi — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Drakar</span><br><span class="kw-pages"><a href="drakar.html">Drakar — Legender och Vittnesbörd</a> <a href="raser.html#grottalv">Raser — D&amp;DE Expert</a> <a href="monster.html#demoner">Varelser i Ereb Altor</a></span></div>
+<div class="kw-entry"><span class="kw-term">Drake</span><br><span class="kw-pages"><a href="drakar.html">Drakar — Legender och Vittnesbörd</a> <a href="utrustning.html#specialmaterial">Utrustning — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Dvärg</span><br><span class="kw-pages"><a href="fardigheter.html#rasmodifikationer-pa-bc">Färdighetssystemet — D&amp;DE Expert</a> <a href="magi.html#raser-och-magiskolor">Magi — D&amp;DE Expert</a> <a href="raser.html#dvarg">Raser — D&amp;DE Expert</a> <a href="strid.html#morkersyn-per-ras">Strid &amp; Vapen — D&amp;DE Expert</a> <a href="yrken.html#krav-att-uppfylla">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Elementarmagi</span><br><span class="kw-pages"><a href="fardigheter.html#sekundara-fardigheter-urval-med-grundegenskap">Färdighetssystemet — D&amp;DE Expert</a> <a href="magi.html#elementarmagi">Magi — D&amp;DE Expert</a> <a href="yrken.html#magiker-rp-s-17">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Ereb Altor</span><br><span class="kw-pages"><a href="demonologi.html">Demonologi — Förbjuden Kunskap</a> <a href="drakar.html#vad-ar-en-drake">Drakar — Legender och Vittnesbörd</a> <a href="raser.html#blodsalv">Raser — D&amp;DE Expert</a> <a href="monster.html">Varelser i Ereb Altor</a></span></div>
+<div class="kw-entry"><span class="kw-term">Erfarenhetspoäng</span><br><span class="kw-pages"><a href="fardigheter.html#ep">Färdighetssystemet — D&amp;DE Expert</a> <a href="hjaltar.html#yrkes-och-niva-samspel">Hjältar — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Fummel</span><br><span class="kw-pages"><a href="fardigheter.html#snabbreferens">Färdighetssystemet — D&amp;DE Expert</a> <a href="magi.html#snabbreferens-karnmekanik">Magi — D&amp;DE Expert</a> <a href="strid.html#fummel">Strid &amp; Vapen — D&amp;DE Expert</a> <a href="yrken.html#lonnmordare-rp-s-16">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Färdighetssystemet</span><br><span class="kw-pages"><a href="fardigheter.html">Färdighetssystemet — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Förflyttning</span><br><span class="kw-pages"><a href="grundegenskaper.html#forflyttning">Grundegenskaper — D&amp;DE Expert</a> <a href="magi.html#haxkonster-hk">Magi — D&amp;DE Expert</a> <a href="raser.html#graalv">Raser — D&amp;DE Expert</a> <a href="strid.html#fummeltabell-narstridsvapen-och-skoldar">Strid &amp; Vapen — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Första Hjälpen</span><br><span class="kw-pages"><a href="fardigheter.html#primara-fardigheter-alla-har-grundkostnad-2-ep-fv-steg">Färdighetssystemet — D&amp;DE Expert</a> <a href="grundegenskaper.html#kroppspoang-kp">Grundegenskaper — D&amp;DE Expert</a> <a href="strid.html#helande">Strid &amp; Vapen — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Gift</span><br><span class="kw-pages"><a href="grundegenskaper.html#fys-fysik">Grundegenskaper — D&amp;DE Expert</a> <a href="magi.html#animism-a">Magi — D&amp;DE Expert</a> <a href="raser.html#ovriga-humanoider-lindskiarn-referens">Raser — D&amp;DE Expert</a> <a href="strid.html#gift">Strid &amp; Vapen — D&amp;DE Expert</a> <a href="yrken.html#helare-rp-s-13">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Gladiator</span><br><span class="kw-pages"><a href="raser.html#yrken-per-alvtyp">Raser — D&amp;DE Expert</a> <a href="yrken.html#gladiator">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Grundegenskaper</span><br><span class="kw-pages"><a href="grundegenskaper.html">Grundegenskaper — D&amp;DE Expert</a> <a href="hjaltar.html#rollpersonsnivaer-beskrivning">Hjältar — D&amp;DE Expert</a> <a href="magi.html#illusionism-i">Magi — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Grupp</span><br><span class="kw-pages"><a href="fardigheter.html#baschans-bc">Färdighetssystemet — D&amp;DE Expert</a> <a href="grundegenskaper.html#grupp">Grundegenskaper — D&amp;DE Expert</a> <a href="hjaltar.html#hjaltarnas-handbok-ar-valfri">Hjältar — D&amp;DE Expert</a> <a href="magi.html#kann-magi">Magi — D&amp;DE Expert</a> <a href="strid.html#vapentyngd">Strid &amp; Vapen — D&amp;DE Expert</a> <a href="utrustning.html#vapentabell-kolumnforklaring">Utrustning — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Halvalv</span><br><span class="kw-pages"><a href="raser.html#halvalv">Raser — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Halvlängdsman</span><br><span class="kw-pages"><a href="fardigheter.html#rasmodifikationer-pa-bc">Färdighetssystemet — D&amp;DE Expert</a> <a href="magi.html#raser-och-magiskolor">Magi — D&amp;DE Expert</a> <a href="raser.html#halvlangdsman">Raser — D&amp;DE Expert</a> <a href="strid.html#grundmoral">Strid &amp; Vapen — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Halvorch</span><br><span class="kw-pages"><a href="raser.html#halvorch">Raser — D&amp;DE Expert</a> <a href="strid.html#morkersyn-per-ras">Strid &amp; Vapen — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Harmonism</span><br><span class="kw-pages"><a href="magi.html#harmonism">Magi — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Hjälte</span><br><span class="kw-pages"><a href="fardigheter.html#ep-budget-kh-s-3-rp-s-28">Färdighetssystemet — D&amp;DE Expert</a> <a href="hjaltar.html#snabbreferens-nivaer">Hjältar — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Hjältedåd</span><br><span class="kw-pages"><a href="hjaltar.html#hjaltedad">Hjältar — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Häxkonster</span><br><span class="kw-pages"><a href="magi.html#haxkonster">Magi — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Illusionism</span><br><span class="kw-pages"><a href="magi.html#illusionism">Magi — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Initiativ</span><br><span class="kw-pages"><a href="fardigheter.html#stridskonster">Färdighetssystemet — D&amp;DE Expert</a> <a href="grundegenskaper.html#psykisk-kraft-psy">Grundegenskaper — D&amp;DE Expert</a> <a href="strid.html#initiativ">Strid &amp; Vapen — D&amp;DE Expert</a> <a href="yrken.html#krigarspecialiseringar-krigarens-handbok-kh-s-4-9">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Kopparhavet</span><br><span class="kw-pages"><a href="drakar.html#platser-forknippade-med-drakar-i-ereb-altor">Drakar — Legender och Vittnesbörd</a></span></div>
+<div class="kw-entry"><span class="kw-term">Krigare</span><br><span class="kw-pages"><a href="grundegenskaper.html#psykisk-kraft-psy">Grundegenskaper — D&amp;DE Expert</a> <a href="raser.html#dvarg">Raser — D&amp;DE Expert</a> <a href="strid.html#initiativmodifikationer">Strid &amp; Vapen — D&amp;DE Expert</a> <a href="monster.html#gripar">Varelser i Ereb Altor</a> <a href="yrken.html#krigare">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Krigarmunk</span><br><span class="kw-pages"><a href="yrken.html#krigarmunk">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Läkekonst</span><br><span class="kw-pages"><a href="fardigheter.html#sekundara-fardigheter-urval-med-grundegenskap">Färdighetssystemet — D&amp;DE Expert</a> <a href="strid.html#helande">Strid &amp; Vapen — D&amp;DE Expert</a> <a href="yrken.html#helare-rp-s-13">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Lönnmördare</span><br><span class="kw-pages"><a href="grundegenskaper.html#skadebonus-sb">Grundegenskaper — D&amp;DE Expert</a> <a href="raser.html#gemensamma-alvyrken-alla-alver-kan-ha">Raser — D&amp;DE Expert</a> <a href="yrken.html#lonnmordare">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Magiker</span><br><span class="kw-pages"><a href="drakar.html">Drakar — Legender och Vittnesbörd</a> <a href="grundegenskaper.html#psykisk-kraft-psy">Grundegenskaper — D&amp;DE Expert</a> <a href="magi.html#snabbreferens-karnmekanik">Magi — D&amp;DE Expert</a> <a href="raser.html#alv">Raser — D&amp;DE Expert</a> <a href="utrustning.html#enkelt-stridssystem-helkroppsrustning-reg-s-53">Utrustning — D&amp;DE Expert</a> <a href="monster.html#demoner">Varelser i Ereb Altor</a> <a href="yrken.html#magiker">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Magiska föremål</span><br><span class="kw-pages"> <a href="magi.html#magiska-foremal">Magi — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Mentalism</span><br><span class="kw-pages"><a href="fardigheter.html#sekundara-fardigheter-urval-med-grundegenskap">Färdighetssystemet — D&amp;DE Expert</a> <a href="magi.html#mentalism">Magi — D&amp;DE Expert</a> <a href="yrken.html#magiker-rp-s-17">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Minibesvärjelser</span><br><span class="kw-pages"><a href="magi.html#minibesvarjelser">Magi — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Motgift</span><br><span class="kw-pages"><a href="strid.html#gift">Strid &amp; Vapen — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Människa</span><br><span class="kw-pages"><a href="grundegenskaper.html#snabbreferens">Grundegenskaper — D&amp;DE Expert</a> <a href="hjaltar.html#rollpersonsnivaer-beskrivning">Hjältar — D&amp;DE Expert</a> <a href="magi.html#raser-och-magiskolor">Magi — D&amp;DE Expert</a> <a href="raser.html#manniska">Raser — D&amp;DE Expert</a> <a href="strid.html#morkersyn-per-ras">Strid &amp; Vapen — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Mörkerseende</span><br><span class="kw-pages"><a href="raser.html#halvorch">Raser — D&amp;DE Expert</a> <a href="strid.html#strid-i-morker">Strid &amp; Vapen — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Mörkersyn</span><br><span class="kw-pages"><a href="magi.html#mentalism-m">Magi — D&amp;DE Expert</a> <a href="raser.html#automatiska-formagor-amp-sardrag">Raser — D&amp;DE Expert</a> <a href="strid.html#strid-i-morker">Strid &amp; Vapen — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Nekromanti</span><br><span class="kw-pages"><a href="magi.html#nekromanti">Magi — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Paladin</span><br><span class="kw-pages"><a href="yrken.html#paladin">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Parering</span><br><span class="kw-pages"><a href="strid.html#parering">Strid &amp; Vapen — D&amp;DE Expert</a> <a href="utrustning.html#skoldar">Utrustning — D&amp;DE Expert</a> <a href="yrken.html#krigarspecialiseringar-krigarens-handbok-kh-s-4-9">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Perfekt</span><br><span class="kw-pages"><a href="fardigheter.html#snabbreferens">Färdighetssystemet — D&amp;DE Expert</a> <a href="grundegenskaper.html#grundegenskapslag">Grundegenskaper — D&amp;DE Expert</a> <a href="magi.html#snabbreferens-karnmekanik">Magi — D&amp;DE Expert</a> <a href="raser.html#automatiska-formagor-amp-sardrag">Raser — D&amp;DE Expert</a> <a href="strid.html#perfekt">Strid &amp; Vapen — D&amp;DE Expert</a> <a href="yrken.html#snabbreferens-grundyrken">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Prisjägare</span><br><span class="kw-pages"><a href="yrken.html#prisjagare">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Röstmagi</span><br><span class="kw-pages"><a href="magi.html#rostmagi">Magi — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">SIGILL</span><br><span class="kw-pages"> <a href="magi.html#magiska-foremal">Magi — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Skadebonus</span><br><span class="kw-pages"><a href="grundegenskaper.html#skadebonus">Grundegenskaper — D&amp;DE Expert</a> <a href="strid.html#skada">Strid &amp; Vapen — D&amp;DE Expert</a> <a href="utrustning.html#vapentabell-kolumnforklaring">Utrustning — D&amp;DE Expert</a> <a href="yrken.html#lonnmordare-rp-s-16">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Soldat</span><br><span class="kw-pages"><a href="raser.html#gemensamma-alvyrken-alla-alver-kan-ha">Raser — D&amp;DE Expert</a> <a href="yrken.html#soldat">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Spiritism</span><br><span class="kw-pages"><a href="magi.html#spiritism">Magi — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Sprätthök</span><br><span class="kw-pages"><a href="raser.html#gemensamma-alvyrken-alla-alver-kan-ha">Raser — D&amp;DE Expert</a> <a href="yrken.html#sprattok">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Stavmagi</span><br><span class="kw-pages"><a href="magi.html#stavmagi">Magi — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Stridssystemet</span><br><span class="kw-pages"><a href="strid.html#skoldar">Strid &amp; Vapen — D&amp;DE Expert</a> <a href="utrustning.html#enkelt-stridssystem-helkroppsrustning-reg-s-53">Utrustning — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Svartfolk</span><br><span class="kw-pages"> <a href="raser.html#svartfolk">Raser — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Symbolism</span><br><span class="kw-pages"><a href="magi.html#symbolism">Magi — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Tjuv</span><br><span class="kw-pages"><a href="raser.html#halvlangdsman">Raser — D&amp;DE Expert</a> <a href="yrken.html#tjuv">Yrken — D&amp;DE Expert</a></span></div>
+<div class="kw-entry"><span class="kw-term">Vapenmästare</span><br><span class="kw-pages"><a href="raser.html#gemensamma-alvyrken-alla-alver-kan-ha">Raser — D&amp;DE Expert</a> <a href="yrken.html#vapenmastare">Yrken — D&amp;DE Expert</a></span></div>
+</div>
+
+</main>
+<footer><span>Drakar och Demoner Expert Wiki · Baserad på originalreglerna</span><span class="footer-meta">v2026.07.16 · Uppdaterad 2026-07-16</span></footer>
+</body>
+</html>

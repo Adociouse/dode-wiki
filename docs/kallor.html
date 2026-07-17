@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Källförteckning — D&amp;DE Expert — DoDE Wiki</title>
+<style>
+:root {
+  --red:      #6B1A1A;
+  --red-dark: #4A0E0E;
+  --paper:    #FAF3F0;
+  --text:     #2A0808;
+  --gold:     #D4956B;
+  --border:   #C4907A;
+  --link:     #6B1A1A;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --red:      #C05050;
+    --red-dark: #8B2020;
+    --paper:    #1E1010;
+    --text:     #F0DDD5;
+    --gold:     #D4956B;
+    --border:   #6B3A2A;
+    --link:     #E07070;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+  background: var(--paper);
+  color: var(--text);
+  min-height: 100vh;
+}
+#topnav {
+  background: var(--red-dark);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 2px solid var(--gold);
+}
+#topnav .site-title {
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 10px 16px 10px 0;
+  white-space: nowrap;
+  border-right: 1px solid rgba(212,149,107,0.3);
+  margin-right: 8px;
+}
+#topnav a {
+  color: #F5E6D3;
+  text-decoration: none;
+  padding: 10px 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+#topnav a:hover { color: #fff; border-bottom-color: var(--gold); }
+#topnav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+.nav-section {
+  color: rgba(212,149,107,0.55);
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 6px 10px 10px;
+  white-space: nowrap;
+  border-left: 1px solid rgba(212,149,107,0.25);
+  margin-left: 4px;
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+h1 { font-size: 1.8rem; color: var(--red); margin-bottom: 8px; }
+h2 { font-size: 1.25rem; color: var(--red); margin: 28px 0 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+h3 { font-size: 1rem; color: var(--red); margin: 20px 0 8px; }
+p { line-height: 1.7; margin-bottom: 12px; }
+a { color: var(--link); }
+a:hover { text-decoration: underline; }
+.archive-banner {
+  background: linear-gradient(135deg, var(--red-dark), #2A0808);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  color: #F5E6D3;
+}
+.archive-banner h2 {
+  color: var(--gold);
+  border-bottom: 1px solid rgba(212,149,107,0.3);
+  margin-top: 0;
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+.archive-banner a {
+  color: var(--gold);
+  font-weight: bold;
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+.archive-banner a:hover { text-decoration: underline; }
+.archive-banner p { color: #DDD0C4; margin-bottom: 0; }
+.table-wrap { overflow-x: auto; margin-bottom: 20px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+th { background: var(--red-dark); color: var(--gold); text-align: left; padding: 8px 10px; font-size: 0.78rem; letter-spacing: 0.04em; }
+td { padding: 8px 10px; border-bottom: 1px solid rgba(196,144,122,0.25); vertical-align: top; line-height: 1.5; }
+tr:hover td { background: rgba(196,144,122,0.08); }
+td:first-child { font-weight: bold; white-space: nowrap; }
+td a { color: var(--link); text-decoration: none; }
+td a:hover { text-decoration: underline; }
+.badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 7px;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+  margin-left: 4px;
+}
+.badge-official { background: rgba(212,149,107,0.25); color: var(--gold); border: 1px solid rgba(212,149,107,0.4); }
+.infobox {
+  background: rgba(196,144,122,0.1);
+  border-left: 3px solid var(--gold);
+  padding: 12px 16px;
+  margin: 16px 0 20px;
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+</style>
+</head>
+<body>
+<nav id="topnav">
+  <span class="site-title">⚔ DoDE Expert</span>
+  <a href="index.html">📖 Index</a>
+<a href="grundegenskaper.html">💪 Grundegenskaper</a>
+<a href="strid.html">⚔️ Strid & Vapen</a>
+<a href="fardigheter.html">🎯 Färdigheter</a>
+<a href="raser.html">🧝 Raser</a>
+<a href="yrken.html">🛡️ Yrken</a>
+<a href="magi.html">✨ Magi</a>
+<a href="utrustning.html">🗡️ Utrustning</a>
+<a href="hjaltar.html">🌟 Hjältar</a>
+<a href="monster.html">🐉 Varelser</a>
+<a href="drakar.html">🔥 Drakar</a>
+<a href="demonologi.html">🔮 Demonologi</a>
+<a href="kallor.html" class="active">📚 Källor</a>
+</nav>
+<main>
+<h1>📚 Källförteckning</h1>
+<p>Officiellt källmaterial för Drakar och Demoner Expert (1991). De flesta titlar är fritt tillgängliga via <strong>Internet Archive</strong>.</p>
+
+<div class="archive-banner">
+  <h2>🌐 Internet Archive — officiell samling</h2>
+  <a href="https://archive.org/details/drakar_och_demoner" target="_blank" rel="noopener">https://archive.org/details/drakar_och_demoner ↗</a>
+  <p style="margin-top:8px">Samlingsida med 145+ titlar: grundregler, magiböcker, tilläggsböcker, äventyr, kartor och rollformulär. Fritt tillgängliga för nedladdning.</p>
+</div>
+
+<div class="infobox">
+  <strong>Om produktkoderna:</strong> Varje titel har ett produktnummer i formatet <code>XX-YYY</code> (t.ex. 02-603 för Expert-rollformuläret). Dessa används av archive.org som identifierare och kan sökas direkt.
+</div>
+
+<h2>Grundregler</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Titel</th><th>Produktnr</th><th>Innehåll</th><th>Länk</th></tr></thead>
+<tbody>
+<tr>
+  <td>DoDE Expert — Regelbok</td>
+  <td>—</td>
+  <td>Komplett regelbok för Drakar och Demoner Expert. Egenskaper, strid, färdigheter, magi, XP-system.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Bok I — Rollpersonen</td>
+  <td>—</td>
+  <td>Rollpersonsskapande, egenskaper, raser, yrken. Grunden för all karaktärsskapning.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Bok II — Spelledarboken</td>
+  <td>—</td>
+  <td>SL-regler, världsbeskrivning, skapande av äventyr, grundläggande monsterlista.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Bok III — Spelarboken</td>
+  <td>—</td>
+  <td>Spelarens sammanfattning av grundreglerna — ett enklare alternativ till den fullständiga regelboken.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Rollformulär Expert <span class="badge badge-official">PDF</span></td>
+  <td>02-603</td>
+  <td>Officiellt rollformulär för DoDE Expert. Används som grund för karaktärsgeneratorn i denna wiki.</td>
+  <td><a href="https://archive.org/search?query=02-603+drakar+demoner" target="_blank">Sök ↗</a></td>
+</tr>
+<tr>
+  <td>Vapentabell</td>
+  <td>—</td>
+  <td>Komprimerad referenstabell för alla vapen, skadetyper och vapenkategorier.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+</tbody>
+</table></div>
+
+<h2>Magi</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Titel</th><th>Produktnr</th><th>Innehåll</th><th>Länk</th></tr></thead>
+<tbody>
+<tr>
+  <td>Magibok (Expert)</td>
+  <td>02-102</td>
+  <td>Besvärjelseregler och formler för Expert-systemet. Grundläggande magregler.</td>
+  <td><a href="https://archive.org/search?query=02-102+drakar+demoner" target="_blank">Sök ↗</a></td>
+</tr>
+<tr>
+  <td>Magiregelbok</td>
+  <td>—</td>
+  <td>Fullständiga magregler: PSY, KRA, besvärjelsesystemet. Referens för alla trollkarlar.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Formelbok</td>
+  <td>—</td>
+  <td>Komplett besvärjelselista med alla effekter och effektnivåer (E1–E10).</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Spelarmagibok</td>
+  <td>—</td>
+  <td>Förenklad magiversion för spelare — kortare formuleringar och snabbreferens.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+</tbody>
+</table></div>
+
+<h2>Klass- och rastillägg</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Titel</th><th>Innehåll</th><th>Länk</th></tr></thead>
+<tbody>
+<tr>
+  <td>Magikerns Handbok</td>
+  <td>Utökad magi: skolor, specialiseringar, avancerade besvärjelseeffekter.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Krigarens Handbok</td>
+  <td>Utökade stridsstilar, vapen, manövrar och krigartaktik.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Hjältarnas Handbok</td>
+  <td>Avancerade regler för hjältar: legendariska förmågor och episk progression.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Tjuvar och Lönnmördare</td>
+  <td>Utökade tjuvregler, giftlista, uppdragssystem och skuggfärdigheter.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Alver</td>
+  <td>Alvisk kultur, historia, rasvarianter och särregler. Fördjupning av alvraserna.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Svartfolk</td>
+  <td>Orcher, gobliner och svartfolk — bakgrund och regler för dessa raser.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Kaos Väktare (1993) <span class="badge badge-official">Demonologi</span></td>
+  <td>Komplett demonologitillägg: multiversum, portalmagi, demonsummoning och nya karaktärsregler. Grunden för demonologisystemet i wikin.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+</tbody>
+</table></div>
+
+<h2>Monster och varelser</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Titel</th><th>Innehåll</th><th>Länk</th></tr></thead>
+<tbody>
+<tr>
+  <td>Monsterboken 1</td>
+  <td>Basmonster med fullständiga statblock. Första referensboken för SL:s vapendepå av varelser.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Monsterboken 2</td>
+  <td>Fler monster och sällsynta varelser som inte täcks av Monsterboken 1.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Monsterboxen II — Humanoida Raser</td>
+  <td>Orcher, dvärgar, alver och humanoida raser med statblock och beteendebeskrivningar.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Monsterboxen IV — Legendariska Varelser</td>
+  <td>Unika och legendariska monster — kampanjens storvarelser och bossar.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Monster och Män i Ereb Altor</td>
+  <td>Kampanjspecifika varelser med världskontext — kopplar monster till Ereb Altors ekologi och historia.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Drakar</td>
+  <td>Alla draktyper med fullständiga statblock, beteende och drakfolklore.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+</tbody>
+</table></div>
+
+<h2>Världsmaterial — Ereb Altor</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Titel</th><th>Innehåll</th><th>Länk</th></tr></thead>
+<tbody>
+<tr>
+  <td>Ereb Altor — Kampanjbok</td>
+  <td>Spelarvänlig världsbeskrivning: geografi, kulturer, städer, historia. Referens för spelare och SL.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Ereb Altor — Spelledarbok</td>
+  <td>SL-hemligheter om världen: dolda fraktioner, profetior, gudar och verklighetsunderlager.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Ereb Altor — Spelarbok</td>
+  <td>Förenklad världsbeskrivning för spelare utan SL-spoilers.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Ereb Altor — Äventyrsbok</td>
+  <td>Kompendium av kortäventyr och platsbeskrivningar för Ereb Altor.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Kandra — Ereb Altor Vol I (1986)</td>
+  <td>Sourcebook för handelsstaden Kandra. Politisk karta, fraktioner, uppdragsgivare.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Torshem — Barbarernas skogar</td>
+  <td>Detaljerat regionmaterial för Torshem-territoriet.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Kopparhavets Kapare</td>
+  <td>Sjöfartskampanjmaterial — pirater, öar och havsäventyr på Kopparhavet.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+</tbody>
+</table></div>
+
+<h2>Äventyr</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Titel</th><th>År</th><th>Produktnr</th><th>Innehåll</th><th>Länk</th></tr></thead>
+<tbody>
+<tr>
+  <td>Dimön</td>
+  <td>1984</td>
+  <td>02-301</td>
+  <td>Nybörjaräventyr. Spegelsjön i södra Brabant. Det klassiska startäventyret för DoDE.</td>
+  <td><a href="https://archive.org/search?query=02-301+drakar+demoner" target="_blank">Sök ↗</a></td>
+</tr>
+<tr>
+  <td>Rösten från forntiden</td>
+  <td>1986</td>
+  <td>02-302</td>
+  <td>Arkeologiäventyr med uråldrigt hot. Mellanäventyr med stark historiebakgrund.</td>
+  <td><a href="https://archive.org/search?query=02-302+drakar+demoner" target="_blank">Sök ↗</a></td>
+</tr>
+<tr>
+  <td>Marsklandet</td>
+  <td>1988</td>
+  <td>—</td>
+  <td>Sumpäventyr i gränslandet. Utforskning och politiska intriguer.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Svavelvinter</td>
+  <td>1987</td>
+  <td>—</td>
+  <td>Vinteräventyr i den förfallna staden Arhem. Kult och stadspolitik.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Ärans väg 1 — Döda skogen</td>
+  <td>1985</td>
+  <td>—</td>
+  <td>Episk trilogis första del. Den förtrollade skogen och Eledains brödraskap.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Ärans väg 2 — Maktens portar</td>
+  <td>1985</td>
+  <td>—</td>
+  <td>Andra delen. Portaler och det växande Mörkret.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Ärans väg 3 — Mörkrets hjärta</td>
+  <td>1986</td>
+  <td>—</td>
+  <td>Tredje och avslutande delen. Konfrontationen med Herz och sigillens kris.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Den nidländska reningen 1 — Helvetesfortet</td>
+  <td>1991</td>
+  <td>—</td>
+  <td>Nidlandtrilogins debut. Befästningens fall och Vicotnik-tråden.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Den nidländska reningen 2 — Melindors återkomst</td>
+  <td>1991</td>
+  <td>—</td>
+  <td>Melindor som återvänder och vad det innebär för kontinenten.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Den nidländska reningen 3 — Slutstriden</td>
+  <td>1992</td>
+  <td>—</td>
+  <td>Trilogins avslutning. Vicotnik-konfrontationen och kampanjens klimax.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Härskarserien 1 — Handelsfursten</td>
+  <td>1990</td>
+  <td>—</td>
+  <td>Sjöfarts- och handelsäventyr på Kopparhavet. Malkûths nätverk introduceras.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Härskarserien 2 — Tempelherren</td>
+  <td>—</td>
+  <td>—</td>
+  <td>Religiösa intriger och tempelkonflikter på havsvägen västerut.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Härskarserien 3</td>
+  <td>—</td>
+  <td>—</td>
+  <td>Seriens avslutning med Luciano och det stora konfliktklimax.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Barbia / Siratsias vita formelsamling</td>
+  <td>1989</td>
+  <td>02-703</td>
+  <td>Magimystik och bakgrundsmytologi. Ej spelbart äventyr — historisk referens för kampanjen.</td>
+  <td><a href="https://archive.org/search?query=02-703+drakar+demoner" target="_blank">Sök ↗</a></td>
+</tr>
+<tr>
+  <td>Dödens väg</td>
+  <td>—</td>
+  <td>01-308</td>
+  <td>Underjordsäventyr med klassisk dungeon-känsla.</td>
+  <td><a href="https://archive.org/search?query=01-308+drakar+demoner" target="_blank">Sök ↗</a></td>
+</tr>
+<tr>
+  <td>Kandra — Äventyrskompendium (Vol I)</td>
+  <td>1986</td>
+  <td>—</td>
+  <td>Stadssourcebook och äventyr för handelsstaden Kandra.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Enhörningshornet</td>
+  <td>1990</td>
+  <td>—</td>
+  <td>Naturäventyr med mytologisk känsla.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+</tbody>
+</table></div>
+
+<h2>Kartor</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Karta</th><th>Innehåll</th><th>Länk</th></tr></thead>
+<tbody>
+<tr>
+  <td>Ereb Altor — Världskarta</td>
+  <td>Officiell karta över hela Ereb Altor med kontinenter, hav och städer.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Trakorien — Regional karta</td>
+  <td>Detaljkarta över Trakorien-regionen.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+<tr>
+  <td>Kopparhavet</td>
+  <td>Sjökarta över Kopparhavet med öar, hamnar och navigationsrutter.</td>
+  <td><a href="https://archive.org/details/drakar_och_demoner" target="_blank">Samlingen ↗</a></td>
+</tr>
+</tbody>
+</table></div>
+
+<hr style="border:none;border-top:1px solid var(--border);margin:28px 0 20px">
+<p style="font-size:0.82rem;color:var(--border)">Drakar och Demoner Expert är en produkt från Target Games AB (1991). Materialet tillgängliggjort via Internet Archive för bevaring och studier av rollspelshistoria. Denna wiki är ett oberoende fan-projekt och är inte affilierat med rättighetshavare.</p>
+</main>
+</body>
+</html>

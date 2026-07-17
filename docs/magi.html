@@ -1,0 +1,3526 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magi — D&amp;DE Expert — DoDE Wiki</title>
+<style>
+:root {
+  --red:      #6B1A1A;
+  --red-dark: #4A0E0E;
+  --paper:    #FAF3F0;
+  --text:     #2A0808;
+  --gold:     #D4956B;
+  --border:   #C4907A;
+  --link:     #6B1A1A;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --red:      #C05050;
+    --red-dark: #8B2020;
+    --paper:    #1E1010;
+    --text:     #F0DDD5;
+    --gold:     #D4956B;
+    --border:   #6B3A2A;
+    --link:     #E07070;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+  background: var(--paper);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── TOPPNAV ── */
+#topnav {
+  background: var(--red-dark);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 2px solid var(--gold);
+}
+#topnav .site-title {
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 10px 16px 10px 0;
+  white-space: nowrap;
+  border-right: 1px solid rgba(212,149,107,0.3);
+  margin-right: 8px;
+}
+#topnav a {
+  color: #F5E6D3;
+  text-decoration: none;
+  padding: 10px 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+#topnav a:hover { color: #fff; border-bottom-color: var(--gold); }
+#topnav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+.nav-section {
+  color: rgba(212,149,107,0.55);
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 6px 10px 10px;
+  white-space: nowrap;
+  border-left: 1px solid rgba(212,149,107,0.25);
+  margin-left: 4px;
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+/* ── TYPOGRAFI ── */
+h1 { font-size: 2rem; color: var(--red); border-bottom: 3px solid var(--gold); padding-bottom: 10px; margin-bottom: 28px; }
+h2 { font-size: 1.4rem; color: var(--red-dark); margin: 32px 0 12px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.1rem; color: var(--red); margin: 22px 0 8px; }
+h4 { font-size: 1rem; font-weight: bold; margin: 16px 0 6px; }
+p  { line-height: 1.75; margin-bottom: 12px; }
+ul, ol { margin: 8px 0 14px 24px; line-height: 1.75; }
+li { margin-bottom: 4px; }
+
+/* ── WIKILÄNKAR ── */
+a { color: var(--link); }
+a:hover { text-decoration: underline; }
+a.wikilink { border-bottom: 1px dotted var(--gold); text-decoration: none; color: var(--link); }
+a.wikilink:hover { border-bottom-style: solid; }
+
+/* ── TABELLER ── */
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 400px; }
+th { background: var(--red); color: var(--gold); padding: 8px 10px; text-align: left; white-space: nowrap; }
+td { padding: 7px 10px; border-bottom: 1px solid var(--border); }
+tr:nth-child(even) td { background: rgba(196,144,122,0.08); }
+tr:hover td { background: rgba(196,144,122,0.16); }
+
+/* ── KAMPANJRUTA ── */
+.kampanj-ruta { background: rgba(107,26,26,0.07); border: 1px solid rgba(107,26,26,0.35); border-left: 4px solid var(--red); border-radius: 6px; padding: 18px 20px; margin: 24px 0 32px; }
+.kampanj-ruta .kr-rubrik { font-size: 0.72rem; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+.kampanj-ruta p { font-size: 0.92rem; line-height: 1.65; margin: 0 0 10px; }
+.kampanj-ruta p:last-child { margin-bottom: 0; }
+.kampanj-ruta ul { margin: 8px 0 10px 18px; padding: 0; }
+.kampanj-ruta li { font-size: 0.92rem; line-height: 1.6; margin-bottom: 4px; }
+
+/* ── KOD / BLOCKQUOTE ── */
+code { background: rgba(107,26,26,0.08); padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 0.88em; }
+pre  { background: rgba(107,26,26,0.06); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; overflow-x: auto; margin: 14px 0; }
+pre code { background: none; padding: 0; }
+blockquote { border-left: 4px solid var(--gold); padding: 10px 16px; margin: 14px 0; background: rgba(212,149,107,0.08); font-style: italic; }
+
+/* ── FOOTER ── */
+footer { margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer-meta { font-style: italic; }
+main img { max-width: 100%; height: auto; border: 1px solid var(--border); border-radius: 4px; margin: 16px 0; }
+
+/* ── NYCKELORDSINDEX ── */
+.kw-index { column-count: 3; column-gap: 32px; }
+@media (max-width: 600px) { .kw-index { column-count: 1; } main { padding: 24px 16px; } }
+.kw-entry { break-inside: avoid; margin-bottom: 10px; font-size: 0.9rem; line-height: 1.5; }
+.kw-entry .kw-term { font-weight: bold; color: var(--red); }
+.kw-entry .kw-pages a { font-size: 0.82rem; color: var(--link); margin-right: 6px; }
+</style>
+
+</head>
+<body>
+<nav id="topnav">
+  <span class="site-title">⚔ DoDE Expert</span>
+  <a href="index.html">📖 Index</a>
+<a href="grundegenskaper.html">💪 Grundegenskaper</a>
+<a href="strid.html">⚔️ Strid & Vapen</a>
+<a href="fardigheter.html">🎯 Färdigheter</a>
+<a href="raser.html">🧝 Raser</a>
+<a href="yrken.html">🛡️ Yrken</a>
+<a href="magi.html" class="active">✨ Magi</a>
+<a href="utrustning.html">🗡️ Utrustning</a>
+<a href="hjaltar.html">🌟 Hjältar</a>
+<a href="monster.html">🐉 Varelser</a>
+<a href="drakar.html">🔥 Drakar</a>
+<a href="demonologi.html">🔮 Demonologi</a>
+<a href="kallor.html">📚 Källor</a>
+
+</nav>
+<main>
+<h1>Magi — D&amp;DE Expert</h1>
+<blockquote>
+<p><strong>Källa:</strong> MAG (D&amp;DE Magi — Regelbok) · REG s.63–66 · EXTRACT_Fardigheter_EP.md</p>
+</blockquote>
+<hr />
+<h2 id="snabbreferens-karnmekanik">Snabbreferens — Kärnmekanik</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Vad</th>
+<th>Regel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Slå</td>
+<td>1T20 ≤ CL (Chansen att lyckas)</td>
+</tr>
+<tr>
+<td>CL beräkning</td>
+<td>Skicklighetsvärde (S) − 2 × (effektgrad − 1)</td>
+</tr>
+<tr>
+<td>PSY-kostnad</td>
+<td>1 PSY per effektgrad (E)</td>
+</tr>
+<tr>
+<td>Max effektgrad</td>
+<td>= FV i besvärjelsens skola</td>
+</tr>
+<tr>
+<td><a class="wikilink" href="strid.html#perfekt">Perfekt</a> (slår "1")</td>
+<td>Halv PSY-kostnad (avrunda till magikerns fördel, min 1)</td>
+</tr>
+<tr>
+<td><a class="wikilink" href="strid.html#fummel">Fummel</a> (slår "20")</td>
+<td>Snedtändningstabellen + full PSY-kostnad</td>
+</tr>
+<tr>
+<td>Järn</td>
+<td><a class="wikilink" href="yrken.html#magiker">Magiker</a> KAN INTE kasta besvärjelser om omsluten av järn/bär järnrustning</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="de-13-magiskolorna">De 13 Magiskolorna</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Skola</th>
+<th>Förkortning</th>
+<th>Fokus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Alkemi</strong></td>
+<td>Al</td>
+<td>Laboratorietillverkning av elixir — inga vanliga besvärjelser</td>
+</tr>
+<tr>
+<td><strong>Animism</strong></td>
+<td>A</td>
+<td>Natur, levande ting, kommunikation med djur och växter</td>
+</tr>
+<tr>
+<td><strong><a class="wikilink" href="demonologi.html">Demonologi</a></strong></td>
+<td>D</td>
+<td>Frammanande och kontroll av demoner från demonplanen</td>
+</tr>
+<tr>
+<td><strong>Elementarmagi</strong></td>
+<td>E</td>
+<td>Eld, vatten, luft, jord; mörker, ljus, köld, värme; energier och död materia</td>
+</tr>
+<tr>
+<td><strong>Harmonism</strong></td>
+<td>H</td>
+<td>Sfärernas harmonier — bred användning</td>
+</tr>
+<tr>
+<td><strong>Häxkonster</strong></td>
+<td>Hk</td>
+<td>Kombination av animism och nekromanti. Lärs bara lärmästare→elev</td>
+</tr>
+<tr>
+<td><strong>Illusionism</strong></td>
+<td>I</td>
+<td>Sinnesmanipulation, bedrägerier, illusioner</td>
+</tr>
+<tr>
+<td><strong>Mentalism</strong></td>
+<td>M</td>
+<td>Kropp och sinne — den populäraste skolan med flest besvärjelser</td>
+</tr>
+<tr>
+<td><strong>Nekromanti</strong></td>
+<td>N</td>
+<td>Döden och de döda — kraftfulla men illa sedda</td>
+</tr>
+<tr>
+<td><strong>Röstmagi</strong></td>
+<td>R</td>
+<td>Kraftfulla rop och sång. Typiskt för dvärgar men kan läras av alla</td>
+</tr>
+<tr>
+<td><strong>Spiritism</strong></td>
+<td>Sp</td>
+<td>Andevärlden — levande, döda och icke-levande andar</td>
+</tr>
+<tr>
+<td><strong>Stavmagi</strong></td>
+<td>St</td>
+<td>Kräver en stav. Mäktigast av alla skolor. Mycket svår att lära</td>
+</tr>
+<tr>
+<td><strong>Symbolism</strong></td>
+<td>S</td>
+<td>Symboler och drakspråk. Mentalistorienterade effekter</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(MAG s.8–10)</em></p>
+<hr />
+<h2 id="hur-magi-fungerar">Hur magi fungerar</h2>
+<h3 id="besvarjelsemekanik">Besvärjelsemekanik</h3>
+<ol>
+<li>Magikern väljer besvärjelse och <strong>effektgrad (E)</strong> — hur stark den ska vara</li>
+<li>Slår <strong>1T20 ≤ CL</strong> (Chansen att lyckas)</li>
+<li><strong>CL = Skicklighetsvärde (S) − 2 × (E − 1)</strong></li>
+<li>Vid lyckat slag betalar magikern <strong>E PSY-poäng</strong></li>
+<li>Besvärjelsen tar <strong>1 SR</strong> att kasta; konsekvenserna sker <strong>nästa SR</strong></li>
+<li>Undantag: besvärjelser märkta <strong>"K" (Kvick)</strong> verkar i samma SR</li>
+</ol>
+<h3 id="turordning-i-strid">Turordning i strid</h3>
+<ul>
+<li>Magi <strong>går före</strong> slagväxling i turordningen</li>
+<li>Bland magiker: den med <strong>högst PSY</strong> <em>efter</em> att besvärjelsen lagts skickar sin besvärjelse <strong>först</strong></li>
+</ul>
+<h3 id="psy-och-aterhamtning">PSY och återhämtning</h3>
+<ul>
+<li><strong>1 PSY per timme</strong> av fullständig vila</li>
+<li><strong>1 PSY per 3 timmar</strong> vid lätt aktivitet</li>
+<li>PSY kan ibland förbrukas permanent (besvärjelsebeskrivning anger detta)</li>
+<li>Magiker som dör när de kastar = besvärjelsen blir verkningslös</li>
+</ul>
+<h3 id="jarnregeln">Järnregeln</h3>
+<p>En magiker kan <strong>inte</strong> kasta besvärjelser om han:
+- Bär en järnrustning (omsluter kroppen)
+- Är i fysisk kontakt med järn på ett omslutande sätt</p>
+<p><em>(Anledningen tros vara järnets magnetism — MAG s.17)</em></p>
+<hr />
+<h2 id="minibesvarjelser">Minibesvärjelser</h2>
+<p>Minibesvärjelser är enkla manipulationer som symboliserar det mest grundläggande inom en magiskola. De är de första formlerna en novis lär sig och blir med tiden så intimt sammanflätade med magikerens psyke att de aktiveras nästan omedvetet.</p>
+<p><strong>Syfte:</strong> Avsedda att användas ofta — nästan som en reflex — för att skapa en aura av makt och mystik runt trollkarlen. Kombinerade med större besvärjelser ger de en lagom mystisk effekt.</p>
+<h3 id="regler">Regler</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Regel</th>
+<th>Detalj</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PSY-kostnad</td>
+<td>1 PSY (normalt)</td>
+</tr>
+<tr>
+<td>CL-kontroll</td>
+<td>Krävs <strong>inte</strong> — lyckas alltid</td>
+</tr>
+<tr>
+<td>Hastighet</td>
+<td>Alltid <strong>Kvick</strong> (verkar i samma SR)</td>
+</tr>
+<tr>
+<td>Formelsamling</td>
+<td>Behöver <strong>inte</strong> vara nedskriven — finns alltid tillgänglig</td>
+</tr>
+<tr>
+<td>Frekvent användning</td>
+<td>SL kan dra av 1 PSY per ca 3:e besvärjelse om spelaren överanvänder dem</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="skicklighet-och-athavor">Skicklighet och åthävor</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>FV i skolan</th>
+<th>Effekt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Under 15</td>
+<td>Kräver normala yttre åthävor (gester, ord)</td>
+</tr>
+<tr>
+<td>15+</td>
+<td>Inga yttre åthävor krävs</td>
+</tr>
+<tr>
+<td>25+</td>
+<td>Aktiveras nästan omedvetet — kräver ingen uppmärksamhet</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="allman-minimagi">Allmän minimagi</h3>
+<p>En magiker behöver inte tillhöra en specifik skola för att ha tillgång till allmän minimagi — den tillhör automatiskt den skola där magikern har <strong>högst FV</strong>.</p>
+<p>Varje magiskola har sina egna minibesvärjelser — se respektive skolavsnitt nedan.</p>
+<p><em>(MAG s.23, Magi-Regelboken)</em></p>
+<hr />
+<h2 id="effektgrader">Effektgrader</h2>
+<p>Varje besvärjelse har flera effektgrader (E1, E2, E3...). Effektgrad:
+- <strong>E1</strong> = grundeffekt
+- <strong>Högre E</strong> = längre varaktighet, större räckvidd, mer skada etc. (specificerat i respektive besvärjelses beskrivning)
+- <strong>Max E</strong> = FV i besvärjelsens skola
+- <strong>CL sjunker med 2 per extra effektgrad</strong>: E1 = S, E2 = S−2, E3 = S−4 osv.</p>
+<p><strong>Exempel:</strong> Magiker med S 12 i ELD:
+- ELD E1: CL = 12
+- ELD E2: CL = 10
+- ELD E3: CL = 8
+- ELD E6 (max om Elementarmagi FV ≥ 6): CL = 2</p>
+<hr />
+<h2 id="skolvarde-och-skicklighetsvarde">Skolvärde och Skicklighetsvärde</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Förklaring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FV</strong></td>
+<td>Färdighetsvärde i magiskolan — bestämmer vilka besvärjelser man kan lära sig och max effektgrad</td>
+</tr>
+<tr>
+<td><strong>S (Skicklighetsvärde)</strong></td>
+<td>Hur bra man är på en specifik besvärjelse — används som CL-bas</td>
+</tr>
+<tr>
+<td><strong>Skolvärde</strong></td>
+<td>Besvärjelsens "svårighetsnivå" — kräver visst FV i skolan för att läras</td>
+</tr>
+</tbody>
+</table></div>
+<p>En besvärjelse med <strong>skolvärde 6</strong> kräver att magikern har <strong>FV 6 i den skolan</strong> för att lära sig den.</p>
+<p>S kan vara <strong>högre</strong> än FV i skolan — FV begränsar bara vilka besvärjelser man kan lära (och max effektgrad), inte hur bra man kan bli på dem.</p>
+<hr />
+<h2 id="minnesgrans">Minnesgräns</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Begränsning</th>
+<th>Regel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max besvärjelser per skola i minnet</td>
+<td>= FV i den skolan</td>
+</tr>
+<tr>
+<td>Totalt max besvärjelser i minnet</td>
+<td>= (INT + PSY) / 4</td>
+</tr>
+<tr>
+<td>Ritual räknas som</td>
+<td>3 besvärjelser</td>
+</tr>
+<tr>
+<td>Memorera besvärjelse</td>
+<td>20 min per skolvärdespoäng</td>
+</tr>
+<tr>
+<td>Memorera ritual</td>
+<td>1 timme per skolvärdespoäng</td>
+</tr>
+</tbody>
+</table></div>
+<p>Om magikern svimmar/förlorar medvetandet <strong>glömmer han alla formler</strong> i minnet (men inte dem som bara behöver sömn).</p>
+<hr />
+<h2 id="ep-kostnader-for-magi">EP-kostnader för magi</h2>
+<h3 id="magiskolor-grundkostnad-5-ep-per-steg">Magiskolor (Grundkostnad = 5 EP per steg)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>FV i skolan</th>
+<th>Kostnadsmultiplikator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–10</td>
+<td>×1 (5 EP per steg)</td>
+</tr>
+<tr>
+<td>11–14</td>
+<td>×2 (10 EP per steg)</td>
+</tr>
+<tr>
+<td>15–17</td>
+<td>×3 (15 EP per steg)</td>
+</tr>
+<tr>
+<td>18–20</td>
+<td>×4 (20 EP per steg)</td>
+</tr>
+<tr>
+<td>21+</td>
+<td>Ytterligare +1 multiplikator var 3:e nivå</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(MAG s.13)</em></p>
+<h3 id="besvarjelser-grundkostnad-varierar-efter-skolvarde">Besvärjelser (Grundkostnad varierar efter skolvärde)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Skolvärde</th>
+<th>Grundkostnad (EP)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4–6</td>
+<td>4</td>
+</tr>
+<tr>
+<td>7–9</td>
+<td>6</td>
+</tr>
+<tr>
+<td>10–12</td>
+<td>8</td>
+</tr>
+<tr>
+<td>13–15</td>
+<td>10</td>
+</tr>
+<tr>
+<td>16–18</td>
+<td>12</td>
+</tr>
+<tr>
+<td>19–21</td>
+<td>14</td>
+</tr>
+<tr>
+<td>22–24</td>
+<td>16</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(MAG s.13)</em></p>
+<p>Besvärjelsers EP-kostnad beräknas med <strong>samma multiplikatortabell</strong> som magiskolorna ovan.</p>
+<p><strong>Exempel:</strong> Besvärjelse med skolvärde 6 (grundkostnad 4 EP) från S1 till S10 kostar 4 EP/steg = 40 EP. S10 till S14 kostar 8 EP/steg = 32 EP.</p>
+<hr />
+<h2 id="lara-sig-magi">Lära sig magi</h2>
+<h3 id="forutsattningar">Förutsättningar</h3>
+<ul>
+<li>Magiker måste <strong>ha rätt FV i skolan</strong> för att lära sig en viss besvärjelse</li>
+<li>Ny skola: kräver <strong>träning med lärare</strong> (kan inte läras ensam)</li>
+<li>Nya besvärjelser: kan läras med ensamträning <strong>om man har tillgång till magisk kodex</strong></li>
+</ul>
+<h3 id="att-hoja-fv-i-skola-ensamtraning">Att höja FV i skola (ensamträning)</h3>
+<ul>
+<li>8 timmar/dag, 6 dagar/vecka</li>
+<li>Varje vecka: INT-slag för 1 EP</li>
+<li>Kräver studielokal och litteratur</li>
+</ul>
+<h3 id="att-lara-ny-besvarjelse-ensamtraning">Att lära ny besvärjelse (ensamträning)</h3>
+<ul>
+<li>8 timmar/dag, 6 dagar/vecka</li>
+<li>Slå INT-slag; för varje poäng under 19: +1 på tärningen (lättare)
+  <em>Exempel: INT 15 → slå ≤ 11 per vecka (19−15=4; 15+4=19→ slå ≤ 15 korrigerat för regeln)</em></li>
+<li>Kräver magisk kodex med besvärjelsens beskrivning</li>
+</ul>
+<h3 id="traning-med-larare">Träning med lärare</h3>
+<ul>
+<li>Läraren måste ha FV/S 15+ i skolan och INT 13+, samt minst 3 FV mer än eleven</li>
+<li>Kostnad: <strong>300 sm/vecka</strong> (grundkostnad)</li>
+<li>Bonusar: +1 CL per FV läraren har över 18; +5 CL om klassen är halv kapacitet; +10 CL ensam elev</li>
+<li>Ensam elev av annan ras: ×1,5 kostnad + ×lärarens INT multiplikatorer</li>
+</ul>
+<h3 id="erfarenhet-under-aventyr-besvarjelser">Erfarenhet under äventyr (besvärjelser)</h3>
+<ul>
+<li>Varje gång en besvärjelse används <strong>framgångsrikt för första gången</strong> efter förra sömnen: <strong>1 EP</strong></li>
+<li><strong>Perfekt</strong> (ettor i rad): <strong>1T3+1 EP</strong></li>
+<li>EP kan <strong>inte</strong> konverteras till S förrän <strong>7 dagars sammanhängande vila</strong> (ej under pågående äventyr)</li>
+<li>FV i magiskolor förbättras <strong>BARA</strong> via träning, INTE via erfarenhet under äventyr</li>
+</ul>
+<hr />
+<h2 id="raser-och-magiskolor">Raser och magiskolor</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ras</th>
+<th>Tillgängliga skolor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="wikilink" href="raser.html#manniska">Människa</a></td>
+<td>Alla (Al, A, D, E, H, Hk, I, M, N, R, Sp, St, S)</td>
+</tr>
+<tr>
+<td><a class="wikilink" href="raser.html#alv">Alv</a></td>
+<td>A, R, H, I, Hk, St, S</td>
+</tr>
+<tr>
+<td><a class="wikilink" href="raser.html#dvarg">Dvärg</a></td>
+<td>Al, D, E, M, N, R, Sp, S</td>
+</tr>
+<tr>
+<td><a class="wikilink" href="raser.html#halvlangdsman">Halvlängdsman</a></td>
+<td>I, H</td>
+</tr>
+<tr>
+<td>Karkion</td>
+<td>A, E, H, I, M, S</td>
+</tr>
+<tr>
+<td>Kentaur</td>
+<td>A, M</td>
+</tr>
+<tr>
+<td>Onaquier</td>
+<td>D, I, M, N, Sp</td>
+</tr>
+<tr>
+<td>Metamorfer</td>
+<td>A</td>
+</tr>
+<tr>
+<td>Vätte</td>
+<td>N, E, Sp</td>
+</tr>
+<tr>
+<td>Råttman</td>
+<td>A, I, M</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(MAG s.10)</em></p>
+<hr />
+<h2 id="specia-lfall">Specia​lfall</h2>
+<h3 id="ritual-r">Ritual (R)</h3>
+<ul>
+<li>Markeras med <strong>(R)</strong> i formulärbok</li>
+<li>Tar normalt <strong>1T4 timmar per effektgrad</strong> att utföra</li>
+<li>Kräver <strong>lugn och ostörd omgivning</strong> (inga avbrott)</li>
+<li>Magikern måste ha S1+ för att utföra en ritual överhuvudtaget</li>
+<li>Räknas som <strong>3 besvärjelser</strong> i minnesgränsberäkning</li>
+</ul>
+<h3 id="kvick-besvarjelse-k">Kvick besvärjelse (K)</h3>
+<ul>
+<li>Markeras med <strong>(K)</strong></li>
+<li>Verkar <strong>i samma SR</strong> som den kastas (inte nästa)</li>
+<li>Vid läsning ur formelsamling: tar <strong>1T6 SR</strong> (vs 1T6 minuter för vanlig)</li>
+</ul>
+<h3 id="magiska-pergament">Magiska pergament</h3>
+<ul>
+<li>Kan innehålla en besvärjelse inskriven av en annan magiker</li>
+<li>Kräver: att magikern har FV i skolans (för att läsa), men INTE S i besvärjelsen</li>
+<li>Läsning: E SR, måste klara INT-slag + skolans färdigighetsslag</li>
+<li>Effektgrad fast vid nedteckningstillfället</li>
+</ul>
+<h3 id="formelsamlingen">Formelsamlingen</h3>
+<ul>
+<li>Magikerns viktigaste egendom</li>
+<li>Besvärjelser man glömt ur minnet finns alltid i boken</li>
+<li>Läsa ur boken (utan att ha i minnet): tar <strong>1T6 SR</strong> (kvick) resp. <strong>1T6 minuter</strong> (vanlig)</li>
+<li>Om formelsamling förloras: alla ej-memorerade besvärjelser måste läras om (men 3× snabbare)</li>
+</ul>
+<h3 id="sjalvmordsattack">Självmordsattack</h3>
+<ul>
+<li>Magiker kan spendera PSY ner till noll och döda sig själv</li>
+<li>Max: halva normala PSY + resterande PSY som kvar</li>
+<li>När PSY = 0 dör magikern; CL = omodifierat skicklighetsvärde oavsett effektgrad</li>
+<li>Stavmagiker kan <strong>inte</strong> göra självmordsattacker</li>
+</ul>
+<h3 id="psy-okning">PSY-ökning</h3>
+<ul>
+<li>Om magiker övervinner en motståndares PSY: (25 − nuvarande PSY) eller lägre på 1T20 → PSY +1</li>
+<li>Perfekt (2 × ettor): PSY +1T3+1</li>
+<li>Max ett försök per genomfört äventyr</li>
+</ul>
+<hr />
+<h2 id="magiska-foremal">Magiska föremål</h2>
+<p>Magiska föremål innehåller besvärjelser som kan aktiveras av bäraren utan att vara magiker. Tillverkning är komplicerat och kräver en skicklig magiker.</p>
+<p><strong>Grundregel:</strong> Föremålet får <strong>inte innehålla järn</strong> i någon form. Magiska vapen och rustningar är normalt av <strong>brons, silver eller mithril</strong>.</p>
+<h3 id="komponenter">Komponenter</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Komponent</th>
+<th>Vad den gör</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SIGILL</strong></td>
+<td>Lagrar en besvärjelse i föremålet. Måste läggas av en magiker som behärskar besvärjelsen. Anger effektgrad och utlösningsvillkor</td>
+</tr>
+<tr>
+<td><strong>PERMANENS</strong></td>
+<td>Gör SIGILLet permanent (annars förbrukas det vid aktivering). Kostar extra PSY och tid</td>
+</tr>
+<tr>
+<td><strong>NEXUS</strong></td>
+<td>Kopplar samman flera SIGILL i ett föremål så de delar PSY-källa</td>
+</tr>
+<tr>
+<td><strong>LADDNING</strong></td>
+<td>Ger ett föremål ett antal "laddningar" — varje aktivering förbrukar en</td>
+</tr>
+</tbody>
+</table></div>
+<p>Minsta möjliga magiska föremål kräver <strong>SIGILL + besvärjelse</strong>. PERMANENS läggs på SIGILLet för att göra det återanvändbart.</p>
+<h3 id="tillverkningsprocess-i-ordning">Tillverkningsprocess (i ordning)</h3>
+<ol>
+<li>Placera och bestäm <strong>SIGILL</strong></li>
+<li>Lägg i <strong>besvärjelserna</strong> SIGILLen ska innehålla</li>
+<li>Utför ritualen <strong>PERMANENS</strong> (om föremålet ska vara permanent)</li>
+<li>Utför eventuell <strong>NEXUS</strong> eller <strong>LADDNING</strong></li>
+</ol>
+<p>Vid varje steg måste den utförande magikern göra ett <strong>färdighetsslag</strong>. Misslyckas det är hela det magiska innehållet förstört — börja om från början.</p>
+<h3 id="pergamentbesvarjelser">Pergamentbesvärjelser</h3>
+<p>En magiker kan skriva ned en besvärjelse på pergament med magiskt bläck (kräver S20 i besvärjelsen och FV B5 i skriftspråket). Pergamentet aktiveras av vem som helst som läser det — besvärjelsen utlöses med magikerens CL. Pergamentet förstörs vid aktivering.</p>
+<p><em>(MAG s.30–33)</em></p>
+<hr />
+<h2 id="snedtandningstabellen">Snedtändningstabellen</h2>
+<p>Vid <strong>fummel</strong> (slår 20 + nytt slag &gt; FV) kastar magikern ett slag på snedtändningstabellen. Exakt tabell ur MAG (⚠ verifiera mot original):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Resultat</th>
+<th>Effekt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2–3</td>
+<td>Besvärjelsen vänds mot magikern själv (vid E1)</td>
+</tr>
+<tr>
+<td>4–6</td>
+<td>Ingen effekt, förlorar dubbel PSY</td>
+</tr>
+<tr>
+<td>7–9</td>
+<td>Ingen effekt, förlorar normal PSY</td>
+</tr>
+<tr>
+<td>10–12</td>
+<td>Ingen effekt</td>
+</tr>
+<tr>
+<td>13–15</td>
+<td>Slumpmässig effekt (SL väljer)</td>
+</tr>
+<tr>
+<td>16–18</td>
+<td>Besvärjelse träffar slumpmässigt mål</td>
+</tr>
+<tr>
+<td>19–20</td>
+<td>Kraftig explosion/kaos — SL bestämmer</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(⚠ Exakt tabell — verifiera mot MAG snedtändningsavsnittet)</em></p>
+<hr />
+<h2 id="alkemi-specialfall">Alkemi (specialfall)</h2>
+<p>Alkemisten tillverkar <strong>elixir</strong> i laboratorium istf att kasta besvärjelser:
+- Blandar rätt ingredienser med rätt metodik
+- Effekten när elixiret dricks = som om en besvärjelse kastades
+- Alkemi är den enda skolan utan vanliga besvärjelser</p>
+<hr />
+<h2 id="haxkonster-specialfall">Häxkonster (specialfall)</h2>
+<ul>
+<li>Kombinerar animism och nekromanti</li>
+<li><strong>Lärs INTE vid akademier</strong> — enbart lärmästare → elev (max 2 elever åt gången)</li>
+<li>Häxan är befriad från de flesta akademiska begränsningar</li>
+</ul>
+<hr />
+<h2 id="stavmagi-specialfall">Stavmagi (specialfall)</h2>
+<ul>
+<li>Bland de <strong>mäktigaste</strong> skolorna</li>
+<li>Magikerns kraft är lagrad i <strong>staven</strong> — om staven bryts eller förs bort förlorar magikern sin magi</li>
+<li>Kan inte göra PSY-självmordsattacker</li>
+<li>Stavets PSY-ökning (inte magikerns) vid PSY-chans-lyckat</li>
+</ul>
+<hr />
+<h2 id="kann-magi">Känn magi</h2>
+<p>Ny färdighet för magiker:
+- <strong>CL = FV i sin egen magiskola</strong> för att känna igen magi från den skolan
+- <strong>BC = PSY-grupp</strong> för magi från skolor man inte kan
+- Fungerar som Upptäcka fara — SL slår dolda slag, inte spelaren</p>
+<hr />
+<h2 id="besvarjelsetabeller-per-skola">Besvärjelsetabeller per skola</h2>
+<blockquote>
+<p><strong>OBS:</strong> Tabellerna nedan är baserade på OCR-skannat material från Formelboken (D&amp;DE Magi). Osäkra värden markeras med ⚠. Varaktighetsprefixet <strong>"¼"</strong> (OCR ofta "Y4"/"V4") = en fjärdedel; <strong>"Sx"</strong> = Skolvärde × angivet tal; <strong>Konc</strong> = varar så länge magikern koncentrerar sig. Kolumntecken: <strong>(F)</strong> = Formel, <strong>(K)</strong> = Kvick, <strong>(R)</strong> = Ritual, <strong>(B)</strong> = Häxkonster-specifik.</p>
+</blockquote>
+<p><strong>Källa:</strong> Formelboken, s. 1–74 <em>(D&amp;DE Magi — Formelboken, Äventyrsspel)</em></p>
+<hr />
+<h3 id="allmanna-besvarjelser">Allmänna besvärjelser</h3>
+<p>Dessa besvärjelser kan läras av magiker oavsett skola (kräver tillräckligt FV i <em>valfri</em> skola).</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Besvärjelsens namn</th>
+<th>S-värde</th>
+<th>Varaktighet</th>
+<th>Räckvidd</th>
+<th>Effekt (kortfattat)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Permanens (R)</td>
+<td>19</td>
+<td>Permanent</td>
+<td>Beröring</td>
+<td>Gör en annan besvärjelses effekt permanent; krävs för magiska föremål</td>
+</tr>
+<tr>
+<td>Nexus (R)</td>
+<td>20</td>
+<td>Permanent</td>
+<td>Beröring</td>
+<td>Kopplar samman besvärjelser; båda aktiveras simultant; krävs för magiska föremål</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Källa:</strong> Formelboken, s. 1–3</p>
+<hr />
+<h3 id="alkemi-al">Alkemi (Al)</h3>
+<p>Alkemi har <strong>inga vanliga besvärjelser</strong>. Alkemisten tillverkar elixir i laboratorium — resultatet fungerar som besvärjelser när elixiret intas.</p>
+<p><strong>Källa:</strong> Formelboken (Alkemi-avsnittet)</p>
+<hr />
+<h3 id="animism-a">Animism (A)</h3>
+<p><strong>Minibesvärjelser</strong> (kostar 1 PSY, ingen CL-kontroll, verkar omedelbart):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Minibesvärjelse</th>
+<th>Effekt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lugna</td>
+<td>Lugnar ett djur eller en liten växt i 1 SR</td>
+</tr>
+<tr>
+<td>Putsa/Smutsa</td>
+<td>Rensar eller smutsiger ett föremål (kläder, mat, etc.)</td>
+</tr>
+<tr>
+<td>Smaksätt</td>
+<td>Förändrar smaken hos mat eller dryck</td>
+</tr>
+<tr>
+<td>Vindpust</td>
+<td>Skapar en lätt vindstöt, blåser undan damm/rök</td>
+</tr>
+<tr>
+<td>Väldoft</td>
+<td>Skapar en behaglig doft i närheten</td>
+</tr>
+<tr>
+<td>Öppna/Stänga</td>
+<td>Öppnar eller stänger ett litet lås eller enkelt mekaniskt fäste</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Besvärjelser:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Besvärjelsens namn</th>
+<th>S</th>
+<th>Varaktighet</th>
+<th>Räckvidd</th>
+<th>Effekt (kortfattat)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Växtkunskap</td>
+<td>5</td>
+<td>Omedelbar</td>
+<td>Beröring</td>
+<td>Identifierar en växt och dess egenskaper (giftig, ätlig, medicinska)</td>
+</tr>
+<tr>
+<td>Nedkalla askvigg (F)</td>
+<td>6</td>
+<td>Omedelbar</td>
+<td>⚠</td>
+<td>Kallar ned ett blixtnedslag på valfritt mål</td>
+</tr>
+<tr>
+<td>Stigfinnare</td>
+<td>6</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Visar rätt stig/väg i oländig terräng; förhindrar att man går vilse</td>
+</tr>
+<tr>
+<td>Vindpil (F)</td>
+<td>6</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Styr en avfyrad pil med vinden; förbättrar träffsäkerheten</td>
+</tr>
+<tr>
+<td>Örtrankor (F)</td>
+<td>6</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Skapar snabbt växande rankor av örter/växter som kan binda/klättra</td>
+</tr>
+<tr>
+<td>Kamouflage</td>
+<td>7</td>
+<td>⚠</td>
+<td>Personlig</td>
+<td>Kamouflagerar mot naturlig bakgrund (+E×5 CL för Gömma sig)</td>
+</tr>
+<tr>
+<td>Repväx (F)</td>
+<td>7</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>En växt/ranka växer mycket snabbt till önskad form/längd</td>
+</tr>
+<tr>
+<td>Väderförutsägelse</td>
+<td>8</td>
+<td>Omedelbar</td>
+<td>Personlig</td>
+<td>Förutspår vädret E×24 timmar framåt med hög precision</td>
+</tr>
+<tr>
+<td>Kontrollera varelse</td>
+<td>10</td>
+<td>Konc</td>
+<td>⚠</td>
+<td>Kontrollerar ett djur fullt ut så länge magikern koncentrerar sig</td>
+</tr>
+<tr>
+<td>Sannform</td>
+<td>10</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Avslöjar varelses sanna form; bryter illusioner och polymorpheffekter</td>
+</tr>
+<tr>
+<td>Kroppsvärme</td>
+<td>11</td>
+<td>⚠</td>
+<td>Personlig</td>
+<td>Reglerar kroppens temperatur; immunitet mot skadlig kyla/hetta</td>
+</tr>
+<tr>
+<td>Vindkontroll</td>
+<td>11</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Kontrollerar vindens riktning och styrka i ett område</td>
+</tr>
+<tr>
+<td>Förändra</td>
+<td>12</td>
+<td>⚠</td>
+<td>Beröring</td>
+<td>Förändrar en varelses eller växts fysiska form ⚠</td>
+</tr>
+<tr>
+<td>Hela</td>
+<td>12</td>
+<td>Omedelbar</td>
+<td>Beröring</td>
+<td>Helar E KP hos offret</td>
+</tr>
+<tr>
+<td>Känna fiendskap</td>
+<td>12</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Avkänner om varelser inom räckvidden hyser fientliga avsikter</td>
+</tr>
+<tr>
+<td>Naturens röst</td>
+<td>13</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Kommunicerar med djur, växter eller naturen i stort</td>
+</tr>
+<tr>
+<td>Regnkontroll</td>
+<td>13</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Utlöser, förstärker, försvagar eller stoppar regn i ett område</td>
+</tr>
+<tr>
+<td>Neutralisera gift (F)</td>
+<td>15</td>
+<td>Omedelbar</td>
+<td>Beröring</td>
+<td>Neutraliserar ett aktivt gift i offrets kropp</td>
+</tr>
+<tr>
+<td>Bota fobi (R)</td>
+<td>16</td>
+<td>Permanent</td>
+<td>Beröring</td>
+<td>Botar E fobier</td>
+</tr>
+<tr>
+<td>Fördrivning ⚠</td>
+<td>16</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>⚠ Oklart — möjligen driver bort djur eller naturvarelser</td>
+</tr>
+<tr>
+<td>Skogssjälens rus (F)</td>
+<td>17</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Framkallar animistisk extas; exakta effekter per SL</td>
+</tr>
+<tr>
+<td>Snabbväx</td>
+<td>17</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Påskyndar ett träd/en växt att växa mångfalt snabbare</td>
+</tr>
+<tr>
+<td>Besätta ryggradsdjur</td>
+<td>18</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Magikerns medvetande besätter ett ryggradsdjur och styr det</td>
+</tr>
+<tr>
+<td>Bota varulv</td>
+<td>18</td>
+<td>Permanent</td>
+<td>Beröring</td>
+<td>Botar en permanent varulvsförbannelse</td>
+</tr>
+<tr>
+<td>Häva förstening</td>
+<td>18</td>
+<td>Omedelbar</td>
+<td>Beröring</td>
+<td>Häver förstening orsakad av elementarmagi eller naturvarelse</td>
+</tr>
+<tr>
+<td>Trädförbannelse</td>
+<td>19</td>
+<td>⚠</td>
+<td>Beröring</td>
+<td>Kopplar ett träds välmående till en persons; skadas trädet skadas personen</td>
+</tr>
+<tr>
+<td>Väderkontroll (R)</td>
+<td>19</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Kontrollerar vädret (storm, sol, dimma) över ett stort område</td>
+</tr>
+<tr>
+<td>Duomorf (R)</td>
+<td>20</td>
+<td>⚠</td>
+<td>Personlig</td>
+<td>Ger förmågan att anta en bestämd alternativ varelseform</td>
+</tr>
+<tr>
+<td>Kurera sjukdom (R)</td>
+<td>20</td>
+<td>Permanent</td>
+<td>Beröring</td>
+<td>Botar alla typer av sjukdomar permanent</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Källa:</strong> Formelboken, s. 3–16</p>
+<hr />
+<h3 id="demonologi-d">Demonologi (D)</h3>
+<p><strong>Minibesvärjelser:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Minibesvärjelse</th>
+<th>Effekt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Demonette</td>
+<td>Frammanar ett litet demonhjon som kan utföra enkla uppdrag</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Besvärjelser:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Besvärjelsens namn</th>
+<th>S</th>
+<th>Varaktighet</th>
+<th>Räckvidd</th>
+<th>Effekt (kortfattat)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gollog (R)</td>
+<td>11</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Frammanar en medelstark demon (Gollog); rituell frammanande</td>
+</tr>
+<tr>
+<td>Varsebli demon</td>
+<td>11</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Varsebli och identifiera demoner i närheten (inklusive kamouflagetjorda)</td>
+</tr>
+<tr>
+<td>Kontrollera demon (R)</td>
+<td>12</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Tar kontroll över en demon via ritual; PSY vs demonens PSY</td>
+</tr>
+<tr>
+<td>Skicka bort elementar</td>
+<td>13</td>
+<td>Omedelbar</td>
+<td>Sx10 rutor</td>
+<td>Återsänder en elementar till dess hemplan; E vs elementarens E</td>
+</tr>
+<tr>
+<td>Syreb (R)</td>
+<td>13</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Frammanar och binder en demon (Syreb-typ) via ritual</td>
+</tr>
+<tr>
+<td>Dimensionsvandring (R)</td>
+<td>14</td>
+<td>⚠</td>
+<td>Personlig</td>
+<td>Reser till ett annat plan av existensen via ritual</td>
+</tr>
+<tr>
+<td>Skicka bort demon (R)</td>
+<td>15</td>
+<td>Permanent</td>
+<td>Sx10 rutor</td>
+<td>Förvisar en demon permanent till demonplanet; ritual</td>
+</tr>
+<tr>
+<td>Nimum (R)</td>
+<td>16</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Frammanar en kraftfull demon (Nimum) via ritual</td>
+</tr>
+<tr>
+<td>Frammana dödsriddare (R)</td>
+<td>24</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Frammanar en odöd dödsriddare via lång ritual</td>
+</tr>
+<tr>
+<td>Frammana demon (R)</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Frammanar en demon (S-värde varierar beroende på demontyp) ⚠</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Källa:</strong> Formelboken, s. 12–18</p>
+<hr />
+<h3 id="elementarmagi-e">Elementarmagi (E)</h3>
+<p><strong>Besvärjelser:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Besvärjelsens namn</th>
+<th>S</th>
+<th>Varaktighet</th>
+<th>Räckvidd</th>
+<th>Effekt (kortfattat)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Låga (F, K)</td>
+<td>2</td>
+<td>⚠</td>
+<td>Personlig</td>
+<td>Skapar en liten låga vid tummen när magikern knäpper; tänder brännbart</td>
+</tr>
+<tr>
+<td>Försegla</td>
+<td>3</td>
+<td>¼ min (+15 min/E)</td>
+<td>Beröring</td>
+<td>Binder ihop kanter på två passande icke-levande föremål; +20 KP var</td>
+</tr>
+<tr>
+<td>Kyla (F)</td>
+<td>3</td>
+<td>Sx1 timmar</td>
+<td>Sx⚠ rutor</td>
+<td>Sänker temperaturen med 5° inom räckvidden (dubbel varaktighet i isolerat rum)</td>
+</tr>
+<tr>
+<td>Ljushand (F)</td>
+<td>3</td>
+<td>Sx1 minuter</td>
+<td>Personlig</td>
+<td>Ena handen lyser med gult sken; lyser upp Ex10 meter</td>
+</tr>
+<tr>
+<td>Mörker (F)</td>
+<td>3</td>
+<td>4 min (+5 min/E)</td>
+<td>Sx10 rutor</td>
+<td>Avlägsnar allt ljus i 6m sfär (+3m/E); LJUS måste övervinna</td>
+</tr>
+<tr>
+<td>Sköld (F, K)</td>
+<td>3</td>
+<td>Omedelbar</td>
+<td>Personlig</td>
+<td>Luftsköld parerar automatiskt ett anfall (abs 4, +2/extra E)</td>
+</tr>
+<tr>
+<td>Stenvägg (F)</td>
+<td>3</td>
+<td>¼ min</td>
+<td>⚠ 2 rutor</td>
+<td>Drar upp stenvägg ur marken 1×3×3m (+1m/E), 10 KP/m³</td>
+</tr>
+<tr>
+<td>Värme (F)</td>
+<td>3</td>
+<td>Sx1 timmar</td>
+<td>½ rutor</td>
+<td>Höjer temperaturen med 5° (dubbel varaktighet i isolerat rum)</td>
+</tr>
+<tr>
+<td>Flammande hand (F)</td>
+<td>4</td>
+<td>1T3 min</td>
+<td>Personlig</td>
+<td>Handen flammar; +1T3/E extra skada på slag; antänder brännbart</td>
+</tr>
+<tr>
+<td>Kalla handen (F, K)</td>
+<td>4</td>
+<td>Omedelbar</td>
+<td>½ rutor</td>
+<td>Köldstråle; svårt FYS-slag eller frysningsanfall (förlorar SR); klarat slag: −4 CL i 1T6 SR</td>
+</tr>
+<tr>
+<td>Rost (F, K)</td>
+<td>4</td>
+<td>Permanent</td>
+<td>½ rutor</td>
+<td>Omvandlar E² dm³ järn till rost vid pekat mål</td>
+</tr>
+<tr>
+<td>Tuftstråle (F, K)</td>
+<td>4</td>
+<td>Omedelbar</td>
+<td>½ rutor</td>
+<td>Luftstråle blåser bort skräp och småföremål</td>
+</tr>
+<tr>
+<td>Vattenstråle (F, K)</td>
+<td>5</td>
+<td>Omedelbar</td>
+<td>Personlig</td>
+<td>100L vattenstråle 5+E meter; STY 5/E; kan slå omkull (STY vs STY)</td>
+</tr>
+<tr>
+<td>Blixt (F, K)</td>
+<td>6</td>
+<td>Omedelbar</td>
+<td>Sx10 rutor</td>
+<td>Blixt mot närmaste mål framför magikern; 1T6/E skada; ingen rustningsskydd</td>
+</tr>
+<tr>
+<td>Blindskydd</td>
+<td>6</td>
+<td>Sx1 minuter</td>
+<td>Beröring</td>
+<td>Immunitet mot bländning; bländande besvärjelser måste övervinna med E</td>
+</tr>
+<tr>
+<td>Dela vattensamling</td>
+<td>6</td>
+<td>1T3+2 min</td>
+<td>Sx2 rutor</td>
+<td>1m bred korridor genom vatten (max 5m djup); +längd eller ×2 djup/E</td>
+</tr>
+<tr>
+<td>Eld (F)</td>
+<td>6</td>
+<td>Omedelbar</td>
+<td>Sx10 rutor</td>
+<td>Temperaturhöjning i 1m sfär; 1T6/E skada (alt. E sfärer med lägre skada)</td>
+</tr>
+<tr>
+<td>Elementarmantel</td>
+<td>6</td>
+<td>Sx1 minuter</td>
+<td>Sx10 rutor</td>
+<td>Elementarmantel runt mål; +1 abs/E; visuell avskräckningseffekt (ej verklig)</td>
+</tr>
+<tr>
+<td>Energistråle (F)</td>
+<td>6</td>
+<td>Omedelbar</td>
+<td>Sx10 rutor</td>
+<td>Magisk ljusstråle; 1T6/E skada (1T3/E alt.); rustning/Skydd absorberar</td>
+</tr>
+<tr>
+<td>Förbanna vapen</td>
+<td>6</td>
+<td>Sx1 minuter</td>
+<td>Sx10 rutor</td>
+<td>Vapen: −1 CL/E och −1 skada/E; motverkas av Förtrolla vapen</td>
+</tr>
+<tr>
+<td>Förstärka</td>
+<td>6</td>
+<td>Sx1 minuter</td>
+<td>⚠</td>
+<td>Ökar ett föremåls BV/ABS med 1/E (vapen, sköld, rustning, dörr etc.)</td>
+</tr>
+<tr>
+<td>Förtrolla vapen</td>
+<td>6</td>
+<td>Sx1 minuter</td>
+<td>Sx10 rutor</td>
+<td>Vapen: +1 CL/E och +1 skada/E; kan skada varelser som kräver magiska vapen</td>
+</tr>
+<tr>
+<td>Frost (F)</td>
+<td>6</td>
+<td>Omedelbar</td>
+<td>Sx10 rutor</td>
+<td>Köldsfär; 1T6/E skada (alt. E sfärer); rustning/Skydd absorberar</td>
+</tr>
+<tr>
+<td>Knäcka (F, K)</td>
+<td>6</td>
+<td>Omedelbar</td>
+<td>½ rutor</td>
+<td>Skadar föremål; −10 BV (E1), +2 BV per extra E; magiska föremål gör motstånd</td>
+</tr>
+<tr>
+<td>Störtvind</td>
+<td>6</td>
+<td>1–2 sek</td>
+<td>½ rutor</td>
+<td>Vindstorm åt alla håll; blåser bort varelser med STO ≤ 2×E (base STO ≤ 6)</td>
+</tr>
+<tr>
+<td>Öppna (F)</td>
+<td>6</td>
+<td>Omedelbar</td>
+<td>Beröring</td>
+<td>Öppnar låsta dörrar/kistor; häver magisk Försegling (E vs E)</td>
+</tr>
+<tr>
+<td>Forma föremål (F)</td>
+<td>7</td>
+<td>Sx1 minuter</td>
+<td>½ rutor</td>
+<td>Omformar ett icke-levande föremål till ny form (hantverkskvalitet FV B1/E)</td>
+</tr>
+<tr>
+<td>Viggfångare (F)</td>
+<td>7</td>
+<td>Omedelbar</td>
+<td>Personlig</td>
+<td>Under åskoväder: E×höjd% träffs av blixt; 5T6 skada men 8+4/E om till PSY</td>
+</tr>
+<tr>
+<td>Identifikation</td>
+<td>8</td>
+<td>Omedelbar</td>
+<td>Personlig</td>
+<td>Identifierar alla döda material (metaller, ädelstenar) i ett vidrört föremål</td>
+</tr>
+<tr>
+<td>Virvelskölden (F)</td>
+<td>8</td>
+<td>S1 SR</td>
+<td>Personlig</td>
+<td>Luftvirvel runt magikern; avvärjer projektiler (STY vs projektilens BV); −1 CL/E nä.strid ⚠</td>
+</tr>
+<tr>
+<td>Frammana/Skicka bort elementar (F)</td>
+<td>9</td>
+<td>Sx1 SR</td>
+<td>Sx10 rutor</td>
+<td>Frammanar en elementar (Sylf/Salamander/Gnom/Undin/Umbra/Luminal/Glacial/Värmal); PSY 3T6, SMI 3T6, STO 1T6+1T6/E; eller skickar bort samma typ</td>
+</tr>
+<tr>
+<td>Köldväg ⚠</td>
+<td>10</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>⚠ Resebesvärjelse via köldElementet</td>
+</tr>
+<tr>
+<td>Mörkerväg</td>
+<td>10</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Resebesvärjelse via mörkret; transport/rörlighet i mörker ⚠</td>
+</tr>
+<tr>
+<td>Vattenväg</td>
+<td>10</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Resebesvärjelse via vatten; transport i/under vatten ⚠</td>
+</tr>
+<tr>
+<td>Återfinna</td>
+<td>10</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Lokaliserar ett känt förlorat föremål via elementär attunement ⚠</td>
+</tr>
+<tr>
+<td>Explosion (F, K)</td>
+<td>11</td>
+<td>Omedelbar</td>
+<td>⚠</td>
+<td>Explosion ger skada i ett område ⚠</td>
+</tr>
+<tr>
+<td>Forma eld</td>
+<td>11</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Formar befintlig eld till önskad form ⚠</td>
+</tr>
+<tr>
+<td>Bländning (F, K)</td>
+<td>12</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Bländar alla inom räckvidden ⚠</td>
+</tr>
+<tr>
+<td>Jättevåg (F, K)</td>
+<td>12</td>
+<td>Omedelbar</td>
+<td>⚠</td>
+<td>Skapar en enorm våg av vatten ⚠</td>
+</tr>
+<tr>
+<td>Ljusväg</td>
+<td>13</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Resebesvärjelse via ljuset ⚠</td>
+</tr>
+<tr>
+<td>Häva förstening (F, R)</td>
+<td>18</td>
+<td>Omedelbar</td>
+<td>Beröring</td>
+<td>Häver förstening av levande varelse (E vs förstening-E)</td>
+</tr>
+<tr>
+<td>Jordstöt (F)</td>
+<td>18</td>
+<td>Omedelbar</td>
+<td>⚠</td>
+<td>Kraftig jordvåg skadar strukturer och knockar omkull varelser ⚠</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Källa:</strong> Formelboken, s. 18–26</p>
+<hr />
+<h3 id="harmonism-h">Harmonism (H)</h3>
+<p><strong>Minibesvärjelser:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Minibesvärjelse</th>
+<th>Effekt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Följeflöjt ⚠</td>
+<td>⚠ (möjligen skapar ett ljud/melodi som magikern kan kontrollera)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Besvärjelser:</strong> <em>(alla kräver att magikern sjunger eller spelar instrument)</em></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Besvärjelsens namn</th>
+<th>S</th>
+<th>Varaktighet</th>
+<th>Räckvidd</th>
+<th>Effekt (kortfattat)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ljus ⚠</td>
+<td>4</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>⚠ Möjligen ljusmanipulation via musikens harmonier</td>
+</tr>
+<tr>
+<td>Reptrick (F)</td>
+<td>4</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>⚠ Musikaliskt trick — exakta effekter oklara</td>
+</tr>
+<tr>
+<td>Paralyserad</td>
+<td>5</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Paralyserar offer via musikens harmonier ⚠</td>
+</tr>
+<tr>
+<td>Skinn (K) ⚠</td>
+<td>5</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>⚠ Hudstärkande harmonistbesvärjelse</td>
+</tr>
+<tr>
+<td>Flygförmåga (K)</td>
+<td>6</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Ger offret flygförmåga via harmonistens musik ⚠</td>
+</tr>
+<tr>
+<td>Fruktan</td>
+<td>7</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Framkallar skräck via musikens dissonanser ⚠</td>
+</tr>
+<tr>
+<td>Förälskelse</td>
+<td>7</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Framkallar förälskelsekänsla hos offret ⚠</td>
+</tr>
+<tr>
+<td>Sammet</td>
+<td>7</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>⚠ Oklart — möjligen ger en lugnande/mjukande effekt</td>
+</tr>
+<tr>
+<td>Kamplust</td>
+<td>11</td>
+<td>Konc</td>
+<td>Sx2 rutor</td>
+<td>Levande intelligent varelse fylls av stridslust; attackerar magikerns mål till sista</td>
+</tr>
+<tr>
+<td>Helande musik</td>
+<td>12</td>
+<td>Konc</td>
+<td>Sx10 rutor</td>
+<td>Helar 1 KP/E per hel minut för varje koncentrerad lyssnare; helar även harmonisten</td>
+</tr>
+<tr>
+<td>Massdans</td>
+<td>10</td>
+<td>Konc</td>
+<td>Sx2 rutor</td>
+<td>Alla intelligenta varelser glömmer vad de gör och dansar; bryts vid anfall</td>
+</tr>
+<tr>
+<td>Massglädje</td>
+<td>10</td>
+<td>Konc</td>
+<td>Sx2 rutor</td>
+<td>Alla intelligenta varelser glömmer agg; upprymd stämning; bryts vid våld</td>
+</tr>
+<tr>
+<td>Massfrid</td>
+<td>12</td>
+<td>Konc</td>
+<td>Sx2 rutor</td>
+<td>Alla levande glömmer aggressiva tankar och lyssnar istället; bryts vid våld</td>
+</tr>
+<tr>
+<td>Karismamusik</td>
+<td>10</td>
+<td>Konc</td>
+<td>Sx2 rutor</td>
+<td>Behaglig bakgrundsmusik ger KAR-bonus till den som talar (detaljer per SL) ⚠</td>
+</tr>
+<tr>
+<td>Salamiras betvingare</td>
+<td>10</td>
+<td>¼ veckor</td>
+<td>½ rutor</td>
+<td>Offret finner magikern fascinerande och vill bli vän; vid extra E: förälskelse/fler mål</td>
+</tr>
+<tr>
+<td>Sammanfoga</td>
+<td>10</td>
+<td>Special</td>
+<td>⚠</td>
+<td>Återställer krossat/vridet tillverkat föremål (E1=dolk 10 min, E2=svärd 20 min, E3=2H-sv 1h, E4=rustning ½ dag)</td>
+</tr>
+<tr>
+<td>Sann form</td>
+<td>14</td>
+<td>Konc</td>
+<td>Sx2 rutor</td>
+<td>Tvingar allt förvanskat att återta sin sanna form (E vs magiens E)</td>
+</tr>
+<tr>
+<td>Massfruktan</td>
+<td>15</td>
+<td>Konc</td>
+<td>Sx2 rutor</td>
+<td>Alla intelligenta slår på Skräcktabellen (max en gång per varaktighet)</td>
+</tr>
+<tr>
+<td>Massfölje</td>
+<td>15</td>
+<td>Konc</td>
+<td>Sx2 rutor</td>
+<td>Alla intelligenta glömmer vad de gör och följer musikens källa; bryts vid anfall</td>
+</tr>
+<tr>
+<td>Massraseri</td>
+<td>15</td>
+<td>Konc</td>
+<td>⚠</td>
+<td>Alla levande går bärsärk och attackerar närmaste fiende (utom magikern)</td>
+</tr>
+<tr>
+<td>Massmod ⚠</td>
+<td>⚠ 14</td>
+<td>Konc</td>
+<td>Sx2 rutor</td>
+<td>Alla levande inom räckv. behöver ej slå på Skräcktabellen</td>
+</tr>
+<tr>
+<td>Botande musik</td>
+<td>16</td>
+<td>Konc</td>
+<td>⚠</td>
+<td>Botar 1 sjukdom/E per timmes sammanhängande spelande</td>
+</tr>
+<tr>
+<td>Stiltje (F)</td>
+<td>16</td>
+<td>Konc</td>
+<td>Sx10 rutor</td>
+<td>Dämpar våldsamma naturkrafter: inga blixtnedslag, vind mojnar, kyla/hetta dämpas</td>
+</tr>
+<tr>
+<td>Själatröst</td>
+<td>17</td>
+<td>Konc</td>
+<td>⚠</td>
+<td>Lyssnare går i trans; alla negativa besvärjelser, förbannelser och fobier skingras; sorg lindras</td>
+</tr>
+<tr>
+<td>Överrista</td>
+<td>9</td>
+<td>Konc</td>
+<td>Sx2 rutor</td>
+<td>Sången dränker allt annat ljud; andra magiska formler måste övervinna E</td>
+</tr>
+<tr>
+<td>Hetta</td>
+<td>13</td>
+<td>Konc</td>
+<td>Sx2 rutor</td>
+<td>Värmer vatteninnehållande mål; 1 KP/SR (eskaler.); 5°/1°/SR i vatten; rustningar hjälper ej</td>
+</tr>
+<tr>
+<td>Häva förstening (R)</td>
+<td>18</td>
+<td>Omedelbar</td>
+<td>⚠</td>
+<td>Häver förstening av levande varelse via musik+rituell dans (E vs Förstena-E)</td>
+</tr>
+<tr>
+<td>Regenererande musik</td>
+<td>18</td>
+<td>Special</td>
+<td>⚠</td>
+<td>Regenererar förlorad kroppsdel (1/E); kräver ett helt dygns sammanhängande spelande</td>
+</tr>
+<tr>
+<td>Elementarväg</td>
+<td>20</td>
+<td>Konc</td>
+<td>Personlig</td>
+<td>Immun mot naturliga elementskador (eld, köld, vind, vatten); kan gå på vatten, passera materia (ej järn/bly) med 3 rutor/SR; svävar 2m ovanmarken</td>
+</tr>
+<tr>
+<td>Rasera (R)</td>
+<td>24</td>
+<td>Omedelbar</td>
+<td>Sx10 rutor</td>
+<td>Raserar E våningar hos en byggnad; magiska byggnader gör motstånd (E vs E)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Källa:</strong> Formelboken, s. 26–34</p>
+<hr />
+<h3 id="haxkonster-hk">Häxkonster (Hk)</h3>
+<p><em>(Lärs enbart lärare→elev; ej vid akademier. Märkning: (B) = Häxkonster-specifik)</em></p>
+<p><strong>Besvärjelser:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Besvärjelsens namn</th>
+<th>S</th>
+<th>Varaktighet</th>
+<th>Räckvidd</th>
+<th>Effekt (kortfattat)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Framkalla vårtor (F, B)</td>
+<td>1</td>
+<td>Permanent</td>
+<td>Sx2 rutor</td>
+<td>Ex5 vårtor växer ut på vald kroppsdel hos offret</td>
+</tr>
+<tr>
+<td>Ta bort vårtor (B)</td>
+<td>1</td>
+<td>Permanent</td>
+<td>Sx2 rutor</td>
+<td>Tar bort Ex5 vårtor; häxan väljer vilka</td>
+</tr>
+<tr>
+<td>Klåda (B)</td>
+<td>3</td>
+<td>Sx1 SR</td>
+<td>Sx2 rutor</td>
+<td>Kraftig klåda; PSY-slag eller kan ej göra annat; SMI −3 och −2 rutor/SR förflyttning</td>
+</tr>
+<tr>
+<td>Panik ⚠</td>
+<td>⚠</td>
+<td>Sx1 SR</td>
+<td>Sx10 rutor</td>
+<td>Offer/E flyr i panik tills häxan är utom synhåll ⚠</td>
+</tr>
+<tr>
+<td>Förhäxad sömn (B)</td>
+<td>4</td>
+<td>Sx1 timmar</td>
+<td>Sx2 rutor</td>
+<td>Försätter offret i djup sömn; vaknar ej förrän man försöker väcka/skada</td>
+</tr>
+<tr>
+<td>Kvastflygning</td>
+<td>5</td>
+<td>Sx1 timmar</td>
+<td>Sx2 rutor</td>
+<td>Laggs på kvast; lyfter upp till 20 STO; styrs med tanken</td>
+</tr>
+<tr>
+<td>Skenpest (B)</td>
+<td>5</td>
+<td>¼ dygn</td>
+<td>Sx2 rutor</td>
+<td>Offret får alla yttre symptom på pest; hälsan påverkas ej; INT-slag för att inse</td>
+</tr>
+<tr>
+<td>Låna varelse</td>
+<td>6</td>
+<td>¼ timmar</td>
+<td>Sx2 km</td>
+<td>Häxans gjäl tar plats i en varelse och upplever världen genom dess sinnen</td>
+</tr>
+<tr>
+<td>Misväxt</td>
+<td>8</td>
+<td>En säsong</td>
+<td>Sx4 km</td>
+<td>Säd i fält dör långsamt (ej räddningsbar utan magi)</td>
+</tr>
+<tr>
+<td>Astralt spår</td>
+<td>12</td>
+<td>Omedelbar</td>
+<td>10 mil</td>
+<td>Lokaliserar bestämd person via astralt spår; häxan måste ha rört personen och känna namnet</td>
+</tr>
+<tr>
+<td>Markering (F, R)</td>
+<td>12</td>
+<td>¼ veckor</td>
+<td>Sx1 km</td>
+<td>Skapar svart moln som ständigt svävar ½ km ovanför en vald person; synbart på 1 mils avstånd</td>
+</tr>
+<tr>
+<td>Avskilja (R)</td>
+<td>13</td>
+<td>Omedelbar</td>
+<td>Beröring</td>
+<td>Kopp. till kvast; vid sopning häver alla formförändrade besvärjelser (Förvandling, Skydd etc.)</td>
+</tr>
+<tr>
+<td>Glömska (B)</td>
+<td>13</td>
+<td>Permanent</td>
+<td>Sx2 rutor</td>
+<td>Offret glömmer allt under E² timmar bakåt i tid; permanent minnesförlust</td>
+</tr>
+<tr>
+<td>Smärta (B)</td>
+<td>14</td>
+<td>Sx1 SR</td>
+<td>Sx10 rutor</td>
+<td>Svåra smärtor; STY, SMI och förflyttning halveras; misslyckat FYS-slag → handlingsförlamad</td>
+</tr>
+<tr>
+<td>Åldra (B)</td>
+<td>14</td>
+<td>Permanent</td>
+<td>Sx10 rutor</td>
+<td>Offret åldras 3 år/E; tidsbegränsade besvärjelser på offret slutar verka</td>
+</tr>
+<tr>
+<td>Grodförvandling (B)</td>
+<td>15</td>
+<td>¼ veckor</td>
+<td>Sx2 rutor</td>
+<td>Förvandlar människa till groda; häver ej med PERMANENS; häver om kvinna kysser grodan</td>
+</tr>
+<tr>
+<td>Orörlighet (B)</td>
+<td>15</td>
+<td>Sx1 timmar</td>
+<td>Sx2 rutor</td>
+<td>Offret försätts i transliknande tillstånd; kan ej röra sig men är vid medvetande</td>
+</tr>
+<tr>
+<td>Nedkalla/skingra förbannelse (R)</td>
+<td>16</td>
+<td>Permanent</td>
+<td>10 mil</td>
+<td>Nedkallar förbannelse över känd person; häxan måste känna personens namn och varsebli denne</td>
+</tr>
+<tr>
+<td>Övergripning</td>
+<td>17</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>⚠ Tar över/besätter en varelse (detaljer oklara)</td>
+</tr>
+<tr>
+<td>Fängsla (R)</td>
+<td>18</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Fångar/immobiliserar ett offer via ritual ⚠</td>
+</tr>
+<tr>
+<td>Törnrosasömn (B)</td>
+<td>18</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Försätter offret i djup oväckbar sömn (som i sagan) ⚠</td>
+</tr>
+<tr>
+<td>Hamnskifte (R, F)</td>
+<td>22</td>
+<td>Permanent</td>
+<td>⚠</td>
+<td>Häxan offrar en varelse och kan sedan skifta till dess form via PSY-slag (1 PSY/förvandling)</td>
+</tr>
+<tr>
+<td>Mardråp</td>
+<td>26</td>
+<td>Permanent</td>
+<td>Beröring</td>
+<td>Tvingas en just avliden kvinna att bli en mara; ett uppfyllbart villkor ger maran möjlighet att lämna världen</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Källa:</strong> Formelboken, s. 32–37</p>
+<hr />
+<h3 id="illusionism-i">Illusionism (I)</h3>
+<p><strong>Minibesvärjelser:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Minibesvärjelse</th>
+<th>Effekt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bild</td>
+<td>Skapar en tvådimensionell bild mot en plan yta (kräver ljus men ej direkt solljus)</td>
+</tr>
+<tr>
+<td>Glimt</td>
+<td>Offer skymtar en valfri syn i ögonvrån (reflexmässigt vänder de på huvudet och glimten försvinner)</td>
+</tr>
+<tr>
+<td>Individuell distraktion</td>
+<td>Som Distraktion (S2) men påverkar bara en person</td>
+</tr>
+<tr>
+<td>Osynliggöra litet föremål</td>
+<td>Gör ett dött föremål (≤1 dm i diameter) osynligt i 6 SR</td>
+</tr>
+<tr>
+<td>Vag skepnad</td>
+<td>Magikerns ansikte uppfattas olika av varje person (1 PSY per person, var och en förhäxas separat)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Besvärjelser:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Besvärjelsens namn</th>
+<th>S</th>
+<th>Varaktighet</th>
+<th>Räckvidd</th>
+<th>Effekt (kortfattat)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Försköna/Förfula</td>
+<td>1</td>
+<td>Sx1 timmar</td>
+<td>Sx2 rutor</td>
+<td>Förskönar ett fult/skadat föremål eller varelse, eller tvärtom</td>
+</tr>
+<tr>
+<td>Knackning (F)</td>
+<td>1</td>
+<td>Omedelbar</td>
+<td>Sx2 rutor</td>
+<td>Skapar knackljud på dörr/port/liknande (intensitet valfri)</td>
+</tr>
+<tr>
+<td>Sinnesmask</td>
+<td>1</td>
+<td>Sx1 timmar</td>
+<td>Sx2 rutor</td>
+<td>Maskerar sinnet; verkar tillhöra annan varelsetyp vid VARSEBLIVNING/TANKEÖVERFÖRING</td>
+</tr>
+<tr>
+<td>Distraktion (K)</td>
+<td>2</td>
+<td>Omedelbar</td>
+<td>Sx2 rutor</td>
+<td>Alla inom räckvidden riktar ovillkorligt uppmärksamheten mot en bestämd punkt</td>
+</tr>
+<tr>
+<td>Avbild (F)</td>
+<td>3</td>
+<td>Sx1 minuter</td>
+<td>Sx2 rutor</td>
+<td>Skapar avbild av varelse/föremål/ljud/lukt; försvinner vid beröring; +4/extra E svårighet att genomskåda</td>
+</tr>
+<tr>
+<td>Färglöshet (F)</td>
+<td>3</td>
+<td>¼ minut</td>
+<td>Sx2 rutor</td>
+<td>Alla i räckvidden förlorar sin färg; medelsvårt INT-slag eller −5 CL på alla synskärdighetr</td>
+</tr>
+<tr>
+<td>Illusionsförflyttning</td>
+<td>3</td>
+<td>1T6 SR</td>
+<td>Beröring</td>
+<td>Den förhäxade flimrar snabbt fram och tillbaka; −3 CL för att träffa med vapen</td>
+</tr>
+<tr>
+<td>Kunglig måltid</td>
+<td>3</td>
+<td>Sx1 timmar</td>
+<td>⚠</td>
+<td>Maten smakar precis som magikern önskar (påverkar även magikerns eget smaksinne)</td>
+</tr>
+<tr>
+<td>Spökröst (F, K)</td>
+<td>3</td>
+<td>Sx1 SR</td>
+<td>Sx2 rutor</td>
+<td>Förändrar rösten till oigenkännlighet; kan låta rösten ljuda från valfri punkt</td>
+</tr>
+<tr>
+<td>Dunkel (F)</td>
+<td>4</td>
+<td>¼ minut</td>
+<td>⚠</td>
+<td>Den förhäxade verkar suddig; −1 CL nä.strid/E, −2 CL avst./E och Finna dolda ting/E</td>
+</tr>
+<tr>
+<td>Spökmusik (F, K)</td>
+<td>4</td>
+<td>Sx1 SR</td>
+<td>Sx2 rutor</td>
+<td>Frammanar musik från valfritt instrument; kan låta den ljuda var som helst inom räckvidden</td>
+</tr>
+<tr>
+<td>Röra sig ljudlöst</td>
+<td>5</td>
+<td>¼ minut</td>
+<td>⚠</td>
+<td>Rör sig helt ljudlöst oavsett underlag (utom rösten)</td>
+</tr>
+<tr>
+<td>Illusionskopia</td>
+<td>6</td>
+<td>Sx1 SR</td>
+<td>Personlig</td>
+<td>Skapar E exakta kopior av magikern; kopiorna rör sig/pratar men påverkar ej fysiskt; försvinner vid beröring</td>
+</tr>
+<tr>
+<td>Aura</td>
+<td>7</td>
+<td>¼ timme</td>
+<td>Beröring</td>
+<td>Den förhäxade omges av kraftaura; PSY-grupp vs E för att utföra fientlig handling mot denne</td>
+</tr>
+<tr>
+<td>Förvirra</td>
+<td>9</td>
+<td>¼ minut</td>
+<td>Sx10 rutor</td>
+<td>Offret förlorar förmågan att tänka klart; står still; försvarar sig om det angrips</td>
+</tr>
+<tr>
+<td>Skrik (F, K)</td>
+<td>9</td>
+<td>Omedelbar</td>
+<td>Sx2 rutor</td>
+<td>Fruktansvärt skrik; medelsvårt PSY-slag eller förlora 1 PSY/E + handlingsförlamad (E−PSY-grupp) SR</td>
+</tr>
+<tr>
+<td>Utseendeförändring</td>
+<td>10</td>
+<td>Sx1 timmar</td>
+<td>Personlig</td>
+<td>Förändrar magikerns utseende (hudfärg, anletsdrag, röst) valfritt; ej grundegenskaper</td>
+</tr>
+<tr>
+<td>Färgskifte</td>
+<td>11</td>
+<td>¼ veckor</td>
+<td>Sx2 rutor</td>
+<td>E döda föremål byter färg enligt önskemål</td>
+</tr>
+<tr>
+<td>Förtrollad sömn</td>
+<td>11</td>
+<td>Sx1 timmar</td>
+<td>Sx10 rutor</td>
+<td>Sövar E varelser (1E/varelse, +1E/20 extra STO); kan ej väckas normalt</td>
+</tr>
+<tr>
+<td>Tystnad (F)</td>
+<td>11</td>
+<td>¼ minut</td>
+<td>Sx2 rutor</td>
+<td>1 ruta/E fullständigt tyst; omöjliggör röstbaserade besvärjelser och kommunikation</td>
+</tr>
+<tr>
+<td>Falsktal (K)</td>
+<td>12</td>
+<td>Omedelbar</td>
+<td>Sx2 rutor</td>
+<td>Intelligent varelse tvingas säga en mening (max 6 ord) bestämd av magikern</td>
+</tr>
+<tr>
+<td>Avlyssning</td>
+<td>13</td>
+<td>¼ dygn</td>
+<td>Beröring</td>
+<td>Föremål fångar info inom 5m och sänder 200m bort: E1=känsla, E2=+ljud, E3=+bild, E4=+lukt, E5=+temp</td>
+</tr>
+<tr>
+<td>Illusion (F)</td>
+<td>16</td>
+<td>Sx1 minuter</td>
+<td>Sx2 rutor</td>
+<td>Som Avbild men försvinner ej vid beröring; kan faktiskt skada; har egna grundegenskaper (begränsade av magikerns FV)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Källa:</strong> Formelboken, s. 35–40</p>
+<hr />
+<h3 id="mentalism-m">Mentalism (M)</h3>
+<p><strong>Minibesvärjelser:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Minibesvärjelse</th>
+<th>Effekt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sjätte sinne</td>
+<td>Ökar CL för Uppticka fara under innevarande SR</td>
+</tr>
+<tr>
+<td>Utstrålning</td>
+<td>Magikern verkar lång och reslig; imponerar på omgivningen</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Besvärjelser:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Besvärjelsens namn</th>
+<th>S</th>
+<th>Varaktighet</th>
+<th>Räckvidd</th>
+<th>Effekt (kortfattat)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Orientering</td>
+<td>1</td>
+<td>Sx1 timmar</td>
+<td>Personlig</td>
+<td>Kan ej tappa orienteringen; känner alltid världsstreckarna exakt</td>
+</tr>
+<tr>
+<td>Språng (K)</td>
+<td>1</td>
+<td>S/4 SR</td>
+<td>Beröring</td>
+<td>Jättesprång utan ansats: 4m vågrätt/2m lodrätt per E; SMI-kast för landning</td>
+</tr>
+<tr>
+<td>Tillnyktring</td>
+<td>1</td>
+<td>Omedelbar</td>
+<td>⚠</td>
+<td>Berusad person blir omedelbart sprik nykter utan baksmäll</td>
+</tr>
+<tr>
+<td>Vättesyn</td>
+<td>2</td>
+<td>Sx1 timmar</td>
+<td>Beröring</td>
+<td>Genomskinlig hinna över ögonen; ser under vatten/i gasmoln utan skada</td>
+</tr>
+<tr>
+<td>Motståndskraft</td>
+<td>3</td>
+<td>Sx1 minuter</td>
+<td>⚠</td>
+<td>Reducerar skada från hetta/kyla/Eld/Frost med E poäng per anfall per SR</td>
+</tr>
+<tr>
+<td>Balans</td>
+<td>4</td>
+<td>¼ timme</td>
+<td>⚠</td>
+<td>Perfekt balansförmåga; landar alltid på fötterna; immun mot SNUBBLA</td>
+</tr>
+<tr>
+<td>Halskinn (K)</td>
+<td>4</td>
+<td>¼ minut</td>
+<td>Personlig</td>
+<td>Extremt halt skinn; halverar chansen för någon att hålla fast mentalisten</td>
+</tr>
+<tr>
+<td>Heshet</td>
+<td>4</td>
+<td>¼ timme</td>
+<td>Sx2 rutor</td>
+<td>Offret förlorar förmågan att göra sig hörd på avstånd</td>
+</tr>
+<tr>
+<td>Hjärnblank</td>
+<td>4</td>
+<td>¼ timme</td>
+<td>Sx10 rutor</td>
+<td>Sinnet omöjligt att observera; immun mot VARSEBLIVNING och TANKEÖVERFÖRING</td>
+</tr>
+<tr>
+<td>Karta</td>
+<td>4</td>
+<td>Omedelbar</td>
+<td>Sx10 rutor</td>
+<td>"Karta" av omgivningen; E3+ avslöjar position och storlek på alla föremål/varelser (STO ≥ 1)</td>
+</tr>
+<tr>
+<td>Larm (F)</td>
+<td>4</td>
+<td>¼ dygn</td>
+<td>Beröring</td>
+<td>Sätter E villkor; magikern varnas omedelbart (obegränsat avstånd) när villkor uppfylls</td>
+</tr>
+<tr>
+<td>Levitation</td>
+<td>4</td>
+<td>Sx1 minuter</td>
+<td>Personlig</td>
+<td>Stiger rakt upp 5m/E (kan ej flyga fritt); tar med sig upp till 20 BEP</td>
+</tr>
+<tr>
+<td>Imtatam ⚠</td>
+<td>4</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>⚠ Oklar besvärjelse (OCR-garble); S4 Mentalism</td>
+</tr>
+<tr>
+<td>Hörsel</td>
+<td>5</td>
+<td>¼ timme</td>
+<td>⚠</td>
+<td>Förbättrar hörseln med +2 CL/E (se färdigheten Lyssna)</td>
+</tr>
+<tr>
+<td>Känsloläsning</td>
+<td>5</td>
+<td>¼ SR</td>
+<td>Sx2 rutor</td>
+<td>Avläser en varelses känslostämningar utan att varelsen märker det (ej mot HJÄRNBLANK)</td>
+</tr>
+<tr>
+<td>Långsamhet</td>
+<td>5</td>
+<td>Sx1 minuter</td>
+<td>Sx2 rutor</td>
+<td>Sänker den förhäxades förflyttning ⚠</td>
+</tr>
+<tr>
+<td>Moralförstärkning (K) <em>(massformel)</em></td>
+<td>5</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Manipel: defensiv; kostar 6 PSY/manipel; höjer stridsmoral</td>
+</tr>
+<tr>
+<td>Ångfilter ⚠</td>
+<td>6</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>⚠ Oklar S6 Mentalism-besvärjelse</td>
+</tr>
+<tr>
+<td>Demoralisering (K) <em>(massformel)</em></td>
+<td>8</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Manipel: offensiv; kostar 10 PSY/manipel; sänker stridsvärde</td>
+</tr>
+<tr>
+<td><a class="wikilink" href="strid.html#strid-i-morker">Mörkersyn</a></td>
+<td>8</td>
+<td>Sx1 timmar</td>
+<td>Beröring</td>
+<td>Ger förmågan att se i mörker</td>
+</tr>
+<tr>
+<td>Ögonmått</td>
+<td>8</td>
+<td>Omedelbar</td>
+<td>Personlig</td>
+<td>Kan exakt avgöra avstånd, areor och volymer med bara ögonen (kräver att man ser föremålet)</td>
+</tr>
+<tr>
+<td>Fjällpansarhud</td>
+<td>9</td>
+<td>Sx1 timmar</td>
+<td>Personlig</td>
+<td>Huden blir hård och fjällig (silveraktig); +4 abs; KAR −4 under varaktigheten</td>
+</tr>
+<tr>
+<td>Läderhud</td>
+<td>⚠7</td>
+<td>Sx1 timmar</td>
+<td>Personlig</td>
+<td>Huden blir hård som läder; +2 abs; KAR −2 under varaktigheten</td>
+</tr>
+<tr>
+<td>Osynlighet</td>
+<td>9</td>
+<td>Sx1 minuter</td>
+<td>⚠</td>
+<td>Gör 6×E STO osynligt; bryts om den förhäxade slåss, springer, kastar magi eller skadas</td>
+</tr>
+<tr>
+<td>Syn</td>
+<td>9</td>
+<td>Sx1 SR</td>
+<td>Personlig</td>
+<td>Clairvoyance: ser/hör i känt område (120m); obekant: 30m; +1 dag bakåt/extra E; vidrör föremål: se historia</td>
+</tr>
+<tr>
+<td>Elchock (F, K)</td>
+<td>10</td>
+<td>Omedelbar</td>
+<td>Beröring</td>
+<td>1T4/E elskada vid beröring; metallrustningar absorberar bara hälften</td>
+</tr>
+<tr>
+<td>Järnhud</td>
+<td>10</td>
+<td>Sx1 timmar</td>
+<td>Personlig</td>
+<td>Huden blank och grafitgrå; +8 abs; KAR −6 under varaktigheten</td>
+</tr>
+<tr>
+<td>Psykometri</td>
+<td>10</td>
+<td>Omedelbar</td>
+<td>Personlig</td>
+<td>Läser historia hos vidrört föremål/varelse från skapelse/födsel; tydlighet beror på E</td>
+</tr>
+<tr>
+<td>Syraskydd</td>
+<td>10</td>
+<td>Sx1 minuter</td>
+<td>⚠</td>
+<td>Kroppen skadas ej av frätande syror/baser; skyddar ej utrustning</td>
+</tr>
+<tr>
+<td>Inbilla tanke</td>
+<td>11</td>
+<td>Omedelbar</td>
+<td>Sx10 rutor</td>
+<td>Planterar en enkel tanke i offrets sinne; offret tror det tänkte tanken själv</td>
+</tr>
+<tr>
+<td>Sannhörsel</td>
+<td>11</td>
+<td>¼ minuter</td>
+<td>Sx10 rutor</td>
+<td>Genomskådar hörselillusioner och buktaleri; avslöjar alla lögner man hör</td>
+</tr>
+<tr>
+<td>Sannsyn</td>
+<td>11</td>
+<td>¼ minuter</td>
+<td>Sx10 rutor</td>
+<td>Genomskådar alla illusioner och avbilder som rör synen</td>
+</tr>
+<tr>
+<td>Tankeläsning</td>
+<td>11</td>
+<td>Sx1 minuter</td>
+<td>Sx2 rutor</td>
+<td>Läser offrets tankar; offret märker inget; fungerar ej mot HJÄRNBLANK</td>
+</tr>
+<tr>
+<td>Kontrollera person</td>
+<td>12</td>
+<td>Sx1 SR</td>
+<td>Sx4 rutor</td>
+<td>Kontrollerar E humanoider (PSY vs PSY); styr kroppsrörelser; ej magi/självständigt tänkande; konc</td>
+</tr>
+<tr>
+<td>Rätt väg</td>
+<td>12</td>
+<td>Sx1 minuter</td>
+<td>Personlig</td>
+<td>Visar rätt vägval (korsningar, dörrar etc.); en fråga/casting</td>
+</tr>
+<tr>
+<td>Skendöd</td>
+<td>12</td>
+<td>¼ timmar</td>
+<td>Personlig</td>
+<td>Djup dvala; verkar dead; VARSEBLIVNING måste övervinna E; förbrukar ej syre/vatten/näring</td>
+</tr>
+<tr>
+<td>Stålslag</td>
+<td>12</td>
+<td>S1 SR</td>
+<td>Personlig</td>
+<td>Naturliga vapen: skada =(E+1)T (tärning), CL +1/E; vapnen är hårda (skadar ej vid träff på rustning)</td>
+</tr>
+<tr>
+<td>Telepati</td>
+<td>12</td>
+<td>Sx1 minuter</td>
+<td>Special</td>
+<td>Telepatisk kontakt med känd person (obegränsat avstånd); +1 person/extra E</td>
+</tr>
+<tr>
+<td>Teleportera</td>
+<td>12</td>
+<td>Omedelbar</td>
+<td>⚠</td>
+<td>Teleporterar 3 STO/E till känd plats (100m + 100m/extra E); mot vilja: PSY vs PSY</td>
+</tr>
+<tr>
+<td>Jättestark</td>
+<td>13</td>
+<td>Sx1 minuter</td>
+<td>Personlig</td>
+<td>Höjer STY till rasens naturliga max (människa: 18); kombinerbar med OKA etc.</td>
+</tr>
+<tr>
+<td>Magisk syn</td>
+<td>13</td>
+<td>Sx1 minuter</td>
+<td>⚠</td>
+<td>Ser naturligt eller magiskt osynliga varelser; immun mot syneförsämrande besvärjelser</td>
+</tr>
+<tr>
+<td>Minne</td>
+<td>13</td>
+<td>Omedelbar</td>
+<td>⚠</td>
+<td>Perfekt återkallelse av allt som hänt under E dygn; återställer ej magisk minnesförlust</td>
+</tr>
+<tr>
+<td>Oordning (K) <em>(massformel)</em></td>
+<td>13</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Manipel: offensiv; kostar 6 PSY/manipel; disciplinerad manipel blir odisciplinerad</td>
+</tr>
+<tr>
+<td>Smidighet</td>
+<td>13</td>
+<td>Sx1 minuter</td>
+<td>Personlig</td>
+<td>Höjer SMI till rasens naturliga max (människa: 18); kombinerbar med OKA etc.</td>
+</tr>
+<tr>
+<td>Orädd</td>
+<td>14</td>
+<td>Sx1 minuter</td>
+<td>⚠</td>
+<td>Den förhäxade behöver aldrig slå på Skräcktabellen oavsett orsak</td>
+</tr>
+<tr>
+<td>Telekinesi</td>
+<td>14</td>
+<td>Sx1 SR</td>
+<td>¼ km</td>
+<td>Rör 1 BEP med tankekraft vid 10 rutor/SR, 1m höjd; extra E = +BEP, +hastighet eller +höjd</td>
+</tr>
+<tr>
+<td>Tillkalla föremål</td>
+<td>14</td>
+<td>Omedelbar + special</td>
+<td>Beröring</td>
+<td>Rör föremål + person; kommandoord kallar sedan föremålet till personens hand automatiskt</td>
+</tr>
+<tr>
+<td>Fanatism (K) <em>(massformel)</em></td>
+<td>15</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Manipel: defensiv; kostar 17 PSY/manipel; dubblar stridsvärde</td>
+</tr>
+<tr>
+<td>Fjärrsyn</td>
+<td>15</td>
+<td>4 timmar</td>
+<td>⚠</td>
+<td>Teleskopisk syn: avstånd/10 per E (E3 = ser 1000m bort som om det vore 1m)</td>
+</tr>
+<tr>
+<td>Varsebli person (R, F)</td>
+<td>15</td>
+<td>S/4 veckor</td>
+<td>Sx1 km</td>
+<td>Känner alltid avstånd/riktning till en person (behöver hårlock etc.); E1=1000m exakt, E4=exakt position</td>
+</tr>
+<tr>
+<td>Bota fobi (R)</td>
+<td>16</td>
+<td>Permanent</td>
+<td>Beröring</td>
+<td>Botar E fobier (slumpmässig om flera); offret ligger ner, magikern bakom; självbehandling med spegel</td>
+</tr>
+<tr>
+<td>Fruktan (K) <em>(massformel)</em></td>
+<td>18</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Manipel: offensiv; kostar 23 PSY/manipel; halverar stridsvärde</td>
+</tr>
+<tr>
+<td>Normalsyn</td>
+<td>16</td>
+<td>Sx1 minuter</td>
+<td>Personlig</td>
+<td>Normal synförmåga oavsett mörker, rök, dimma eller syneförsämrande besvärjelser</td>
+</tr>
+<tr>
+<td>Återvändo (R)</td>
+<td>16</td>
+<td>Omedelbar</td>
+<td>Personlig</td>
+<td>Teleporterar till förinvigd hemplats (1 dag invigning); räckvidd E1=10km, E2=100km osv; S15→1 plats, S≥16→2+</td>
+</tr>
+<tr>
+<td>Pyssling</td>
+<td>18</td>
+<td>Sx1 minuter</td>
+<td>Personlig</td>
+<td>Krymper till 1/10 av normal storlek; kläder/utrustning krymper ej</td>
+</tr>
+<tr>
+<td>Återvändo med studs</td>
+<td>19</td>
+<td>Omedelbar</td>
+<td>Personlig</td>
+<td>Som Återvändo men stannar E minuter på hemplatsen innan retur</td>
+</tr>
+<tr>
+<td>Själskraft</td>
+<td>22</td>
+<td>Sx1 SR</td>
+<td>Personlig</td>
+<td>Fokuserar krafter: +3 CL/E på alla egenskapskast (ej Självskraft)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Källa:</strong> Formelboken, s. 39–46</p>
+<hr />
+<h3 id="nekromanti-n">Nekromanti (N)</h3>
+<p><strong>Minibesvärjelser:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Minibesvärjelse</th>
+<th>Effekt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Animera död insekt</td>
+<td>Zombifierar en insekt (STO &lt;1) i 1T10 timmar; lydiga order max 3 ord/20 bokstäver</td>
+</tr>
+<tr>
+<td>Besmutsa</td>
+<td>Offret blir genast smutsigt och illaluktande; varar tills ordentligt tvättat</td>
+</tr>
+<tr>
+<td>Besudla</td>
+<td>Kontaminerar 1L vätska eller fast mat; gör den odrickbar/förgiftat/skämd</td>
+</tr>
+<tr>
+<td>Dövhet/Förstumma</td>
+<td>Sx2 rutor, Sx1 SR — offret förlorar hörseln eller talförmågan ⚠</td>
+</tr>
+<tr>
+<td>GMI <em>(gnistan)</em></td>
+<td>Nekromantikern lyser svagt i handflatsstorlek; räcker för att läsa en bok i mörker</td>
+</tr>
+<tr>
+<td>Gnisslande gångjärn</td>
+<td>Gör att ett mekaniskt led permanent gnisslar och ger ifrån sig missljud (ej smörjbart)</td>
+</tr>
+<tr>
+<td>Kalla kårar</td>
+<td>Alla inom räckvidden (1/PSY) som misslyckas med PSY-slag: −1 på alla färdighetsslag tills NK lämnar</td>
+</tr>
+<tr>
+<td>Ondblick</td>
+<td>Stirrar motståndare i ögonen; offret måste klara ett svårt PSY-slag för att kunna fullfölja anfallet</td>
+</tr>
+<tr>
+<td>Ogonvita</td>
+<td>Nekromantikerns ögon vänds till enbart det vita; ser lika bra som förut; används för att skrämma</td>
+</tr>
+<tr>
+<td>Olustig skepnad</td>
+<td>Nekromantikern får ett skrämmande utseende ⚠</td>
+</tr>
+<tr>
+<td>Svartnagel</td>
+<td>Offrets naglar svartnar och faller av; växer ut igen efter en vecka</td>
+</tr>
+<tr>
+<td>Örfil</td>
+<td>⚠ Oklar effekt — möjligen mental "örfil" (psykisk chock) ⚠</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Besvärjelser:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Besvärjelsens namn</th>
+<th>S</th>
+<th>Varaktighet</th>
+<th>Räckvidd</th>
+<th>Effekt (kortfattat)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gasmoln (F)</td>
+<td>5</td>
+<td>⚠</td>
+<td>10 r / Sx2 r</td>
+<td>Frammanar gasmoln: irriterande (3E), tårgas (4E), yrselgas (5E) eller gift 1T4 styrka (⚠ E); 100m³ + 100m³/E</td>
+</tr>
+<tr>
+<td>Blindhet</td>
+<td>6</td>
+<td>Sx1 SR</td>
+<td>Sx2 rutor</td>
+<td>Offret förlorar synförmågan under varaktigheten</td>
+</tr>
+<tr>
+<td>Spindelböld (F)</td>
+<td>6</td>
+<td>Speciell</td>
+<td>Beröring</td>
+<td>E bölder uppstår efter E timmar; spricker efter 20−S dagar (min 1): 1 KP/böld + spindel kryler ut</td>
+</tr>
+<tr>
+<td>Paralysering</td>
+<td>7</td>
+<td>Sx1 minuter</td>
+<td>Sx2 rutor</td>
+<td>Paralyserar offret (1 E per 20 STO); kan ej röra sig alls</td>
+</tr>
+<tr>
+<td>Chock (K)</td>
+<td>8</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Offret chockad/förstummad; kan bara parera; +1 på Skräcktabellen resten av dagen</td>
+</tr>
+<tr>
+<td>Fobi</td>
+<td>8</td>
+<td>Permanent</td>
+<td>⚠</td>
+<td>Offret får E fobier (slå på fobitabellen); vid dubblett, slå om</td>
+</tr>
+<tr>
+<td>Kontrollera lägre odöd</td>
+<td>8</td>
+<td>Konc</td>
+<td>Sx2 rutor</td>
+<td>Kontrollerar lägre odöd (baneman, dödlikatare m.fl.); kan befalla till gravens vila</td>
+</tr>
+<tr>
+<td>Rädsla (K)</td>
+<td>9</td>
+<td>Omedelbar</td>
+<td>Sx2 rutor</td>
+<td>Misslyckat moralslag → Skräcktabellen; lyckat: nervös, −E CL i 1T4 SR; ej mot odöda/INT-lösa</td>
+</tr>
+<tr>
+<td>Ormskott</td>
+<td>10</td>
+<td>S1 SR</td>
+<td>⚠</td>
+<td>Omvandlar orm (≤100 cm) till pil; träff: normal skada + ormgift; varaktigheten ut → död orm</td>
+</tr>
+<tr>
+<td>Klohand</td>
+<td>11</td>
+<td>¼ veckor</td>
+<td>Personlig</td>
+<td>Naglar omvandlas till klor efter 1 dygn; 1T6+SB skada; faller av vid varaktighetens slut</td>
+</tr>
+<tr>
+<td>Träorm</td>
+<td>11</td>
+<td>Sx1 SR</td>
+<td>⚠</td>
+<td>Omvandlar träpinne (≤1m) till orm: gift E, PSY E; enkla order; varaktigheten ut → pinne igen</td>
+</tr>
+<tr>
+<td>Animera död (R)</td>
+<td>12</td>
+<td>¼ veckor (mumier permanent)</td>
+<td>⚠</td>
+<td>Animerar lik till skelett, zombie eller mumie (balsameringskrav + SIGILL/PERMANENS/NEXUS för mumie)</td>
+</tr>
+<tr>
+<td>Sjukdom (F)</td>
+<td>12</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Infekterar offer med sjukdom ⚠</td>
+</tr>
+<tr>
+<td>Skendöd (K)</td>
+<td>12</td>
+<td>¼ timmar</td>
+<td>Personlig</td>
+<td>Nekromantikern försätter sig i djup dvala; verkar dead; ej medveten om omgivning</td>
+</tr>
+<tr>
+<td>Huggtänder</td>
+<td>13</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>⚠ Skapar huggtänder/skrämmande munvapen ⚠</td>
+</tr>
+<tr>
+<td>Panik</td>
+<td>13</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>⚠ Utlöser masspanik ⚠</td>
+</tr>
+<tr>
+<td>Kontrollera högre odöd</td>
+<td>17</td>
+<td>Konc</td>
+<td>⚠</td>
+<td>Kontrollerar kraftfullare odöda (PSY vs PSY) ⚠</td>
+</tr>
+<tr>
+<td>Epidemi (F, R)</td>
+<td>18</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Spridr sjukdom/pest i ett stort område ⚠</td>
+</tr>
+<tr>
+<td>Krypande hand</td>
+<td>18</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>⚠ En avhuggen/animerad hand kryper och attackerar ⚠</td>
+</tr>
+<tr>
+<td>Livsuttömning</td>
+<td>18</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Tömmer livsenergi från offret ⚠</td>
+</tr>
+<tr>
+<td>Massa (R)</td>
+<td>18</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Animerar en stor massa av odöda ⚠</td>
+</tr>
+<tr>
+<td>Voodooritual (R, F)</td>
+<td>18</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Skadar offer via vaxdocka (Häxkonster-liknande voodoo; rituell) ⚠</td>
+</tr>
+<tr>
+<td>Spökskepp (F, R)</td>
+<td>19</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Frammanar ett spökskepp ⚠</td>
+</tr>
+<tr>
+<td>Förruttnelse (F, K)</td>
+<td>21</td>
+<td>Permanent</td>
+<td>⚠</td>
+<td>Orsakar omedelbar förruttnelse i organisk materia ⚠</td>
+</tr>
+<tr>
+<td>Frammana dödsriddare (R)</td>
+<td>22</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Frammanar en odöd dödsriddare via lång ritual ⚠</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Källa:</strong> Formelboken, s. 45–52</p>
+<hr />
+<h3 id="rostmagi-r">Röstmagi (R)</h3>
+<p><strong>Besvärjelser:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Besvärjelsens namn</th>
+<th>S</th>
+<th>Varaktighet</th>
+<th>Räckvidd</th>
+<th>Effekt (kortfattat)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tillkalla ⚠</td>
+<td>1</td>
+<td>Omedelbar</td>
+<td>Sx10 rutor</td>
+<td>Meddelar alla som känner magikerns namn var han befinner sig just nu</td>
+</tr>
+<tr>
+<td>Kraftrop (K) ⚠</td>
+<td>2</td>
+<td>1T4 SR</td>
+<td>Personlig</td>
+<td>Höjer magikerns STY med E×5 under varaktigheten</td>
+</tr>
+<tr>
+<td>Kartlägga (F, K)</td>
+<td>3</td>
+<td>Omedelbar</td>
+<td>Sx10 rutor</td>
+<td>Sonarliknande kartläggning av omgivningen (alla väggar, hinder, vägar)</td>
+</tr>
+<tr>
+<td>Halt (K)</td>
+<td>4</td>
+<td>1 SR</td>
+<td>Y2 rutor</td>
+<td>Paralyserar offret (1 E krävs per 20 STO) i 1 SR</td>
+</tr>
+<tr>
+<td>Röstlyft (F, K)</td>
+<td>4</td>
+<td>Sx1 SR</td>
+<td>Sx2 rutor</td>
+<td>Lyfter föremål upp till E×1 BEP via röstens kraft</td>
+</tr>
+<tr>
+<td>Bedövad (F, K)</td>
+<td>6</td>
+<td>Omedelbar</td>
+<td>Sx2 rutor</td>
+<td>Dövar alla inom räckvidden (inkl. magikern ej) i 1T4 timmar</td>
+</tr>
+<tr>
+<td>Stridsrop (K)</td>
+<td>6</td>
+<td>Sx1 SR</td>
+<td>Sx2 rutor</td>
+<td>Allierade: +5 CL i strid, behöver ej slå moralslag under varaktigheten</td>
+</tr>
+<tr>
+<td>Tryckvåg (F)</td>
+<td>6</td>
+<td>Omedelbar</td>
+<td>Sx2 rutor</td>
+<td>Tryckvåg med 10×E STY slagkraft knockar bakåt/omkull allt inom räckvidden</td>
+</tr>
+<tr>
+<td>Krossa odöd (K)</td>
+<td>7</td>
+<td>Omedelbar</td>
+<td>Y2 rutor</td>
+<td>1T10×E KP skada på korporala odöda (skelett, zombier)</td>
+</tr>
+<tr>
+<td>Signal (F, K)</td>
+<td>8</td>
+<td>Omedelbar</td>
+<td>Obegränsad</td>
+<td>Skickar platsinformation (position, riktning) till en känd persons sinne</td>
+</tr>
+<tr>
+<td>Kommando (K)</td>
+<td>9</td>
+<td>1T4 SR</td>
+<td>Y2 rutor</td>
+<td>Ettords imperativt kommando som offret PSY-förhäxas att lyda (PSY vs PSY)</td>
+</tr>
+<tr>
+<td>Varningsrop (K)</td>
+<td>9</td>
+<td>Omedelbar</td>
+<td>Obegränsad</td>
+<td>Skickar ett enkelt varningsmeddelande till en känd persons sinne omedelbart</td>
+</tr>
+<tr>
+<td>Röstprojektil (F, K)</td>
+<td>10</td>
+<td>Omedelbar</td>
+<td>Sx2 rutor</td>
+<td>Auto-träff; 1T6+E KP skada (sound-baserad attack)</td>
+</tr>
+<tr>
+<td>Splittra (F, K)</td>
+<td>10</td>
+<td>Omedelbar</td>
+<td>Y2 rutor</td>
+<td>Krossar omedelbart glas, keramik och porslin inom räckvidden</td>
+</tr>
+<tr>
+<td>Ljudstyrka ⚠</td>
+<td>12</td>
+<td>Sx4 SR</td>
+<td>Sx2 rutor</td>
+<td>Eskalerande ljudskada (1 KP/SR, sedan 2 KP/SR etc.) + alla CL halveras inom räckvidden</td>
+</tr>
+<tr>
+<td>Rädd (K) ⚠</td>
+<td>12</td>
+<td>Omedelbar</td>
+<td>Sx2 rutor</td>
+<td>Offret slår på Skräcktabellen ⚠</td>
+</tr>
+<tr>
+<td>Fruktan (K)</td>
+<td>13</td>
+<td>1T4 SR</td>
+<td>Y2 rutor</td>
+<td>Alla inom räckvidden flyr i panik eller kryper ihop av skräck; återhämtar sig direkt vid varaktighetens slut</td>
+</tr>
+<tr>
+<td>Gästskrik (K)</td>
+<td>15</td>
+<td>Omedelbar</td>
+<td>Sx2 rutor</td>
+<td>Vidrigt skrik; alla inom räckvidden slår på Skräcktabellen; TYSTNAD motverkar (E vs E)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Källa:</strong> Formelboken, s. 53–56</p>
+<hr />
+<h3 id="spiritism-sp">Spiritism (Sp)</h3>
+<p><strong>Besvärjelser:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Besvärjelsens namn</th>
+<th>S</th>
+<th>Varaktighet</th>
+<th>Räckvidd</th>
+<th>Effekt (kortfattat)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Andebeskydd</td>
+<td>1</td>
+<td>¼ minut</td>
+<td>Personlig</td>
+<td>Skydd mot andar/gasters attacker (PSY vs andens PSY); −(5+E) på Skräcktabellen; −E on grundegenskapsminskning</td>
+</tr>
+<tr>
+<td>Kontrollera andar</td>
+<td>2</td>
+<td>Konc</td>
+<td>Sx2 rutor</td>
+<td>Kontrollerar en ande (spöke, lyktgubbe) om spiritistens PSY övervinner andens</td>
+</tr>
+<tr>
+<td>Mental attack (K)</td>
+<td>6</td>
+<td>Omedelbar</td>
+<td>⚠</td>
+<td>Angriper offrets psyke; minskar offrets PSY med 1T4+E; MOTSTÅNDSKRAFT minskar skadan</td>
+</tr>
+<tr>
+<td>Avläsa PSY-mängd</td>
+<td>7</td>
+<td>Omedelbar</td>
+<td>2 rutor</td>
+<td>Avläser exakt hur många PSY-poäng offret har just nu</td>
+</tr>
+<tr>
+<td>Mental projektil</td>
+<td>9</td>
+<td>Omedelbar</td>
+<td>Sx2 rutor</td>
+<td>Som Mental attack men längre räckvidd</td>
+</tr>
+<tr>
+<td>Andelokalisering</td>
+<td>10</td>
+<td>Omedelbar</td>
+<td>Sx10 rutor</td>
+<td>E effektgrader anger riktningen till en ande var inom räckvidden (slumpmässig ande)</td>
+</tr>
+<tr>
+<td>Andepassagerare ⚠</td>
+<td>10 ⚠</td>
+<td>¼ dygn</td>
+<td>Beröring</td>
+<td>Flyttar en intelligent varelses gjäl till en annans kropp som passagerare; värden behåller kontrollen</td>
+</tr>
+<tr>
+<td>Andesläja (K)</td>
+<td>10</td>
+<td>Sx1 minuter</td>
+<td>Personlig</td>
+<td>Magikern kan ej upptickas av andar; andar kan ej heller angripa honom</td>
+</tr>
+<tr>
+<td>Andelyft</td>
+<td>10</td>
+<td>Konc</td>
+<td>⚠</td>
+<td>Kontrollerar liten ande att lyfta föremål (max BEP+andens PSY/2) E meter, 5 rutor/SR</td>
+</tr>
+<tr>
+<td>Levitera</td>
+<td>10</td>
+<td>Konc</td>
+<td>Personlig</td>
+<td>Ande lyfter magikern E meter upp i luften; hastighet 5 rutor/SR; andens STY+PSY BEP bärförmåga</td>
+</tr>
+<tr>
+<td>Tala med död</td>
+<td>11</td>
+<td>⚠</td>
+<td>Y2 rutor</td>
+<td>Kommunicerar med döda (kräver: rätt plats, namn, gemensamt språk); E frågor; svar ja/nej eller gåta</td>
+</tr>
+<tr>
+<td>Astralt spår</td>
+<td>12</td>
+<td>Omedelbar</td>
+<td>10 mil</td>
+<td>Lokaliserar intelligent varelse man en gång vidrört och känner till namnet; lurad av VARSEBLINDNING</td>
+</tr>
+<tr>
+<td>Andeslag</td>
+<td>12</td>
+<td>Omedelbar</td>
+<td>Y2 rutor</td>
+<td>Skadar andar/gastar: −1 PSY permanent/E; vid PSY=0 förintas anden</td>
+</tr>
+<tr>
+<td>Poltergeist</td>
+<td>12</td>
+<td>¼ minuter</td>
+<td>Sx2 rutor</td>
+<td>Vild ande orsakar kaos: alla föremål flyger, alla ljud ökar i styrka</td>
+</tr>
+<tr>
+<td>Andehelning</td>
+<td>13</td>
+<td>Omedelbar</td>
+<td>⚠</td>
+<td>Tillkallar läkande ande (S=1T6+12 för HELA); anden helar en person magikern rör; löfte krävs</td>
+</tr>
+<tr>
+<td>Seans (R)</td>
+<td>14</td>
+<td>Konc</td>
+<td>Obegränsad</td>
+<td>Kommunicerar med döda var som helst (PSY vs dödes PSY×3); assistenter lägger till PSY/2</td>
+</tr>
+<tr>
+<td>Materialisation (R)</td>
+<td>15</td>
+<td>Sx1 minuter</td>
+<td>Obegränsad</td>
+<td>Ande besätter spiritistens kropp och talar/demonstrerar via denne; PSY vs dödes PSY×3</td>
+</tr>
+<tr>
+<td>Fördrivning (R)</td>
+<td>16</td>
+<td>Permanent</td>
+<td>Sx2 rutor</td>
+<td>Exorcism av spöke/lyktgubbe/ande; dansar runt platsen; vid lyckat PSY-slag: permanent exorcism</td>
+</tr>
+<tr>
+<td>Restitution (R)</td>
+<td>16</td>
+<td>Permanent</td>
+<td>⚠</td>
+<td>Återställer E grundegenskapspoäng förlorade permanent via ande/gast-attacker</td>
+</tr>
+<tr>
+<td>Själavandring</td>
+<td>17</td>
+<td>¼ minuter</td>
+<td>Personlig</td>
+<td>Astralkropp kan röra sig fritt (+5 CL Kamouflage); kan ej skadas men kan förhäxas av andbesvärjelser</td>
+</tr>
+<tr>
+<td>Själatransfusion</td>
+<td>18</td>
+<td>¼ dygn</td>
+<td>Beröring</td>
+<td>Flyttar gjäl till kropp utan gjäl (5–10 min död/SJÄALAFALLA); sjäalen tar INT/PSY/KAR/fäardigheter</td>
+</tr>
+<tr>
+<td>Andebindning</td>
+<td>19</td>
+<td>Sx4 timmar</td>
+<td>Y2 rutor</td>
+<td>Binder odöd ande/gast till föremål; spiritisten styr andens förmågor; evig med SIGILL+PERMANENS</td>
+</tr>
+<tr>
+<td>Safi</td>
+<td>19</td>
+<td>¼ veckor</td>
+<td>Sx2 rutor</td>
+<td>Fångar gjäl i ädelsten (diamant/rubin/smaragd/topas ≥0,2g); kroppen lever i koma; evig med PERMANENS+SIGILL</td>
+</tr>
+<tr>
+<td>Själaförvittring</td>
+<td>20</td>
+<td>Permanent</td>
+<td>Beröring</td>
+<td>Offrets PSY minskar permanent med 1T3+E; vid PSY=0 inträder döden</td>
+</tr>
+<tr>
+<td>Voodookontroll (R)</td>
+<td>25</td>
+<td>¼ dygn</td>
+<td>Special</td>
+<td>Full kontroll via vaxdocka+offrets föremål; räckvidd 10m/E×10; offret handlingspasivt utom räckvidd; bryts om dockan förstörs</td>
+</tr>
+<tr>
+<td>Spökdråp</td>
+<td>27</td>
+<td>Omedelbar</td>
+<td>⚠</td>
+<td>Tvingar just avliden varelses gjäl att stanna som spöke; ett uppfyllbart villkor ger spöket möjlighet att lämna</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Källa:</strong> Formelboken, s. 55–59</p>
+<hr />
+<h3 id="stavmagi-st">Stavmagi (St)</h3>
+<p><em>(Kräver en stav. Stavets PSY ökar vid PSY-chans. Inga PSY-självmordsattacker.)</em></p>
+<p><strong>Besvärjelser:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Besvärjelsens namn</th>
+<th>S</th>
+<th>Varaktighet</th>
+<th>Räckvidd</th>
+<th>Effekt (kortfattat)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tändare (R) ⚠</td>
+<td>1</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>⚠ Ritual-besvärjelse — detaljer oklara</td>
+</tr>
+<tr>
+<td>Stavrep</td>
+<td>2</td>
+<td>Konc</td>
+<td>⚠</td>
+<td>Staven förvandlas till rep (max 2×stavens längd × E); återgår till stav vid beröring/attack</td>
+</tr>
+<tr>
+<td>Sfär</td>
+<td>4</td>
+<td>Konc</td>
+<td>Personlig</td>
+<td>Snurrande stav skapar sfär: besvärjelser måste övervinna E; projektiler −3 CL/E; 1 nä.stridsvapen/E pareras auto</td>
+</tr>
+<tr>
+<td>Förlamning (K)</td>
+<td>5</td>
+<td>Sx1 SR</td>
+<td>Beröring</td>
+<td>Paralyse vid beröring med staven (PSY vs PSY)</td>
+</tr>
+<tr>
+<td>Stavorm (K)</td>
+<td>5</td>
+<td>Sx2 SR</td>
+<td>⚠</td>
+<td>Staven (kastad) blir orm: Förfl=E×4; CL=E×3; skada=1T3+E; gift E×3; abs=E; &gt;E×2 KP → kryler tillbaka; &gt;E×5 KP → stav+2T6 till magi</td>
+</tr>
+<tr>
+<td>Förstärka (K)</td>
+<td>6</td>
+<td>Konc</td>
+<td>Beröring</td>
+<td>Fördubblar ett föremåls (ej levande varelse) KP, BEP, STY, svårighetsgrad</td>
+</tr>
+<tr>
+<td>Spindelväv</td>
+<td>6</td>
+<td>Sx1 minuter</td>
+<td>Sx1 rutor</td>
+<td>Konformad klibbig spindelväv; fastnar om ej STY&gt;14+E (nytt slag varje minut)</td>
+</tr>
+<tr>
+<td>Stavflykt (K)</td>
+<td>6</td>
+<td>Omedelbar</td>
+<td>Sx10 rutor</td>
+<td>Staven återvänder automatiskt till magikern (SPLITTRA via staven om hinder)</td>
+</tr>
+<tr>
+<td>Stavprojektil (K)</td>
+<td>6</td>
+<td>Omedelbar</td>
+<td>Sx1 rutor</td>
+<td>Staven kastas mot mål; utlöser SPLITTRA/FÖRINTELSE (organiskt/oorganiskt); annars 1T6/E; staven återvänder</td>
+</tr>
+<tr>
+<td>Ljusblixt ⚠(K/R)</td>
+<td>7</td>
+<td>Omedelbar</td>
+<td>Sx2 rutor</td>
+<td>Staven blixtrar; alla med öppna ögon (utom magikern) slår PSY eller bländas 1T4+E SR</td>
+</tr>
+<tr>
+<td>Blixtnedslag (F)</td>
+<td>8</td>
+<td>Omedelbar</td>
+<td>Sx2 rutor</td>
+<td>Blixt slår ned på önskad plats; 1T6/E KP skada på allt inom 1 ruta</td>
+</tr>
+<tr>
+<td>Åskknall (F, K)</td>
+<td>10</td>
+<td>Omedelbar</td>
+<td>Personlig</td>
+<td>Blixtknall; varelser 0–2 rutor bort immuna; varelser upp till 10 rutor bort tar 2T6 KP</td>
+</tr>
+<tr>
+<td>Stavklyvning (K) ⚠</td>
+<td>11</td>
+<td>Omedelbar</td>
+<td>Sx2 rutor</td>
+<td>Klyvar (förstör) en stav; aktiv stavs PSY vs angripen stavs PSY; miss = snedtändning</td>
+</tr>
+<tr>
+<td>Avvapna (F, K)</td>
+<td>12</td>
+<td>Omedelbar</td>
+<td>Sx2 rutor</td>
+<td>Staven i marken attraherar 5×E metallvapen (BEP×4 vs stavmagikers färdighet)</td>
+</tr>
+<tr>
+<td>Blodregn</td>
+<td>13</td>
+<td>1 minut</td>
+<td>Sx50 rutor</td>
+<td>Blodregn i (3×E)² rutor kvadrat; PSY vs 15+E eller slå på Skräcktabellen</td>
+</tr>
+<tr>
+<td>Splittring (K)</td>
+<td>13</td>
+<td>Omedelbar</td>
+<td>Beröring</td>
+<td>Klyvar/förstör föremål med STO ≤ E²×3; magiska föremål påverkas ej</td>
+</tr>
+<tr>
+<td>Eldvirvel (F)</td>
+<td>14</td>
+<td>Sx1 SR</td>
+<td>Sx2 rutor</td>
+<td>Eldvirvel i 3m radie ger 1 KP/SR skada på allt; brännbart förbränns</td>
+</tr>
+<tr>
+<td>Vattendelning</td>
+<td>16</td>
+<td>Sx10 minuter</td>
+<td>Sx10 rutor</td>
+<td>Klyvar vattenmassa: bred E³m, djup E²m, passage E²/2m bred</td>
+</tr>
+<tr>
+<td>Förintelse (F, K)</td>
+<td>18</td>
+<td>Omedelbar</td>
+<td>Beröring</td>
+<td>Förtorkar 4 STO/E i varelse/växt; delpåverkan ger KP-skada = STO som torkar ut</td>
+</tr>
+<tr>
+<td>Jordbävning (F, K)</td>
+<td>22</td>
+<td>Omedelbar</td>
+<td>Sx5 rutor</td>
+<td>Lokalt skalv; levande varelser slår SMI eller faller + 1T4+E KP; byggnadsskade-% per SL</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Källa:</strong> Formelboken, s. 59–61</p>
+<hr />
+<h3 id="symbolism-s">Symbolism (S)</h3>
+<p><strong>Minibesvärjelser</strong> <em>(symboler och skrift, kostar 1 PSY, 1 timme varaktighet)</em>:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Minibesvärjelse</th>
+<th>Effekt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bläckfinger</td>
+<td>Bläck rinner från fingernagel; kan skriva med fingret som penna i 1 timme</td>
+</tr>
+<tr>
+<td>Kritfinger</td>
+<td>Fingernageln fungerar som krita i 1 timme</td>
+</tr>
+<tr>
+<td>Rena</td>
+<td>Tar bort bläck/vätska spilld på papper/tyg (max 1 dm², 1 cl)</td>
+</tr>
+<tr>
+<td>Sudda</td>
+<td>Tar bort skrift från papper/tyg (funkar ej mot ristad/etsat text)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Besvärjelser:</strong> <em>(alla kräver att symbolisten tecknar en symbol; offret måste SE symbolen)</em></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Besvärjelsens namn</th>
+<th>S</th>
+<th>Varaktighet</th>
+<th>Räckvidd</th>
+<th>Effekt (kortfattat)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Osäkerhet</td>
+<td>3</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Alla som ser symbolen tvivlar på sig själva; −1 CL/E på alla färdighetsslag</td>
+</tr>
+<tr>
+<td>Stopp</td>
+<td>4</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Offer som rör sig mot symbolisten måste stanna och kan inte komma närmare</td>
+</tr>
+<tr>
+<td>Lockelse</td>
+<td>5</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Offren vandrar mot symbolen för att studera den; bryter ej självbevarelsedriften</td>
+</tr>
+<tr>
+<td>Fred</td>
+<td>6</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Offren glömmer alla våldsamma tankar; bryts om de attackeras fysiskt</td>
+</tr>
+<tr>
+<td>Paralys ⚠</td>
+<td>⚠6</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Intelligenta varelser paralyseras fullständigt; bryts om de utsätts för fysiskt våld</td>
+</tr>
+<tr>
+<td>Fjärrskrift (K)</td>
+<td>8</td>
+<td>Konc (1 PSY/E/SR)</td>
+<td>Sx1 km</td>
+<td>Tecknar budskap som simultant syns på annan plats i ljusform (5 bokst./SR); ljustecknen försvinner när besvärjelsen upphör</td>
+</tr>
+<tr>
+<td>Kraft</td>
+<td>10</td>
+<td>Permanent</td>
+<td>Special</td>
+<td>Batterisymbol kopplad till annan symbol; aktiverar den vid exakt definierat fysiskt villkor; urladdas sen</td>
+</tr>
+<tr>
+<td>Blindhet</td>
+<td>11</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Offren som ser symbolen förlorar synförmågan</td>
+</tr>
+<tr>
+<td>Epilepsi</td>
+<td>11</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Offren faller medvetslösa till marken och skakar</td>
+</tr>
+<tr>
+<td>Sanning</td>
+<td>11</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Offren tvingas svara sanningsenligt på alla frågor; intelligenta ordlekar tillåtna</td>
+</tr>
+<tr>
+<td>Karismasymbol</td>
+<td>12</td>
+<td>Permanent (bärs)</td>
+<td>Special</td>
+<td>Symbolen görs i metall/ben/trä/sten som synligt smycke; ger KAR-ökning; verkar ej mot symbolister</td>
+</tr>
+<tr>
+<td>Läka</td>
+<td>12</td>
+<td>Omedelbar</td>
+<td>⚠</td>
+<td>Alla som ser symbolen återfår 1 KP/E</td>
+</tr>
+<tr>
+<td>Vägvisare</td>
+<td>12</td>
+<td>Omedelbar</td>
+<td>⚠</td>
+<td>Leder de som drabbas in i den passage/dörr/riktning symbolisten önskar</td>
+</tr>
+<tr>
+<td>Försvar</td>
+<td>13</td>
+<td>Omedelbar</td>
+<td>⚠</td>
+<td>Osynliga chockvågor ger 1T3/E KP skada mot alla som ser symbolen</td>
+</tr>
+<tr>
+<td>Glömska</td>
+<td>13</td>
+<td>Permanent</td>
+<td>⚠</td>
+<td>Offret glömmer allt som hänt under E² timmar bakåt i tid (permanent)</td>
+</tr>
+<tr>
+<td>Vänskap</td>
+<td>13</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Offren blir vänliga mot symbolisten</td>
+</tr>
+<tr>
+<td>Ärlighet</td>
+<td>13</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Offren kan inte ljuga mot symbolisten; mot andra kan de ljuga fritt</td>
+</tr>
+<tr>
+<td>Blockera teleportering</td>
+<td>14</td>
+<td>⚠</td>
+<td>Special</td>
+<td>Hindrar TELEPORTERA in i byggnad/ihåligt rum (1E/1000 m³ volym)</td>
+</tr>
+<tr>
+<td>Elementarskydd</td>
+<td>14</td>
+<td>Omedelbar</td>
+<td>⚠</td>
+<td>Återsänder elementar till hemplan om E övervinner elementarens E</td>
+</tr>
+<tr>
+<td>Stridsmod</td>
+<td>14</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>De som ser symbolen behöver ej moralslag; +1 CL på stridsfärdigheter</td>
+</tr>
+<tr>
+<td>Fruktan</td>
+<td>15</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Offren slår E gånger på Skräcktabellen (bara det högsta slaget räknas)</td>
+</tr>
+<tr>
+<td>Hypnos</td>
+<td>15</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Offren faller i trans; svarar/gör som tillsags; bryter ej mot djupa psykiska hinder</td>
+</tr>
+<tr>
+<td>Plaga ⚠</td>
+<td>⚠16</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Offren plågas och kan ej utföra handlingar (kramper e.d.) ⚠</td>
+</tr>
+<tr>
+<td>Andeskydd</td>
+<td>18</td>
+<td>Omedelbar</td>
+<td>⚠</td>
+<td>Återsänder andar/gastar till hemplan (E vs andens/gastens PSY-grupp)</td>
+</tr>
+<tr>
+<td>Animera stenstaty</td>
+<td>19</td>
+<td>Sx2 SR (aktiv)</td>
+<td>Sx2 rutor</td>
+<td>Animerar stenskulptur med KRAFTsymbol: 5 STO/E; STY 4/E, STO 5/E, FYS 7/E, SMI 2/E, INT 2, abs 1/E; kräver Stenskulptering B2+</td>
+</tr>
+<tr>
+<td>Stridslust</td>
+<td>19</td>
+<td>⚠</td>
+<td>⚠</td>
+<td>Offren uppfylls av våldsamma tankar och går omedelbart till angrepp mot närmaste varelse</td>
+</tr>
+<tr>
+<td>Väktare</td>
+<td>20</td>
+<td>⚠</td>
+<td>Special</td>
+<td>Larmsystem via 1:100-modell av byggnad; aktiveras vid E definierade fysiska villkor; visar lysande punkt för intrång</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Källa:</strong> Formelboken, s. 61–65</p>
+</main>
+<footer><span>Drakar och Demoner Expert Wiki · Baserad på originalreglerna</span><span class="footer-meta">v2026.07.14 · Uppdaterad 2026-07-14</span></footer>
+</body>
+</html>

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grundegenskaper — D&amp;DE Expert — DoDE Wiki</title>
+<style>
+:root {
+  --red:      #6B1A1A;
+  --red-dark: #4A0E0E;
+  --paper:    #FAF3F0;
+  --text:     #2A0808;
+  --gold:     #D4956B;
+  --border:   #C4907A;
+  --link:     #6B1A1A;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --red:      #C05050;
+    --red-dark: #8B2020;
+    --paper:    #1E1010;
+    --text:     #F0DDD5;
+    --gold:     #D4956B;
+    --border:   #6B3A2A;
+    --link:     #E07070;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+  background: var(--paper);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── TOPPNAV ── */
+#topnav {
+  background: var(--red-dark);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 2px solid var(--gold);
+}
+#topnav .site-title {
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 10px 16px 10px 0;
+  white-space: nowrap;
+  border-right: 1px solid rgba(212,149,107,0.3);
+  margin-right: 8px;
+}
+#topnav a {
+  color: #F5E6D3;
+  text-decoration: none;
+  padding: 10px 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+#topnav a:hover { color: #fff; border-bottom-color: var(--gold); }
+#topnav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+.nav-section {
+  color: rgba(212,149,107,0.55);
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 6px 10px 10px;
+  white-space: nowrap;
+  border-left: 1px solid rgba(212,149,107,0.25);
+  margin-left: 4px;
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+/* ── TYPOGRAFI ── */
+h1 { font-size: 2rem; color: var(--red); border-bottom: 3px solid var(--gold); padding-bottom: 10px; margin-bottom: 28px; }
+h2 { font-size: 1.4rem; color: var(--red-dark); margin: 32px 0 12px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.1rem; color: var(--red); margin: 22px 0 8px; }
+h4 { font-size: 1rem; font-weight: bold; margin: 16px 0 6px; }
+p  { line-height: 1.75; margin-bottom: 12px; }
+ul, ol { margin: 8px 0 14px 24px; line-height: 1.75; }
+li { margin-bottom: 4px; }
+
+/* ── WIKILÄNKAR ── */
+a { color: var(--link); }
+a:hover { text-decoration: underline; }
+a.wikilink { border-bottom: 1px dotted var(--gold); text-decoration: none; color: var(--link); }
+a.wikilink:hover { border-bottom-style: solid; }
+
+/* ── TABELLER ── */
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 400px; }
+th { background: var(--red); color: var(--gold); padding: 8px 10px; text-align: left; white-space: nowrap; }
+td { padding: 7px 10px; border-bottom: 1px solid var(--border); }
+tr:nth-child(even) td { background: rgba(196,144,122,0.08); }
+tr:hover td { background: rgba(196,144,122,0.16); }
+
+/* ── KAMPANJRUTA ── */
+.kampanj-ruta { background: rgba(107,26,26,0.07); border: 1px solid rgba(107,26,26,0.35); border-left: 4px solid var(--red); border-radius: 6px; padding: 18px 20px; margin: 24px 0 32px; }
+.kampanj-ruta .kr-rubrik { font-size: 0.72rem; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+.kampanj-ruta p { font-size: 0.92rem; line-height: 1.65; margin: 0 0 10px; }
+.kampanj-ruta p:last-child { margin-bottom: 0; }
+.kampanj-ruta ul { margin: 8px 0 10px 18px; padding: 0; }
+.kampanj-ruta li { font-size: 0.92rem; line-height: 1.6; margin-bottom: 4px; }
+
+/* ── KOD / BLOCKQUOTE ── */
+code { background: rgba(107,26,26,0.08); padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 0.88em; }
+pre  { background: rgba(107,26,26,0.06); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; overflow-x: auto; margin: 14px 0; }
+pre code { background: none; padding: 0; }
+blockquote { border-left: 4px solid var(--gold); padding: 10px 16px; margin: 14px 0; background: rgba(212,149,107,0.08); font-style: italic; }
+
+/* ── FOOTER ── */
+footer { margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer-meta { font-style: italic; }
+main img { max-width: 100%; height: auto; border: 1px solid var(--border); border-radius: 4px; margin: 16px 0; }
+
+/* ── NYCKELORDSINDEX ── */
+.kw-index { column-count: 3; column-gap: 32px; }
+@media (max-width: 600px) { .kw-index { column-count: 1; } main { padding: 24px 16px; } }
+.kw-entry { break-inside: avoid; margin-bottom: 10px; font-size: 0.9rem; line-height: 1.5; }
+.kw-entry .kw-term { font-weight: bold; color: var(--red); }
+.kw-entry .kw-pages a { font-size: 0.82rem; color: var(--link); margin-right: 6px; }
+</style>
+
+</head>
+<body>
+<nav id="topnav">
+  <span class="site-title">⚔ DoDE Expert</span>
+  <a href="index.html">📖 Index</a>
+<a href="grundegenskaper.html" class="active">💪 Grundegenskaper</a>
+<a href="strid.html">⚔️ Strid & Vapen</a>
+<a href="fardigheter.html">🎯 Färdigheter</a>
+<a href="raser.html">🧝 Raser</a>
+<a href="yrken.html">🛡️ Yrken</a>
+<a href="magi.html">✨ Magi</a>
+<a href="utrustning.html">🗡️ Utrustning</a>
+<a href="hjaltar.html">🌟 Hjältar</a>
+<a href="monster.html">🐉 Varelser</a>
+<a href="drakar.html">🔥 Drakar</a>
+<a href="demonologi.html">🔮 Demonologi</a>
+<a href="kallor.html">📚 Källor</a>
+
+</nav>
+<main>
+<h1>Grundegenskaper — D&amp;DE Expert</h1>
+<blockquote>
+<p><strong>Källa:</strong> REG s.5–6 · RP s.23–26 · KH s.3</p>
+</blockquote>
+<hr />
+<h2 id="snabbreferens">Snabbreferens</h2>
+<p>De sju grundegenskaperna:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Förkortning</th>
+<th>Namn</th>
+<th>Slås med</th>
+<th>Typvärde (människa)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>STY</strong></td>
+<td>Styrka</td>
+<td>3T6</td>
+<td>10–11</td>
+</tr>
+<tr>
+<td><strong>FYS</strong></td>
+<td>Fysik</td>
+<td>3T6</td>
+<td>10–11</td>
+</tr>
+<tr>
+<td><strong>SMI</strong></td>
+<td>Smidighet</td>
+<td>3T6</td>
+<td>10–11</td>
+</tr>
+<tr>
+<td><strong>INT</strong></td>
+<td>Intelligens</td>
+<td>3T6</td>
+<td>10–11</td>
+</tr>
+<tr>
+<td><strong>PSY</strong></td>
+<td>Psyke</td>
+<td>3T6</td>
+<td>10–11</td>
+</tr>
+<tr>
+<td><strong>KAR</strong></td>
+<td>Karisma</td>
+<td>3T6</td>
+<td>10–11</td>
+</tr>
+<tr>
+<td><strong>STO</strong></td>
+<td>Storlek</td>
+<td>2T6+6</td>
+<td>13</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(STO slås med 2T6+6 för människa — RP s.9)</em></p>
+<hr />
+<h2 id="grupp-tabell">Grupp-tabell</h2>
+<p>Grupp-värdet används bl.a. för BC (baschans) i färdigheter.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Egenskapsvärde</th>
+<th>Grupp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>4–8</td>
+<td>1</td>
+</tr>
+<tr>
+<td>9–12</td>
+<td>2</td>
+</tr>
+<tr>
+<td>13–16</td>
+<td>3</td>
+</tr>
+<tr>
+<td>17–20</td>
+<td>4</td>
+</tr>
+<tr>
+<td>21–25</td>
+<td>5</td>
+</tr>
+<tr>
+<td>26–30</td>
+<td>6</td>
+</tr>
+<tr>
+<td>31–40</td>
+<td>7</td>
+</tr>
+<tr>
+<td>41–50</td>
+<td>8</td>
+</tr>
+<tr>
+<td>51–60</td>
+<td>9</td>
+</tr>
+<tr>
+<td>61–70</td>
+<td>10</td>
+</tr>
+<tr>
+<td>71–80</td>
+<td>11</td>
+</tr>
+<tr>
+<td>81–90</td>
+<td>12</td>
+</tr>
+<tr>
+<td>91–100</td>
+<td>13</td>
+</tr>
+<tr>
+<td>101–110</td>
+<td>14</td>
+</tr>
+<tr>
+<td>111–120</td>
+<td>15</td>
+</tr>
+<tr>
+<td>121–130</td>
+<td>16</td>
+</tr>
+<tr>
+<td>131–140</td>
+<td>17</td>
+</tr>
+<tr>
+<td>141–150</td>
+<td>18</td>
+</tr>
+<tr>
+<td>151–160</td>
+<td>19</td>
+</tr>
+<tr>
+<td>161–170</td>
+<td>20</td>
+</tr>
+<tr>
+<td>171–180</td>
+<td>21</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(Tabellen fortsätter uppåt — REG s.6)</em></p>
+<hr />
+<h2 id="harledda-varden">Härledda värden</h2>
+<h3 id="kroppspoang-kp">Kroppspoäng (KP)</h3>
+<blockquote>
+<p><strong>KP = (STO + FYS) / 2</strong> (avrunda till närmaste heltal)</p>
+</blockquote>
+<ul>
+<li>KP 0 → medvetslös, kan krypa/försöka <a class="wikilink" href="strid.html#helande">Första Hjälpen</a> med halverad CL</li>
+<li>KP negativt till −FYS → blöder ut, 1 KP/halvminut (6 SR)</li>
+<li>KP ≤ −FYS → dör av skadorna</li>
+</ul>
+<p>Exempel: STO 13, FYS 12 → KP = (13+12)/2 = 12,5 → <strong>13 KP</strong></p>
+<h3 id="skadebonus-sb">Skadebonus (SB)</h3>
+<p>Skadebonus läggs till <strong>närstridsskada</strong> och beräknas från <strong>STY + STO</strong>:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>STY + STO</th>
+<th>Skadebonus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2–12</td>
+<td>−1T4</td>
+</tr>
+<tr>
+<td>13–16</td>
+<td>+0</td>
+</tr>
+<tr>
+<td>17–24</td>
+<td>+1T4</td>
+</tr>
+<tr>
+<td>25–32</td>
+<td>+1T6</td>
+</tr>
+<tr>
+<td>33–40</td>
+<td>+2T4</td>
+</tr>
+<tr>
+<td>41–48</td>
+<td>+2T6</td>
+</tr>
+<tr>
+<td>49+</td>
+<td>+3T6</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(Källa: RP s.25 — ⚠ exakta gränsvärden bör verifieras mot original)</em></p>
+<p><strong>Viktigt:</strong> <a class="wikilink" href="yrken.html#lonnmordare">Lönnmördare</a> använder INTE skadebonus vid bakhugg-attacker.</p>
+<h3 id="forflyttning-forfl">Förflyttning (Förfl.)</h3>
+<p>Förflyttningsförmågan mäts i <strong>rutor per SR</strong> (1 ruta = 1,5 m, 1 SR ≈ 5 sek):</p>
+<blockquote>
+<p><strong>Förfl. = (SMI + FYS + STO) / 3</strong> (avrunda nedåt) — justeras sedan mot tabell (RP s.24–25)</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Formelresultat</th>
+<th>Förflyttning (rutor/SR)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3–4</td>
+<td>5</td>
+</tr>
+<tr>
+<td>5–6</td>
+<td>6</td>
+</tr>
+<tr>
+<td>7–8</td>
+<td>7</td>
+</tr>
+<tr>
+<td>9–10</td>
+<td>8</td>
+</tr>
+<tr>
+<td>11–12</td>
+<td>9</td>
+</tr>
+<tr>
+<td>13–14</td>
+<td>10</td>
+</tr>
+<tr>
+<td>15–16</td>
+<td>11</td>
+</tr>
+<tr>
+<td>17–18</td>
+<td>12</td>
+</tr>
+<tr>
+<td>19–20</td>
+<td>13</td>
+</tr>
+<tr>
+<td>21–22</td>
+<td>14</td>
+</tr>
+<tr>
+<td>23–24</td>
+<td>15</td>
+</tr>
+<tr>
+<td>25+</td>
+<td>+1/per 2</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(⚠ Exakta tabellvärden — verifiera mot RP s.24–25)</em></p>
+<h3 id="barformaga">Bärförmåga</h3>
+<p>En rollpersons normala bärförmåga är lika med <strong>STY kg</strong> — så mycket kan han alltid bära utan att bli nämnvärt uttröttad. Varje föremål har ett <strong>BEP-värde</strong> (belastningspoäng, ≈ 3 kg/BEP).</p>
+<p><strong>Kläder räknas inte</strong> in i bördan. Bär man en rustning räknas bara <strong>halva vikten</strong> av rustningsdelen man har på kroppen.</p>
+<h4 id="effekter-av-overbelastning">Effekter av överbelastning</h4>
+<p>Om man bär mer än sin normala bärförmåga minskar <strong>förflyttningsförmågan</strong> samt <strong>SMI och CL i SMI-baserade färdigheter</strong>. SL avgör i vilken utsträckning beroende på situation.</p>
+<h4 id="simning-klattring-och-lopning">Simning, klättring och löpning</h4>
+<p>När FYS används för att avgöra hur <em>långt</em> (inte hur fort) en rollperson orkar simma, klättra eller springa dras <strong>hälften av antalet kg</strong> man bär ifrån FYS.</p>
+<h4 id="rustningsvikter-bep-beroende-pa-bararens-sto">Rustningsvikter (BEP) — beroende på bärarens STO</h4>
+<p>Rustningsdelar har en viktkod (A–F) som beror på bärarens STO:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Viktkod</th>
+<th>STO 5–8</th>
+<th>STO 9–12</th>
+<th>STO 13–16</th>
+<th>STO 17–20</th>
+<th>STO 21–25</th>
+<th>STO 26–30</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>1,5</td>
+<td>2,0</td>
+<td>2,5</td>
+<td>3,0</td>
+<td>3,5</td>
+<td>4,0</td>
+</tr>
+<tr>
+<td>B</td>
+<td>2,0</td>
+<td>2,5</td>
+<td>3,0</td>
+<td>3,5</td>
+<td>4,0</td>
+<td>4,5</td>
+</tr>
+<tr>
+<td>C</td>
+<td>2,5</td>
+<td>3,0</td>
+<td>3,5</td>
+<td>4,5</td>
+<td>5,0</td>
+<td>6,0</td>
+</tr>
+<tr>
+<td>D</td>
+<td>3,0</td>
+<td>4,0</td>
+<td>5,0</td>
+<td>6,0</td>
+<td>7,0</td>
+<td>8,0</td>
+</tr>
+<tr>
+<td>E</td>
+<td>4,0</td>
+<td>5,0</td>
+<td>6,5</td>
+<td>7,5</td>
+<td>9,0</td>
+<td>10,0</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(REG s.54, SB s.44)</em></p>
+<h3 id="psykisk-kraft-psy">Psykisk kraft (PSY)</h3>
+<p>PSY används som:
+- "Bränsle" för yrkesförmågor (<a class="wikilink" href="yrken.html#krigare">Krigare</a> +5 initiativ kräver ingen PSY; Riddare spenderar 5 PSY för specialmöjligheter)
+- Motstånd mot besvärjelser och sinnesmanipulation
+- Magi: magiker använder PSY-poäng för att kasta besvärjelser (⚠ verifiera exakt mekanism mot MAG)
+- Återfylls efter <strong>sömn</strong> (normalt 8 timmar, alver 4 timmar)</p>
+<hr />
+<h2 id="egenskapernas-roll">Egenskapernas roll</h2>
+<h3 id="sty-styrka">STY (Styrka)</h3>
+<ul>
+<li>Avgör om man kan använda ett vapen (STY-krav)</li>
+<li>Ingår i skadebonus</li>
+<li>Används vid fasthållning, brottning, fysisk kraft</li>
+<li>Motståndsslag STY mot STY vid vissa situationer</li>
+</ul>
+<h3 id="fys-fysik">FYS (Fysik)</h3>
+<ul>
+<li>Ingår i KP och Förflyttning</li>
+<li>Resistens mot gift, sjukdom, extrem kyla/värme</li>
+<li>Hur länge man orkar springa, hålla andan, etc.</li>
+</ul>
+<h3 id="smi-smidighet">SMI (Smidighet)</h3>
+<ul>
+<li>Grundegenskap för de flesta vapenfärdigheter (BG = SMI-grupp)</li>
+<li>Avgör turordning i strid</li>
+<li>Karate ger +5 SMI för initiativ</li>
+<li>Grundegenskap för tjuvfärdigheter (Smyga, Klättra, Hoppa, etc.)</li>
+</ul>
+<h3 id="int-intelligens">INT (Intelligens)</h3>
+<ul>
+<li>Grundegenskap för lärdomsfärdigheter</li>
+<li>Krävs för vissa yrken (INT 12+ för <a class="wikilink" href="yrken.html#magiker">Magiker</a>)</li>
+<li>Motståndsslag för förhör, bluff och mentala attacker</li>
+</ul>
+<h3 id="psy-psyke">PSY (Psyke)</h3>
+<ul>
+<li>Resurs för yrkesförmågor</li>
+<li>Motstånd mot besvärjelser och skräck</li>
+<li>Grundegenskap för Upptäcka fara</li>
+<li>Helarens kraft (handpåläggning = 1 PSY per KP)</li>
+</ul>
+<h3 id="kar-karisma">KAR (Karisma)</h3>
+<ul>
+<li>Grundegenskap för sociala färdigheter (Bluffa, Köpslå, Övertala, Muta)</li>
+<li>Påverkar Rykte</li>
+<li>Avgör hur NPC:er reagerar spontant</li>
+</ul>
+<h3 id="sto-storlek">STO (Storlek)</h3>
+<ul>
+<li>Ingår i KP och Skadebonus</li>
+<li>Varje ras har ett <strong>intervall</strong> (min–max, normalt värde) — det är INTE en fast modifierare</li>
+<li>Påverkar vilken rustningsstorlek man bär (vikttabellen A–K, REG s.54)</li>
+<li>Varelser med STO 1–4 kan bara ha läderrustning</li>
+</ul>
+<hr />
+<h2 id="aldermodifikationer">Åldermodifikationer</h2>
+<p>Grundegenskaperna förändras när rollpersonen byter åldersgrupp (REG s.9):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Egenskap</th>
+<th>Ung→Mogen</th>
+<th>Mogen→Medel</th>
+<th>Medel→Gammal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STY</td>
+<td>+0</td>
+<td>−1</td>
+<td>−2</td>
+</tr>
+<tr>
+<td>FYS</td>
+<td>+0</td>
+<td>+1</td>
+<td>−1</td>
+</tr>
+<tr>
+<td>SMI</td>
+<td>+1</td>
+<td>−1</td>
+<td>−1</td>
+</tr>
+<tr>
+<td>INT</td>
+<td>+0</td>
+<td>+1</td>
+<td>+0</td>
+</tr>
+<tr>
+<td>PSY</td>
+<td>+1</td>
+<td>+1</td>
+<td>+2</td>
+</tr>
+<tr>
+<td>KAR</td>
+<td>+0</td>
+<td>+0</td>
+<td>+0</td>
+</tr>
+<tr>
+<td>STO</td>
+<td>+0</td>
+<td>+0</td>
+<td>−0</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(⚠ Exakta värden — verifiera mot REG s.9)</em></p>
+<hr />
+<h2 id="grundegenskapslag">Grundegenskapslag</h2>
+<p>Ibland uppmanas man att slå ett "STY-slag", "PSY-slag" etc. Det innebär:</p>
+<p><strong>1T20 ≤ grundegenskapsvärdet</strong> för att lyckas.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Svårighetsgrad</th>
+<th>Modifikation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mycket lätt</td>
+<td>Egenskapen × 2</td>
+</tr>
+<tr>
+<td>Lätt</td>
+<td>Egenskapen × 1,5</td>
+</tr>
+<tr>
+<td>Normal</td>
+<td>Egenskapen × 1</td>
+</tr>
+<tr>
+<td>Svårt</td>
+<td>Egenskapen × 0,5 (avrunda nedåt)</td>
+</tr>
+<tr>
+<td>Kritiskt</td>
+<td>Slå "1" + klara ett normalt slag</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>"1"</strong> lyckas alltid (perfekt)</li>
+<li><strong>"20"</strong> misslyckas alltid</li>
+</ul>
+<h3 id="motstandstabellen">Motståndstabellen</h3>
+<p>Används när en persons egenskapsslag ska ställas mot en motståndares eller en svårighetsfaktor.
+SL läser av resultatet i tabellen (REG s.6 / RP s.38–39).</p>
+<p><em>(⚠ Exakt tabellupplägg — se REG s.6)</em></p>
+</main>
+<footer><span>Drakar och Demoner Expert Wiki · Baserad på originalreglerna</span><span class="footer-meta">v2026.07.14 · Uppdaterad 2026-07-14</span></footer>
+</body>
+</html>

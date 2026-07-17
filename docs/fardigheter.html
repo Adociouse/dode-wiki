@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Färdighetssystemet — D&amp;DE Expert — DoDE Wiki</title>
+<style>
+:root {
+  --red:      #6B1A1A;
+  --red-dark: #4A0E0E;
+  --paper:    #FAF3F0;
+  --text:     #2A0808;
+  --gold:     #D4956B;
+  --border:   #C4907A;
+  --link:     #6B1A1A;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --red:      #C05050;
+    --red-dark: #8B2020;
+    --paper:    #1E1010;
+    --text:     #F0DDD5;
+    --gold:     #D4956B;
+    --border:   #6B3A2A;
+    --link:     #E07070;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+  background: var(--paper);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── TOPPNAV ── */
+#topnav {
+  background: var(--red-dark);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 2px solid var(--gold);
+}
+#topnav .site-title {
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 10px 16px 10px 0;
+  white-space: nowrap;
+  border-right: 1px solid rgba(212,149,107,0.3);
+  margin-right: 8px;
+}
+#topnav a {
+  color: #F5E6D3;
+  text-decoration: none;
+  padding: 10px 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+#topnav a:hover { color: #fff; border-bottom-color: var(--gold); }
+#topnav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+.nav-section {
+  color: rgba(212,149,107,0.55);
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 6px 10px 10px;
+  white-space: nowrap;
+  border-left: 1px solid rgba(212,149,107,0.25);
+  margin-left: 4px;
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+/* ── TYPOGRAFI ── */
+h1 { font-size: 2rem; color: var(--red); border-bottom: 3px solid var(--gold); padding-bottom: 10px; margin-bottom: 28px; }
+h2 { font-size: 1.4rem; color: var(--red-dark); margin: 32px 0 12px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.1rem; color: var(--red); margin: 22px 0 8px; }
+h4 { font-size: 1rem; font-weight: bold; margin: 16px 0 6px; }
+p  { line-height: 1.75; margin-bottom: 12px; }
+ul, ol { margin: 8px 0 14px 24px; line-height: 1.75; }
+li { margin-bottom: 4px; }
+
+/* ── WIKILÄNKAR ── */
+a { color: var(--link); }
+a:hover { text-decoration: underline; }
+a.wikilink { border-bottom: 1px dotted var(--gold); text-decoration: none; color: var(--link); }
+a.wikilink:hover { border-bottom-style: solid; }
+
+/* ── TABELLER ── */
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 400px; }
+th { background: var(--red); color: var(--gold); padding: 8px 10px; text-align: left; white-space: nowrap; }
+td { padding: 7px 10px; border-bottom: 1px solid var(--border); }
+tr:nth-child(even) td { background: rgba(196,144,122,0.08); }
+tr:hover td { background: rgba(196,144,122,0.16); }
+
+/* ── KAMPANJRUTA ── */
+.kampanj-ruta { background: rgba(107,26,26,0.07); border: 1px solid rgba(107,26,26,0.35); border-left: 4px solid var(--red); border-radius: 6px; padding: 18px 20px; margin: 24px 0 32px; }
+.kampanj-ruta .kr-rubrik { font-size: 0.72rem; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+.kampanj-ruta p { font-size: 0.92rem; line-height: 1.65; margin: 0 0 10px; }
+.kampanj-ruta p:last-child { margin-bottom: 0; }
+.kampanj-ruta ul { margin: 8px 0 10px 18px; padding: 0; }
+.kampanj-ruta li { font-size: 0.92rem; line-height: 1.6; margin-bottom: 4px; }
+
+/* ── KOD / BLOCKQUOTE ── */
+code { background: rgba(107,26,26,0.08); padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 0.88em; }
+pre  { background: rgba(107,26,26,0.06); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; overflow-x: auto; margin: 14px 0; }
+pre code { background: none; padding: 0; }
+blockquote { border-left: 4px solid var(--gold); padding: 10px 16px; margin: 14px 0; background: rgba(212,149,107,0.08); font-style: italic; }
+
+/* ── FOOTER ── */
+footer { margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer-meta { font-style: italic; }
+main img { max-width: 100%; height: auto; border: 1px solid var(--border); border-radius: 4px; margin: 16px 0; }
+
+/* ── NYCKELORDSINDEX ── */
+.kw-index { column-count: 3; column-gap: 32px; }
+@media (max-width: 600px) { .kw-index { column-count: 1; } main { padding: 24px 16px; } }
+.kw-entry { break-inside: avoid; margin-bottom: 10px; font-size: 0.9rem; line-height: 1.5; }
+.kw-entry .kw-term { font-weight: bold; color: var(--red); }
+.kw-entry .kw-pages a { font-size: 0.82rem; color: var(--link); margin-right: 6px; }
+</style>
+
+</head>
+<body>
+<nav id="topnav">
+  <span class="site-title">⚔ DoDE Expert</span>
+  <a href="index.html">📖 Index</a>
+<a href="grundegenskaper.html">💪 Grundegenskaper</a>
+<a href="strid.html">⚔️ Strid & Vapen</a>
+<a href="fardigheter.html" class="active">🎯 Färdigheter</a>
+<a href="raser.html">🧝 Raser</a>
+<a href="yrken.html">🛡️ Yrken</a>
+<a href="magi.html">✨ Magi</a>
+<a href="utrustning.html">🗡️ Utrustning</a>
+<a href="hjaltar.html">🌟 Hjältar</a>
+<a href="monster.html">🐉 Varelser</a>
+<a href="drakar.html">🔥 Drakar</a>
+<a href="demonologi.html">🔮 Demonologi</a>
+<a href="kallor.html">📚 Källor</a>
+
+</nav>
+<main>
+<h1>Färdighetssystemet — D&amp;DE Expert</h1>
+<blockquote>
+<p><strong>Källa:</strong> REG s.15–43 · RP s.28–30, s.34–64 · KH s.3</p>
+</blockquote>
+<hr />
+<h2 id="snabbreferens">Snabbreferens</h2>
+<p><strong>Slå 1T20 ≤ FV (Färdighetsvärde)</strong> för att lyckas med en färdighet.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Utfall</th>
+<th>Resultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"1" + nytt ≤ FV</td>
+<td><strong><a class="wikilink" href="strid.html#perfekt">Perfekt</a> slag</strong></td>
+</tr>
+<tr>
+<td>2–19 ≤ FV</td>
+<td>Lyckat</td>
+</tr>
+<tr>
+<td>2–19 &gt; FV</td>
+<td>Misslyckat</td>
+</tr>
+<tr>
+<td>"20" + nytt &gt; FV</td>
+<td><strong><a class="wikilink" href="strid.html#fummel">Fummel</a></strong></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>CL</strong> (Chans att Lyckas) = FV modifierat av situationen</li>
+<li><strong>"1" lyckas alltid</strong> om CL ≥ 1</li>
+<li><strong>"20" misslyckas alltid</strong></li>
+</ul>
+<hr />
+<h2 id="kategorier">Kategorier</h2>
+<h3 id="kategori-a-standard-fv-1-20">Kategori A — Standard (FV 1–20+)</h3>
+<ul>
+<li>Använd FV direkt</li>
+<li>De flesta färdigheter</li>
+<li>Kan ha FV över 20 (regler för detta — se nedan)</li>
+<li>Betecknas INTE med extra symbol</li>
+</ul>
+<h3 id="kategori-b-kan-kan-inte-fv-1-5">Kategori B — Kan/Kan-Inte (FV 1–5)</h3>
+<ul>
+<li>Färdigheter där slumpen spelar liten roll</li>
+<li>Antingen kan man göra det, eller inte</li>
+<li>Exempel: <strong>Tala språk</strong> (Tala ett språk väl = B4–5; halvhjärtat = B2–3)</li>
+<li>Skrivs som "B4" etc.</li>
+<li>Om man behöver omvandla B-FV till A-FV: multiplicera med 5</li>
+</ul>
+<h3 id="primara-fardigheter-alla-har-grundkostnad-2-ep-fv-steg">Primära färdigheter (alla har, grundkostnad 2 EP/FV-steg)</h3>
+<p>Alla rollpersoner börjar med dessa som primära:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Färdighet</th>
+<th>Grundegenskap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bluffa</td>
+<td>KAR</td>
+</tr>
+<tr>
+<td>Finna dolda ting</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>Första hjälpen</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>Gömma sig</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>Hoppa</td>
+<td>SMI</td>
+</tr>
+<tr>
+<td>Klättra</td>
+<td>SMI</td>
+</tr>
+<tr>
+<td>Köpslå</td>
+<td>KAR</td>
+</tr>
+<tr>
+<td>Lyssna</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>Läsa/skriva modersmål</td>
+<td>INT (spec.)</td>
+</tr>
+<tr>
+<td>Rida</td>
+<td>SMI</td>
+</tr>
+<tr>
+<td>Spåra</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>Stjäla föremål</td>
+<td>SMI</td>
+</tr>
+<tr>
+<td>Tala modersmål</td>
+<td>INT (spec.)</td>
+</tr>
+<tr>
+<td>Upptäcka fara</td>
+<td>PSY</td>
+</tr>
+<tr>
+<td>Värdera</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>Övertala</td>
+<td>KAR</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(RP s.36)</em></p>
+<hr />
+<h2 id="baschans-bc">Baschans (BC)</h2>
+<p>Varje färdighet har en <strong>baschans (BC)</strong> — det FV som alla får GRATIS utan att spendera EP.</p>
+<ul>
+<li><strong>BC = <a class="wikilink" href="grundegenskaper.html#grupp">Grupp</a> av grundegenskapen</strong> (se REGLER_EGENSKAPER.md)</li>
+<li>Exempel: SMI 14 (grupp 3) → BC 3 i alla SMI-färdigheter du är tillåten att ha</li>
+<li>Om BC = 0 → färdigheten är för svår för en otränad person</li>
+<li>Primära färdigheter: de flesta har BC = grundegenskapens grupp</li>
+<li>Vissa färdigheter har fast BC (t.ex. "BC: 0" = ingen gratis FV)</li>
+</ul>
+<h3 id="rasmodifikationer-pa-bc">Rasmodifikationer på BC</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ras</th>
+<th>Färdighet</th>
+<th>Bonus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alvfolk</td>
+<td>Finna dolda ting</td>
+<td>+1T3</td>
+</tr>
+<tr>
+<td><a class="wikilink" href="raser.html#dvarg">Dvärg</a></td>
+<td>Finna dolda ting</td>
+<td>+1T4</td>
+</tr>
+<tr>
+<td>Kattman</td>
+<td>Finna dolda ting</td>
+<td>+1T3</td>
+</tr>
+<tr>
+<td>Grottalv</td>
+<td>Lyssna</td>
+<td>+1T2</td>
+</tr>
+<tr>
+<td>Vargman</td>
+<td>Lyssna</td>
+<td>+1T3</td>
+</tr>
+<tr>
+<td>Kattman</td>
+<td>Lyssna</td>
+<td>+1T3</td>
+</tr>
+<tr>
+<td><a class="wikilink" href="raser.html#halvlangdsman">Halvlängdsman</a></td>
+<td>Provsmaka</td>
+<td>+1T3</td>
+</tr>
+<tr>
+<td>Vargman</td>
+<td>Provsmaka</td>
+<td>+1T3</td>
+</tr>
+<tr>
+<td>Kattman</td>
+<td>Upptäcka fara</td>
+<td>+1T2</td>
+</tr>
+<tr>
+<td>Vargman</td>
+<td>Upptäcka fara</td>
+<td>+1T2</td>
+</tr>
+<tr>
+<td>Kattman</td>
+<td>Spåra</td>
+<td>+1T2</td>
+</tr>
+<tr>
+<td>Vargman</td>
+<td>Spåra</td>
+<td>+1T3</td>
+</tr>
+<tr>
+<td>Skogsalv</td>
+<td>Orientering</td>
+<td>+1T2</td>
+</tr>
+<tr>
+<td>Silveralv</td>
+<td>Orientering</td>
+<td>+1</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(REG s.10)</em></p>
+<hr />
+<h2 id="ep-budget-och-startfardigheter">EP-budget och startfärdigheter</h2>
+<h3 id="ep-budget-kh-s-3-rp-s-28">EP-budget (KH s.3 / RP s.28)</h3>
+<p>Antal EP vid rollpersonsskapande (beror på nivå och ålder):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ålder</th>
+<th>Vanlig</th>
+<th>Extraordinär</th>
+<th>Hjälte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ung</td>
+<td>150</td>
+<td>175</td>
+<td>200</td>
+</tr>
+<tr>
+<td>Mogen</td>
+<td>200</td>
+<td>225</td>
+<td>250</td>
+</tr>
+<tr>
+<td>Medelålders</td>
+<td>250</td>
+<td>275</td>
+<td>300</td>
+</tr>
+<tr>
+<td>Gammal</td>
+<td>300</td>
+<td>325</td>
+<td>350</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Kvarvarande BP × 5</strong> läggs till EP-budgeten (RP s.28).</p>
+<h3 id="max-fv-fran-start-kh-s-3">Max FV från start (KH s.3)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ålder</th>
+<th>Vanlig</th>
+<th>Extraordinär</th>
+<th>Hjälte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ung</td>
+<td>13</td>
+<td>15</td>
+<td>17</td>
+</tr>
+<tr>
+<td>Mogen</td>
+<td>15</td>
+<td>17</td>
+<td>19</td>
+</tr>
+<tr>
+<td>Medelålders</td>
+<td>17</td>
+<td>19</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Gammal</td>
+<td>19</td>
+<td>20</td>
+<td>20</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="kostnader-ep-per-fv">Kostnader — EP per FV</h2>
+<h3 id="grundkostnader">Grundkostnader</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Typ</th>
+<th>Grundkostnad (EP per FV-steg)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primär</strong> färdighet</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Yrkesfärdighet</strong> (vald bland de 12)</td>
+<td>3</td>
+</tr>
+<tr>
+<td><strong>Sekundär</strong> färdighet (ej vald som yrke)</td>
+<td>5</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="besvarjelse-kostnader">Besvärjelse-kostnader</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Skolvärde</th>
+<th>EP/S-steg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>4–6</td>
+<td>6</td>
+</tr>
+<tr>
+<td>7–9</td>
+<td>6</td>
+</tr>
+<tr>
+<td>10–12</td>
+<td>8</td>
+</tr>
+<tr>
+<td>13–15</td>
+<td>10</td>
+</tr>
+<tr>
+<td>16–18</td>
+<td>12</td>
+</tr>
+<tr>
+<td>19–21</td>
+<td>14</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(RP s.30)</em></p>
+<h3 id="multiplikatortabell">Multiplikatortabell</h3>
+<p>Kostnaden att höja en färdighet från FV <code>a</code> till FV <code>b</code>:</p>
+<blockquote>
+<p><strong>Kostnad = grundkostnad × (C(b) − C(a))</strong></p>
+</blockquote>
+<p>Kumulativa C-värden:</p>
+<pre><code>FV:  0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21
+C:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,12,14,16,18,21,24,27,31,35,39,44]
+</code></pre>
+<p><strong>FV multipliceras (vid FV 20+):</strong> För kategori A ökar multipeln med +1 per 3 steg:
+- FV 21–23: multipel ×5
+- FV 24–26: multipel ×6
+- FV 27–29: multipel ×7
+- etc.</p>
+<p><strong>Verifierat exempel:</strong> Klättra (primär, grundkostnad 2) från FV 4 → FV 10:
+C(10) − C(4) = 10 − 4 = 6 → 2 × 6 = <strong>12 EP</strong> (stämmer med bokens exempel — RP s.30)</p>
+<h3 id="exempel-pa-kostnadsberakning">Exempel på kostnadsberäkning</h3>
+<p>Höja Svärd (yrkesfärdighet, grundkostnad 3) från FV 5 till FV 12:
+- C(12) − C(5) = 14 − 5 = 9
+- Kostnad = 3 × 9 = <strong>27 EP</strong></p>
+<hr />
+<h2 id="fardighetslistan-primara-och-sekundara">Färdighetslistan — primära och sekundära</h2>
+<h3 id="primara-fardigheter">Primära färdigheter</h3>
+<p><em>(Alla rollpersoner har dessa — se tabell ovan)</em></p>
+<h3 id="sekundara-fardigheter-urval-med-grundegenskap">Sekundära färdigheter (urval med grundegenskap)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Färdighet</th>
+<th>Grundegenskap</th>
+<th>Kostnad</th>
+<th>BC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Akrobatik</td>
+<td>SMI</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td><a class="wikilink" href="magi.html#alkemi">Alkemi</a></td>
+<td>INT</td>
+<td>4</td>
+<td>0</td>
+</tr>
+<tr>
+<td><a class="wikilink" href="magi.html#animism">Animism</a> (magiskola)</td>
+<td>INT</td>
+<td>—</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Astrologi</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Avväpna</td>
+<td>SMI</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Bärsärkagång</td>
+<td>PSY</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Buktala</td>
+<td>PSY</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Dans</td>
+<td>SMI</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Djurhelning</td>
+<td>PSY</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Djurträning</td>
+<td>PSY</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Dolk</td>
+<td>SMI</td>
+<td>2</td>
+<td>SMI</td>
+</tr>
+<tr>
+<td>Dra vapen</td>
+<td>SMI</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Drogkunskap</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td><a class="wikilink" href="magi.html#elementarmagi">Elementarmagi</a> (magiskola)</td>
+<td>INT</td>
+<td>—</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Finna dolda ting</td>
+<td>INT</td>
+<td>2</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>Förfalskning</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Geografi</td>
+<td>INT</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Geologi</td>
+<td>INT</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Giftkunskap</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Gycklekonster</td>
+<td>SMI</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Gömma sig</td>
+<td>INT</td>
+<td>2</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>Hantera fällor</td>
+<td>SMI</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Hantverk (spec.)</td>
+<td>varierar</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Hasardspel</td>
+<td>INT</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Heraldik</td>
+<td>INT</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Historia</td>
+<td>INT</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Hoppa</td>
+<td>SMI</td>
+<td>2</td>
+<td>SMI</td>
+</tr>
+<tr>
+<td>Hypnotisera</td>
+<td>PSY</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Judo</td>
+<td>SMI</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Karate</td>
+<td>SMI</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Klättra</td>
+<td>SMI</td>
+<td>2</td>
+<td>SMI</td>
+</tr>
+<tr>
+<td>Knopar</td>
+<td>SMI</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Kulturkännedom</td>
+<td>INT</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Kunskap om demoner</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Kunskap om magi</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Kunskap om odöda</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Köpslå</td>
+<td>KAR</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Låsdyrkning</td>
+<td>SMI</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td><a class="wikilink" href="strid.html#helande">Läkekonst</a></td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Läppläsning</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Läsa/Skriva språk</td>
+<td>INT</td>
+<td>varierar</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Lyssna</td>
+<td>INT</td>
+<td>2</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>Magisk kanalisering</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Massage</td>
+<td>SMI</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td><a class="wikilink" href="magi.html#mentalism">Mentalism</a> (magiskola)</td>
+<td>INT</td>
+<td>—</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Muta</td>
+<td>KAR</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Målning</td>
+<td>SMI</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Navigation</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Orientering</td>
+<td>INT</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Räkning</td>
+<td>INT</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Schack &amp; Brädspel</td>
+<td>INT</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Simma</td>
+<td>FYS</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Sjökunnighet</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Sjunga</td>
+<td>KAR</td>
+<td>8</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Skådespeleri</td>
+<td>KAR</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Slagsmål</td>
+<td>STY</td>
+<td>2</td>
+<td>STY+SMI</td>
+</tr>
+<tr>
+<td>Smyga</td>
+<td>SMI</td>
+<td>2</td>
+<td>SMI</td>
+</tr>
+<tr>
+<td>Spela instrument</td>
+<td>KAR</td>
+<td>8</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Spåra</td>
+<td>INT</td>
+<td>2</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>Spå väder</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Språkkunskap</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Stavhopp</td>
+<td>SMI</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Stjäla föremål</td>
+<td>SMI</td>
+<td>2</td>
+<td>SMI</td>
+</tr>
+<tr>
+<td>Stridskonster</td>
+<td>SMI</td>
+<td>varierar</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Taktik</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Tala språk (Kate. B)</td>
+<td>INT</td>
+<td>varierar</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Teckenspråk</td>
+<td>INT</td>
+<td>6</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Trästav</td>
+<td>SMI</td>
+<td>2</td>
+<td>SMI</td>
+</tr>
+<tr>
+<td>Två vapen</td>
+<td>SMI</td>
+<td>4</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Undre världen</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Uppfattningsfärdigheter</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Vapenfärdigheter</td>
+<td>SMI</td>
+<td>2</td>
+<td>SMI</td>
+</tr>
+<tr>
+<td>Värdera</td>
+<td>INT</td>
+<td>2</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>Zoologi</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Änterhake</td>
+<td>SMI</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Örtkunskap</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Övertala</td>
+<td>KAR</td>
+<td>2</td>
+<td>KAR</td>
+</tr>
+<tr>
+<td>Överlevnad</td>
+<td>INT</td>
+<td>3</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(⚠ Grundkostnader och BC — verifiera mot RP s.34–64 och REG s.19–43)</em></p>
+<hr />
+<h2 id="skoldhand">Sköldhand</h2>
+<ul>
+<li>Sköldhand = motstånds-handen (normalt vänster)</li>
+<li>Att använda en färdighet (tränad i svärdshanden) med sköldhand: <strong>CL × 1/3</strong></li>
+<li>Träna en färdighet specifikt för sköldhand: <strong>dubbelt kostsamt</strong>, räknas som separat färdighet</li>
+<li>Kategori B med sköldhand: <strong>FV −2</strong></li>
+<li><strong>Dubbelhänt:</strong> kan använda båda händerna lika bra men inte SAMTIDIGT</li>
+<li><strong>Ambidextriös:</strong> kan använda båda händerna till OLIKA saker SIMULTANT</li>
+</ul>
+<hr />
+<h2 id="vapenfardigheter-vapengrupper">Vapenfärdigheter — Vapengrupper</h2>
+<p>Varje vapen är en separat färdighet, men alla vapen inom en vapentyp:</p>
+<blockquote>
+<p>Om du har FV X i ett vapen <strong>har du alltid minst FV X/3 (avrunda nedåt)</strong> i alla andra vapen inom samma vapentyp.</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Vapentyp</th>
+<th>Vapen (urval)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dolkar</td>
+<td>Dolk, Dirk, Parerdolk, Tanto</td>
+</tr>
+<tr>
+<td>Enhandssvärd</td>
+<td>Kortsvärd, Bredsvärd, Wakizashi</td>
+</tr>
+<tr>
+<td>Övriga svärd</td>
+<td>Kroksabel, Katana, Slagsvärd, Ninjato</td>
+</tr>
+<tr>
+<td>Stavar</td>
+<td>Trästav</td>
+</tr>
+<tr>
+<td>Yxor</td>
+<td>Handyxa, Bredyxa, Tvåhandsyxa</td>
+</tr>
+<tr>
+<td>Klubbor &amp; Hammare</td>
+<td>Hammare, Stridsklubba, Stridshammare, Kofot</td>
+</tr>
+<tr>
+<td>Spjut</td>
+<td>Kortspjut, Långspjut, Lans, Treudd, Spetum, Naginata</td>
+</tr>
+<tr>
+<td>Stångvapen</td>
+<td>Hillebard, Pik</td>
+</tr>
+<tr>
+<td>Slagor &amp; Gissel</td>
+<td>Stridsslagan, Stridsgissel, Morgonstjärna</td>
+</tr>
+<tr>
+<td>Sköldar</td>
+<td>Alla sköldtyper</td>
+</tr>
+<tr>
+<td>Bågar</td>
+<td>Liten, Kort, Lång, Sammansatt</td>
+</tr>
+<tr>
+<td>Armborst</td>
+<td>Lätt, Tungt, Arbalest</td>
+</tr>
+<tr>
+<td>Slungor</td>
+<td>Slunga, Stavslunga</td>
+</tr>
+<tr>
+<td>Kastvapen</td>
+<td>Kaststjärna, Kastspjut, Kastkniv, Kastyxa, Bola</td>
+</tr>
+<tr>
+<td>Lasso</td>
+<td>Lasso</td>
+</tr>
+<tr>
+<td>Piskor</td>
+<td>Oxpiska</td>
+</tr>
+<tr>
+<td>Slagsmål &amp; Judo</td>
+<td>Näve, Spark</td>
+</tr>
+<tr>
+<td>Karate</td>
+<td>Näve (karate), Spark (karate)</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(REG s.25–28)</em></p>
+<hr />
+<h2 id="slagsmal-specialregler">Slagsmål — specialregler</h2>
+<ul>
+<li>Grundegenskap: STY</li>
+<li>BC = STY-grupp + SMI-grupp (kombinerat)</li>
+<li>Träff mot person i metallrustning: <strong>+1 KP extra skada</strong></li>
+<li>Judo och Karate räknas som separata vapengrupper</li>
+</ul>
+<hr />
+<h2 id="erfarenhetspoang-i-spel">Erfarenhetspoäng i spel</h2>
+<ul>
+<li>Varje gång man lyckas med en färdighet i ett stressigt läge (SL bedömer) noteras ett <strong>streck</strong> vid färdigheten</li>
+<li>1 lyckad användning (stressigt läge) = 1 EP</li>
+<li><strong>Perfekt slag</strong> ger 1T3+1 EP</li>
+<li>EP kan bara användas efter en sammanhängande viloperiod på minst <strong>7 dagar</strong></li>
+<li>Under ett äventyr kan EP inte omsättas — man sparar dem</li>
+<li>SL kan dela ut <strong>bonuspoäng</strong> (1–4) efter äventyr för uppdragsframgång; (1–2) för svåra gärningar; (1–4) för god rollspelning. Max 10 bonuspoäng per äventyr.</li>
+<li>Bonuspoäng är INTE bundna till en viss färdighet — kan användas fritt</li>
+</ul>
+<p><em>(REG s.45–46)</em></p>
+<hr />
+<h2 id="differensnummer">Differensnummer</h2>
+<p>Differensnumret = CL − tärningens utfall.</p>
+<p>Exempel: CL 17, tärning visar 12 → Differensnummer = 17−12 = <strong>5</strong>.</p>
+<p>Differensnumret används bl.a. i Köpslå och Gömma sig för att mäta graden av framgång.</p>
+<hr />
+<h2 id="stridskonster">Stridskonster</h2>
+<p>Stridskonster är en familj av vapenfärdigheter (RP s.55–59 / KH s.5). De innehåller <strong>tekniker</strong> som köps separat.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Teknik</th>
+<th>Kostnad</th>
+<th>Effekt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Awäpna</td>
+<td>1,0</td>
+<td>Parerar + tar motståndarens vapen</td>
+</tr>
+<tr>
+<td>Bedövningsslag</td>
+<td>1,0</td>
+<td>1T3 skada; Svårt FYS-slag eller tillfälligt bedövad</td>
+</tr>
+<tr>
+<td>Blind strid</td>
+<td>—</td>
+<td>Kan slåss i mörker utan FV-avdrag</td>
+</tr>
+<tr>
+<td>Dubbelslag</td>
+<td>—</td>
+<td>Två knytnävsattacker mot OLIKA mål i 1 SR</td>
+</tr>
+<tr>
+<td>Dubbelspark</td>
+<td>—</td>
+<td>Hoppspark mot DEUX mål (1T6 skada/mål)</td>
+</tr>
+<tr>
+<td>Fallteknik/Rullning</td>
+<td>1,0</td>
+<td>Halverar skada vid fall; rullning ger +5 rutor</td>
+</tr>
+<tr>
+<td>Fint</td>
+<td>—</td>
+<td>Halverar motståndarens parerings-CL om den lyckas</td>
+</tr>
+<tr>
+<td>Hoppspark</td>
+<td>—</td>
+<td>1T8 skada; −2 initiativ; landar i motståndarens ruta</td>
+</tr>
+<tr>
+<td>Högt kast</td>
+<td>—</td>
+<td>Utförs alltid sist i SR; offret kastas 1T3 rutor och är liggande</td>
+</tr>
+<tr>
+<td>Initiativbonus</td>
+<td>—</td>
+<td>+5 till SMI för turordning (alltid aktiv)</td>
+</tr>
+<tr>
+<td>Krosslag</td>
+<td>—</td>
+<td>1T6 skada, riktat mot känsliga punkter</td>
+</tr>
+<tr>
+<td>Liggande strid</td>
+<td>1,0</td>
+<td>Kan anfalla/parera liggandes</td>
+</tr>
+<tr>
+<td>Läsning/Neddragning</td>
+<td>1,0</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Normal spark</td>
+<td>—</td>
+<td>1T6 skada</td>
+</tr>
+<tr>
+<td>Rundspark</td>
+<td>1,0</td>
+<td>1T8 skada; missar = förlorar nästa runda; −2 initiativ</td>
+</tr>
+<tr>
+<td>Slå medvetslös</td>
+<td>—</td>
+<td>(KH — se Krigarens Handbok)</td>
+</tr>
+<tr>
+<td>Stålsättning</td>
+<td>—</td>
+<td>Lyckad FV-slag → halv skada (ej mot huvudet)</td>
+</tr>
+<tr>
+<td>Uppresning</td>
+<td>—</td>
+<td>Reser sig omedelbart efter att ha kastas omkull (FV-slag)</td>
+</tr>
+<tr>
+<td>Vidvinkelsyn</td>
+<td>—</td>
+<td>Ser 270° runt sig, alltid aktiv</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(Kostnader = RP s.55–59; KH s.5 för fler tekniker)</em></p>
+<hr />
+<h2 id="kategori-b-fv-skalan">Kategori B — FV-skalan</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>B-FV</th>
+<th>Innebörd</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Ingenting; inte ens kommunicera</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Kan göra sig förstådd på ett primitivt sätt</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Talar med stark accent, enkla meningar</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Talar flytande men med accent</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Talar det som modersmål i praktiken</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Absolut flytande</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(Baserat på Sjunga &amp; Spela-beskrivningen — RP/REG. Exakt skala bör verifieras för Tala Språk)</em></p>
+<hr />
+<h2 id="okunskapsanvandande">Okunskapsanvändande</h2>
+<p>Om en rollperson INTE har lärt sig en färdighet men den har en BC (baschans) &gt; 0:
+- Rollpersonen har ändå FV = BC i den färdigheten
+- Kan bara slå på det FV, inga förbättringar utan EP-investering</p>
+</main>
+<footer><span>Drakar och Demoner Expert Wiki · Baserad på originalreglerna</span><span class="footer-meta">v2026.07.13 · Uppdaterad 2026-07-13</span></footer>
+</body>
+</html>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yrken — D&amp;DE Expert — DoDE Wiki</title>
+<style>
+:root {
+  --red:      #6B1A1A;
+  --red-dark: #4A0E0E;
+  --paper:    #FAF3F0;
+  --text:     #2A0808;
+  --gold:     #D4956B;
+  --border:   #C4907A;
+  --link:     #6B1A1A;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --red:      #C05050;
+    --red-dark: #8B2020;
+    --paper:    #1E1010;
+    --text:     #F0DDD5;
+    --gold:     #D4956B;
+    --border:   #6B3A2A;
+    --link:     #E07070;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+  background: var(--paper);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── TOPPNAV ── */
+#topnav {
+  background: var(--red-dark);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 2px solid var(--gold);
+}
+#topnav .site-title {
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 10px 16px 10px 0;
+  white-space: nowrap;
+  border-right: 1px solid rgba(212,149,107,0.3);
+  margin-right: 8px;
+}
+#topnav a {
+  color: #F5E6D3;
+  text-decoration: none;
+  padding: 10px 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+#topnav a:hover { color: #fff; border-bottom-color: var(--gold); }
+#topnav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+.nav-section {
+  color: rgba(212,149,107,0.55);
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 6px 10px 10px;
+  white-space: nowrap;
+  border-left: 1px solid rgba(212,149,107,0.25);
+  margin-left: 4px;
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+/* ── TYPOGRAFI ── */
+h1 { font-size: 2rem; color: var(--red); border-bottom: 3px solid var(--gold); padding-bottom: 10px; margin-bottom: 28px; }
+h2 { font-size: 1.4rem; color: var(--red-dark); margin: 32px 0 12px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.1rem; color: var(--red); margin: 22px 0 8px; }
+h4 { font-size: 1rem; font-weight: bold; margin: 16px 0 6px; }
+p  { line-height: 1.75; margin-bottom: 12px; }
+ul, ol { margin: 8px 0 14px 24px; line-height: 1.75; }
+li { margin-bottom: 4px; }
+
+/* ── WIKILÄNKAR ── */
+a { color: var(--link); }
+a:hover { text-decoration: underline; }
+a.wikilink { border-bottom: 1px dotted var(--gold); text-decoration: none; color: var(--link); }
+a.wikilink:hover { border-bottom-style: solid; }
+
+/* ── TABELLER ── */
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 400px; }
+th { background: var(--red); color: var(--gold); padding: 8px 10px; text-align: left; white-space: nowrap; }
+td { padding: 7px 10px; border-bottom: 1px solid var(--border); }
+tr:nth-child(even) td { background: rgba(196,144,122,0.08); }
+tr:hover td { background: rgba(196,144,122,0.16); }
+
+/* ── KAMPANJRUTA ── */
+.kampanj-ruta { background: rgba(107,26,26,0.07); border: 1px solid rgba(107,26,26,0.35); border-left: 4px solid var(--red); border-radius: 6px; padding: 18px 20px; margin: 24px 0 32px; }
+.kampanj-ruta .kr-rubrik { font-size: 0.72rem; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+.kampanj-ruta p { font-size: 0.92rem; line-height: 1.65; margin: 0 0 10px; }
+.kampanj-ruta p:last-child { margin-bottom: 0; }
+.kampanj-ruta ul { margin: 8px 0 10px 18px; padding: 0; }
+.kampanj-ruta li { font-size: 0.92rem; line-height: 1.6; margin-bottom: 4px; }
+
+/* ── KOD / BLOCKQUOTE ── */
+code { background: rgba(107,26,26,0.08); padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 0.88em; }
+pre  { background: rgba(107,26,26,0.06); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; overflow-x: auto; margin: 14px 0; }
+pre code { background: none; padding: 0; }
+blockquote { border-left: 4px solid var(--gold); padding: 10px 16px; margin: 14px 0; background: rgba(212,149,107,0.08); font-style: italic; }
+
+/* ── FOOTER ── */
+footer { margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer-meta { font-style: italic; }
+main img { max-width: 100%; height: auto; border: 1px solid var(--border); border-radius: 4px; margin: 16px 0; }
+
+/* ── NYCKELORDSINDEX ── */
+.kw-index { column-count: 3; column-gap: 32px; }
+@media (max-width: 600px) { .kw-index { column-count: 1; } main { padding: 24px 16px; } }
+.kw-entry { break-inside: avoid; margin-bottom: 10px; font-size: 0.9rem; line-height: 1.5; }
+.kw-entry .kw-term { font-weight: bold; color: var(--red); }
+.kw-entry .kw-pages a { font-size: 0.82rem; color: var(--link); margin-right: 6px; }
+</style>
+
+</head>
+<body>
+<nav id="topnav">
+  <span class="site-title">⚔ DoDE Expert</span>
+  <a href="index.html">📖 Index</a>
+<a href="grundegenskaper.html">💪 Grundegenskaper</a>
+<a href="strid.html">⚔️ Strid & Vapen</a>
+<a href="fardigheter.html">🎯 Färdigheter</a>
+<a href="raser.html">🧝 Raser</a>
+<a href="yrken.html" class="active">🛡️ Yrken</a>
+<a href="magi.html">✨ Magi</a>
+<a href="utrustning.html">🗡️ Utrustning</a>
+<a href="hjaltar.html">🌟 Hjältar</a>
+<a href="monster.html">🐉 Varelser</a>
+<a href="drakar.html">🔥 Drakar</a>
+<a href="demonologi.html">🔮 Demonologi</a>
+<a href="kallor.html">📚 Källor</a>
+
+</nav>
+<main>
+<h1>Yrken — D&amp;DE Expert</h1>
+<blockquote>
+<p><strong>Källa:</strong> RP s.11–22 (grundyrken) · KH s.3–9 (krigaryrken) · T&amp;L s.7–16 (tjuv/lönnmördar/bardyrken)</p>
+</blockquote>
+<hr />
+<h2 id="hur-yrken-fungerar">Hur yrken fungerar</h2>
+<p>Ett yrke avgör tre saker (RP s.11):</p>
+<ol>
+<li><strong>Möjliga yrkesfärdigheter</strong> — varje yrke listar ett antal färdigheter; spelaren väljer <strong>12 av dessa</strong> (magiker väljer <strong>9</strong>) som sina yrkesfärdigheter. Icke-valda färdigheter kan tas som sekundärfärdigheter men kostar mer EP att träna.</li>
+<li><strong>Yrkesförmåga</strong> — en unik förmåga per yrke.</li>
+<li><strong>Grundegenskapskrav</strong> — minimivärden man måste uppnå.</li>
+</ol>
+<p><strong>Yrkesfärdighetskostnaden</strong> = 3 × multiplikatortallfaktor (vs Primär = 2 och Sekundär = 5)</p>
+<hr />
+<h2 id="snabbreferens-grundyrken">Snabbreferens — Grundyrken</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Yrke</th>
+<th>Krav</th>
+<th>Yrkesförmåga</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bard</td>
+<td>SMI 12, KAR 14</td>
+<td>Sång/spel: KAR +5 för åhörare + sociala CL +5 i 1 timme</td>
+</tr>
+<tr>
+<td>Helare</td>
+<td>INT 12, PSY 12</td>
+<td>Handpåläggning: läker 1 KP/SR för 1 PSY per KP</td>
+</tr>
+<tr>
+<td>Krigare</td>
+<td>STY 14, FYS 12</td>
+<td>+5 på alla initiativslag</td>
+</tr>
+<tr>
+<td>Lärd man</td>
+<td>INT 16</td>
+<td>−5 på alla slag på Skräcktabellen</td>
+</tr>
+<tr>
+<td>Lönnmördare</td>
+<td>SMI 14, PSY 12</td>
+<td>Bakhugg: ×2 skada (×4 vid perfekt)</td>
+</tr>
+<tr>
+<td>Magiker</td>
+<td>INT 12, PSY 14</td>
+<td>Lär besvärjelser; väljer bara 9 yrkesfärdigheter</td>
+</tr>
+<tr>
+<td>Munk</td>
+<td>INT 12, PSY 12</td>
+<td>Meditation: +1 FV/SR på ett slag (max ×2 ursprungligt FV)</td>
+</tr>
+<tr>
+<td>Sjöfarare</td>
+<td>FYS 12, SMI 12</td>
+<td>+5 FYS/STO/STY mot elementbesvärjelser</td>
+</tr>
+<tr>
+<td>Riddare</td>
+<td>STY 14, FYS 12, PSY 12</td>
+<td>5 PSY: träffa valfri kroppsdel ELLER max skada</td>
+</tr>
+<tr>
+<td>Tjuv</td>
+<td>SMI 16</td>
+<td>1 PSY = +1 CL (max +3) på valfri färdighet; 2×/sovperiod</td>
+</tr>
+<tr>
+<td>Utbygdsjägare</td>
+<td>FYS 12, SMI 12, PSY 12</td>
+<td><a class="wikilink" href="magi.html#animism">Animism</a>: lär skolvärde ≤12 (men ej från start)</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="grundyrken-detaljer">Grundyrken — Detaljer</h2>
+<h3 id="bard-rp-s-12">Bard (RP s.12)</h3>
+<p><strong>Krav:</strong> SMI 12, KAR 14</p>
+<p><strong>Yrkesförmåga:</strong> Sjunger eller spelar minst 1 minut och klarar ett färdighetsslag → alla åhörare uppfattar barden som KAR +5 högre; KAR-baserade färdigheter (Övertala, Muta, Bluffa, Skådespeleri) får +5 CL i <strong>en timme</strong>.</p>
+<p><strong>Möjliga yrkesfärdigheter (välj 12):</strong>
+En valfri vapenfärdighet, Tala max 2 språk, Läsa/Skriva 1 språk, Administration, Akrobatik, Buktala, Dans, Djurträning, Dolk, Förfalskning, Geografi, Gycklekonster, Hantverk (1 typ), Hasardspel, Heraldik, Historia, Hypnotisera, Knopar, Kulturkännedom, Låsdyrkning, Läppläsning, Muta, Målning, Schack &amp; brädspel, Simma, Skådespeleri, Spela instrument, Språkkunskap, Trästav</p>
+<blockquote>
+<p><em>Obs: "Spela instrument" och "Tala språk" räknas styckvis — bard med luta, lyra OCH trummor har tre separata färdigheter.</em></p>
+</blockquote>
+<hr />
+<h3 id="helare-rp-s-13">Helare (RP s.13)</h3>
+<p><strong>Krav:</strong> INT 12, PSY 12</p>
+<p><strong>Yrkesförmåga:</strong> Handpåläggning — läker <strong>1 KP per SR</strong> för <strong>1 PSY per KP</strong> återhämtat. Helarens PSY återfylls efter normal sömn.</p>
+<p>Kan dessutom:
+- <strong>Fördriva sjukdom:</strong> PSY/2 mot sjukdomens svårighetsgrad; kostar PSY = sjukdomens SVF
+- <strong>Neutralisera gift:</strong> PSY/2 mot giftets STY; kostar PSY = giftets STY</p>
+<p><strong>Möjliga yrkesfärdigheter (välj 12):</strong>
+Tala max 2 språk, Läsa/Skriva 1 språk, Alkemi, Djurhelning, Dolk, Drogkunskap, Geografi, Giftkunskap, Hantverk (1 typ), Hypnotisera, Kulturkännedom, Kunskap om demoner/magi/odöda, <a class="wikilink" href="strid.html#helande">Läkekonst</a>, Massage, Orientering, Simma, Trästav, Zoologi, Örtkunskap, Överlevnad</p>
+<hr />
+<h3 id="krigare-rp-s-14">Krigare (RP s.14)</h3>
+<p><strong>Krav:</strong> STY 14, FYS 12</p>
+<p><strong>Yrkesförmåga:</strong> <strong>+5 på alla initiativslag</strong> (dvs SMI + 1T6 + 5 i turordningsbestämning)</p>
+<p><strong>Möjliga yrkesfärdigheter (välj 12):</strong>
+Alla vapenfärdigheter, Tala 1 språk, Avväpna, Bärsärkagång, Dra vapen, Dolk, Geografi, Hantverk (1 typ), Hasardspel, Kulturkännedom, Simma, Stridskonster, Trästav, Två vapen</p>
+<blockquote>
+<p><em>Krigaryrket är grunden för alla krigarspecialiseringar i Krigarens Handbok (se nedan).</em></p>
+</blockquote>
+<hr />
+<h3 id="lard-man-rp-s-15">Lärd man (RP s.15)</h3>
+<p><strong>Krav:</strong> INT 16</p>
+<p><strong>Yrkesförmåga:</strong> <strong>−5 på alla slag på Skräcktabellen</strong> (= lättare att klara skräckmotstånd)</p>
+<p><strong>Möjliga yrkesfärdigheter (välj 12):</strong>
+Tala max 4 språk, Läsa/Skriva max 4 språk, Administration, <a class="wikilink" href="magi.html#alkemi">Alkemi</a>, Astrologi, Dolk, Drogkunskap, Förfalskning, Geografi, Geologi, Giftkunskap, Hasardspel, Heraldik, Historia, Kulturkännedom, Kunskap om demoner/magi/odöda, Räkning, Schack &amp; brädspel, Simma, Språkkunskap, Trästav, Zoologi, Örtkunskap</p>
+<hr />
+<h3 id="lonnmordare-rp-s-16">Lönnmördare (RP s.16)</h3>
+<p><strong>Krav:</strong> SMI 14, PSY 12</p>
+<p><strong>Yrkesförmåga:</strong> Anfall bakifrån — förutsätter lyckat slag i Smyga + att offret missar Upptäcka fara:
+- Lyckat anfallsslag → <strong>×2 skada</strong> (ingen skadebonus tillkommer)
+- <a class="wikilink" href="strid.html#perfekt">Perfekt</a> anfallsslag → <strong>×4 skada</strong>
+- Missat anfallsslag → normal skada
+- <a class="wikilink" href="strid.html#fummel">Fummel</a> → normalt fummel
+- Fungerar <strong>enbart mot humanoider</strong> som är max 2 m längre än lönnmördaren</p>
+<p><strong>Möjliga yrkesfärdigheter (välj 12):</strong>
+En valfri vapenfärdighet, Tala 1 språk, Administration, Akrobatik, Dra vapen, Dolk, Förfalskning, Geografi, Giftkunskap, Hantera fällor, Hasardspel, Hypnotisera, Knopar, Kulturkännedom, Låsdyrkning, Muta, Simma, Skådespeleri, Stavhopp, Stridskonster, Teckenspråk, Trästav, Undre världen, Änterhake</p>
+<hr />
+<h3 id="magiker-rp-s-17">Magiker (RP s.17)</h3>
+<p><strong>Krav:</strong> INT 12, PSY 14</p>
+<p><strong>Yrkesförmåga:</strong> Lär och kastar besvärjelser från dag ett. Väljer <strong>bara 9</strong> yrkesfärdigheter (inte 12). Måste ta en magiskola (Animism/<a class="wikilink" href="magi.html#elementarmagi">Elementarmagi</a>/Mentalism) som yrkesfärdighet.</p>
+<p><strong>Möjliga yrkesfärdigheter (välj 9):</strong>
+Tala max 3 språk, Läsa/Skriva max 3 språk, Alkemi, Astrologi, Djurhelning, Djurträning, Drogkunskap, Geografi, Giftkunskap, Kulturkännedom, Kunskap om demoner/magi/odöda, Magisk kanalisering, En valfri magiskola, Räkning, Simma, Språkkunskap, Trästav, Zoologi, Örtkunskap</p>
+<blockquote>
+<p><em>Magiker besvärjelser: se MAGI.md. Besvärjelsekostnader: se REGLER_FARDIGHETER.md.</em></p>
+</blockquote>
+<hr />
+<h3 id="munk-rp-s-18">Munk (RP s.18)</h3>
+<p><strong>Krav:</strong> INT 12, PSY 12</p>
+<p><strong>Yrkesförmåga:</strong> Meditation — munken spenderar <strong>1 SR per +1 FV</strong> som höjs kumulativt, max <strong>dubbelt ursprungligt FV</strong>. Höjningen gäller <strong>ett enda slag</strong> som utförs inom <strong>en minut</strong> efter meditationen.</p>
+<p>Exempel: FV 8 i Svärdskonst → mediterar 3 SR → gör ett slag med FV 11.</p>
+<p><strong>Möjliga yrkesfärdigheter (välj 12):</strong>
+Tala max 3 språk, Läsa/Skriva max 3 språk, Avväpna, Djurhelning, Dolk, Drogkunskap, Geografi, Giftkunskap, Hantverk (1 typ), Heraldik, Historia, Knopar, Kulturkännedom, Kunskap om demoner/magi/odöda, Läkekonst, Massage, Målning, Räkning, Simma, Spela max 2 instrument, Språkkunskap, Stridskonster, Trästav, Zoologi, Örtkunskap</p>
+<hr />
+<h3 id="sjofarare-rp-s-19">Sjöfarare (RP s.19)</h3>
+<p><strong>Krav:</strong> FYS 12, SMI 12</p>
+<p><strong>Yrkesförmåga:</strong> <strong>+5 på FYS/STO/STY</strong> mot alla motståndsslag mot besvärjelser eller naturkrafter som rör <strong>elementen</strong> (eldsvåda, iskyla, storm, etc.).</p>
+<p><strong>Möjliga yrkesfärdigheter (välj 12):</strong>
+Max 3 vapenfärdigheter, Tala max 3 språk, Läsa/Skriva 1 språk, Akrobatik, Dans, Dolk, Geografi, Gycklekonster, Hantverk (1 typ), Hasardspel, Knopar, Kulturkännedom, Muta, Navigation, Orientering, Schack &amp; brädspel, Simma, Sjökunnighet, Spela max 2 instrument, Spå väder, Stavhopp, Trästav, Undre världen, Änterhake</p>
+<hr />
+<h3 id="riddare-rp-s-20">Riddare (RP s.20)</h3>
+<p><strong>Krav:</strong> STY 14, FYS 12, PSY 12</p>
+<p><strong>Yrkesförmåga:</strong> Spendera <strong>5 PSY</strong> för ett av:
+1. Träffa <strong>valfri kroppsdel</strong> utan CL-avdrag (alternativt stridssystem)
+2. Göra <strong>maximal vapenskada</strong> inkl. max skadebonus</p>
+<p>Om detaljerat stridssystem inte används gäller alltid alternativ 2.</p>
+<p><strong>Möjliga yrkesfärdigheter (välj 12):</strong>
+Max 5 vapenfärdigheter, Tala 1 språk, Läsa/Skriva 1 språk, Administration, Avväpna, Dans, Djurträning, Dra vapen, Dolk, Geografi, Heraldik, Historia, Kulturkännedom, Kunskap om magi/odöda, Målning, Räkning, Schack &amp; brädspel, Simma, Spela max 2 instrument, Språkkunskap, Trästav, Två vapen</p>
+<p><em>(KH tillägger ytterligare möjliga yrkesfärdigheter för riddare — se KH-avsnittet nedan)</em></p>
+<hr />
+<h3 id="tjuv-rp-s-21">Tjuv (RP s.21)</h3>
+<p><strong>Krav:</strong> SMI 16</p>
+<p><strong>Yrkesförmåga:</strong> Spendera <strong>1 PSY = +1 CL</strong> på valfri färdighet, max <strong>+3</strong> (= 3 PSY). Kan göras <strong>max 2 gånger per sovperiod</strong> (8 tim; alver 4 tim).</p>
+<p><strong>Möjliga yrkesfärdigheter (välj 12):</strong>
+Max 2 vapenfärdigheter, Tala 1 språk, Administration, Akrobatik, Buktala, Dra vapen, Dolk, Drogkunskap, Förfalskning, Geografi, Giftkunskap, Gyckelkonster, Hypnotisera, Knopar, Kulturkännedom, Låsdyrkning, Läppläsning, Muta, Räkning, Simma, Skådespeleri, Spela max 2 instrument, Stavhopp, Teckenspråk, Trästav, Undre världen, Änterhake</p>
+<hr />
+<h3 id="utbygdsjagare-rp-s-22">Utbygdsjägare (RP s.22)</h3>
+<p><strong>Krav:</strong> FYS 12, SMI 12, PSY 12</p>
+<p><strong>Yrkesförmåga:</strong> Magiskolan <strong>Animism</strong> räknas som yrkesfärdighet; kan lära alla besvärjelser med <strong>skolvärde ≤ 12</strong> (samt allmänna besvärjelser). Kan dock <strong>inte</strong> lära besvärjelser från start — måste träna upp dem under spel.</p>
+<p><strong>Möjliga yrkesfärdigheter (välj 12):</strong>
+Max 3 vapenfärdigheter, Tala 1 språk, Animism, Djurhelning, Djurträning, Dolk, Drogkunskap, Geografi, Geologi, Giftkunskap, Hantverk (1 typ), Hantera fällor, Knopar, Kulturkännedom, Orientering, Simma, Spå väder, Zoologi, Örtkunskap, Överlevnad</p>
+<hr />
+<h2 id="krigarspecialiseringar-krigarens-handbok-kh-s-4-9">Krigarspecialiseringar — Krigarens Handbok (KH s.4–9)</h2>
+<p>Alla krigarspecialiseringar har <strong>krigrarens grundförmåga (+5 initiativ) plus sin egen förmåga</strong>. Alla kräver minst krigararens grundkrav (STY 14, FYS 12).</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Krigaryrke</th>
+<th>Krav</th>
+<th>Egen yrkesförmåga</th>
+<th>Källa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Barbar</strong></td>
+<td>STY 14, FYS 15</td>
+<td>Urfolk/vildmark-tema. ⚠ Exakt förmåga — verifiera mot KH s.4</td>
+<td>KH s.4</td>
+</tr>
+<tr>
+<td><strong>Gladiator</strong></td>
+<td>STY 14, FYS 12, SMI 12</td>
+<td>Arenakrigare — ⚠ exakt förmåga mot KH s.4–5</td>
+<td>KH s.4–5</td>
+</tr>
+<tr>
+<td><strong>Krigarmunk</strong></td>
+<td>STY 14, FYS 12, SMI 16, PSY 15, INT 11</td>
+<td>Köper stridskonst-tekniker (se REGLER_STRID.md) för <strong>halva grundkostnaden</strong></td>
+<td>KH s.5</td>
+</tr>
+<tr>
+<td><strong>Paladin</strong></td>
+<td>STY 15, FYS 12, PSY 14, INT 12</td>
+<td>Lär <a class="wikilink" href="magi.html#mentalism">Mentalism</a> som yrkesfärdighet (skolvärde ≤12, ej allmänna besvärjelser); max 1/3 av EP på besvärjelser. Förlorar förmågor om gudens krav bryts</td>
+<td>KH s.5–6</td>
+</tr>
+<tr>
+<td><strong>Prisjägare</strong></td>
+<td>STY 14, FYS 12, SMI 14</td>
+<td>Automatiskt minst <strong>CL 17</strong> i Upptäcka fara (sjätte sinne för all fysisk fara)</td>
+<td>KH s.6–7</td>
+</tr>
+<tr>
+<td><strong>Soldat</strong></td>
+<td>STY 14, FYS 12</td>
+<td>Goda kontakter i armé: KAR/4 gånger/år kan kalla på hjälp. Grad väljes: Menig (0 BP) 1T3 vänner, Sergeant (10 BP) 1T6, Kapten (20 BP) 2T6, Överste (30 BP) 3T10</td>
+<td>KH s.7–8</td>
+</tr>
+<tr>
+<td><strong>Sprätthök</strong></td>
+<td>STY 14, FYS 12, SMI 15</td>
+<td>Heroisk/dramatisk — SL kan låta denne lyckas med nästan vad som helst om det är spektakulärt</td>
+<td>KH s.8</td>
+</tr>
+<tr>
+<td><strong>Vapenmästare</strong></td>
+<td>STY 14, FYS 12, SMI 15, PSY 12</td>
+<td>Spendera <strong>5 PSY</strong> → en extra parering <strong>eller</strong> en extra attack per SR</td>
+<td>KH s.8–9</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="riddarens-extra-yrkesfardigheter-kh">Riddarens extra yrkesfärdigheter (KH)</h3>
+<p>Riddare kan utöver RP:s lista även välja: Bryta grepp, Duellera, Fallteknik, Härskri, Slå medvetslös, Slåss till häst, Strategi, Strid i luften, Strid i mörker, Taktik, Vagnsförare, Vapentekniker</p>
+<hr />
+<h2 id="tjuvspecialiseringar-tjuvar-och-lonnmordare-t-amp-l-s-12-16">Tjuvspecialiseringar — Tjuvar och Lönnmördare (T&amp;L s.12–16)</h2>
+<p>Alla har <strong>tjuvens grundförmåga (1 PSY = +1 CL, max +3, 2×/sovperiod) plus sin egen</strong>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Yrke</th>
+<th>Extra krav</th>
+<th>Egen yrkesförmåga</th>
+<th>Källa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ficktjuv</strong></td>
+<td>—</td>
+<td>Stjäla föremål med CL <strong>minst 5</strong> (om fysiskt möjligt)</td>
+<td>T&amp;L s.12</td>
+</tr>
+<tr>
+<td><strong>Gentlemannatjuv</strong></td>
+<td>—</td>
+<td>Spendera 3 PSY vid fummel → räknas som vanligt miss</td>
+<td>T&amp;L s.13</td>
+</tr>
+<tr>
+<td><strong>Gravplundrare</strong></td>
+<td>—</td>
+<td><strong>+5 FYS</strong> på motståndsslag mot sjukdomar</td>
+<td>T&amp;L s.12</td>
+</tr>
+<tr>
+<td><strong>Stråtrövare</strong></td>
+<td>—</td>
+<td>Minst <strong>CL 10</strong> i Överleva i skog; +1 CL i Gömma sig/Orientering/Kamouflage/Smyga/Spåra i skog</td>
+<td>T&amp;L s.15</td>
+</tr>
+<tr>
+<td><strong>Hantlangare</strong></td>
+<td>STY 14, SMI 16</td>
+<td>Även <strong>krigararens yrkesförmåga</strong> (+5 initiativ)</td>
+<td>T&amp;L s.15</td>
+</tr>
+<tr>
+<td><strong>Gillrare</strong></td>
+<td>SMI 16, INT 16</td>
+<td>+1 CL/PSY (max +3) i Hantera fällor/Låsdyrkning/Finsmide/Finna dolda ting/Knopar</td>
+<td>T&amp;L s.14</td>
+</tr>
+<tr>
+<td><strong>Tiggare</strong></td>
+<td>SMI 16</td>
+<td>Förställa utseende (PSY mot offrets INT); startar alltid egendomslös</td>
+<td>T&amp;L s.15–16</td>
+</tr>
+<tr>
+<td><strong>Fixare</strong></td>
+<td>SMI 16, INT 9, KAR 12</td>
+<td>Spendera 6 PSY → ordna saker och kontakter via undre världen</td>
+<td>T&amp;L s.13</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="lonnmordarspecialiseringar-tjuvar-och-lonnmordare-t-amp-l-s-9-12">Lönnmördarspecialiseringar — Tjuvar och Lönnmördare (T&amp;L s.9–12)</h2>
+<p>Alla har <strong>lönnmördarens grundförmåga (bakhugg ×2/×4) plus sin egen</strong>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Yrke</th>
+<th>Extra krav</th>
+<th>Egen yrkesförmåga</th>
+<th>Källa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Spelaren</strong></td>
+<td>—</td>
+<td>PSY → +1 CL/PSY (max +3) i Hasardspel/Brädspel/Bluffa</td>
+<td>T&amp;L s.9</td>
+</tr>
+<tr>
+<td><strong>Giftmästare</strong></td>
+<td>—</td>
+<td>Lyckat INT-slag → skapa gift av tillgängliga medel; giftresistens</td>
+<td>T&amp;L s.10</td>
+</tr>
+<tr>
+<td><strong>Kunskapare</strong></td>
+<td>SMI 14, INT 12, PSY 12, KAR 12</td>
+<td>Får även <strong>bardens yrkesförmåga</strong></td>
+<td>T&amp;L s.10</td>
+</tr>
+<tr>
+<td><strong>Kultist</strong></td>
+<td>—</td>
+<td>CL i strid <strong>+2</strong>; ignorerar smärta (−1 KP och SP per träff)</td>
+<td>T&amp;L s.11</td>
+</tr>
+<tr>
+<td><strong>Spion</strong></td>
+<td>SMI 14, INT 14, PSY 14, KAR 14</td>
+<td>Spendera 5 PSY → SL avslöjar information om en vald person</td>
+<td>T&amp;L s.11</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="bardspecialiseringar-tjuvar-och-lonnmordare-t-amp-l-s-7-9">Bardspecialiseringar — Tjuvar och Lönnmördare (T&amp;L s.7–9)</h2>
+<p>Alla har <strong>bardens grundförmåga (sång/spel: KAR+5 för åhörare, +5 CL socialt i 1 tim) plus sin egen</strong>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Yrke</th>
+<th>Extra krav</th>
+<th>Egen yrkesförmåga</th>
+<th>Källa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bedragare</strong></td>
+<td>—</td>
+<td>+5 CL i <strong>en</strong> av Bluffa/Köpslå/Övertala, max <strong>2×/sovperiod</strong></td>
+<td>T&amp;L s.7</td>
+</tr>
+<tr>
+<td><strong>Fingerkonstnär</strong></td>
+<td>—</td>
+<td>Kan använda en begränsad mängd minimagi</td>
+<td>T&amp;L s.8</td>
+</tr>
+<tr>
+<td><strong>Gycklare</strong></td>
+<td>SMI 14, KAR 16</td>
+<td>Spendera 1 PSY + gyckelkonst → motståndare häpen i <strong>1 SR</strong></td>
+<td>T&amp;L s.8</td>
+</tr>
+<tr>
+<td><strong>Kurtisan</strong></td>
+<td>—</td>
+<td>Spendera 5 PSY + KAR mot offrets PSY → förblindad av passion i KAR timmar</td>
+<td>T&amp;L s.9</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="kaos-vaktare-yrken">Kaos Väktare-yrken (Kaos Väktare-supplementet)</h2>
+<p>Kaos Väktare (1993) introducerar tre underyrken som ärver sitt grundyrkes yrkesförmåga och lägger till en egen:</p>
+<table>
+<thead><tr><th>Underyrke</th><th>Grundyrke</th><th>Krav</th></tr></thead>
+<tbody>
+<tr><td>Demonolog</td><td>Magiker</td><td>INT 16, PSY 16</td></tr>
+<tr><td>Demonjägare</td><td>Krigare eller Präst</td><td>—</td></tr>
+<tr><td>Demonkrigare</td><td>Krigare</td><td>—</td></tr>
+</tbody>
+</table>
+<p><em>TBD — yrkesdetaljer, yrkesförmågor och färdighetslista läggs till när Kaos Väktare-supplementet är genomgånget.</em></p>
+<h2 id="praktiska-notiser">Praktiska notiser</h2>
+<h3 id="yrkesformaga-och-psy">Yrkesförmåga och PSY</h3>
+<ul>
+<li>PSY-kostnader återfylls efter <strong>sömn</strong> (8 tim för de flesta; 4 tim för alver)</li>
+<li>Max PSY = PSY-grundegenskap (räknas normalt som max)</li>
+<li>Paladinen och utbygdsjägaren som lär magi spenderar <strong>PSY på besvärjelser</strong> (se MAGI.md)</li>
+</ul>
+<h3 id="magiker-och-besvarjelseprioritet">Magiker och besvärjelseprioritet</h3>
+<ul>
+<li>En magiker <strong>måste</strong> ha en magiskola som yrkesfärdighet</li>
+<li>Magikern lär <strong>tre grundskolor</strong>: Animism, Elementarmagi, Mentalism</li>
+<li>Besvärjelsekostnader: Skolvärde 1 = 4 EP, S2 = 8 EP... (se REGLER_FARDIGHETER.md)</li>
+</ul>
+<h3 id="stridskonster-och-krigarmunk">Stridskonster och Krigarmunk</h3>
+<ul>
+<li>Stridskonst-tekniker kostar normalt EP att lära</li>
+<li>Krigarmunken betalar <strong>halva grundkostnaden</strong> för tekniker</li>
+<li>Teknikerna listas i REGLER_STRID.md</li>
+</ul>
+<h3 id="krav-att-uppfylla">Krav att uppfylla</h3>
+<ul>
+<li>Grundegenskapskraven <strong>måste vara uppfyllda</strong> vid rollpersonsskapandet</li>
+<li>Rasmodifikationer räknas — en dvärg med STY +3 kan lättare nå STY 14 för krigare</li>
+<li>Om krav inte uppfylls under spelets gång (t.ex. FYS sjunker pga skada) förlorar rollpersonen <strong>ej</strong> förmågor retroaktivt — SL avgör</li>
+</ul>
+</main>
+<footer><span>Drakar och Demoner Expert Wiki · Baserad på originalreglerna</span><span class="footer-meta">v2026.07.13 · Uppdaterad 2026-07-13</span></footer>
+</body>
+</html>

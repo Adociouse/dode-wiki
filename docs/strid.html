@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strid &amp; Vapen — D&amp;DE Expert — DoDE Wiki</title>
+<style>
+:root {
+  --red:      #6B1A1A;
+  --red-dark: #4A0E0E;
+  --paper:    #FAF3F0;
+  --text:     #2A0808;
+  --gold:     #D4956B;
+  --border:   #C4907A;
+  --link:     #6B1A1A;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --red:      #C05050;
+    --red-dark: #8B2020;
+    --paper:    #1E1010;
+    --text:     #F0DDD5;
+    --gold:     #D4956B;
+    --border:   #6B3A2A;
+    --link:     #E07070;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+  background: var(--paper);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── TOPPNAV ── */
+#topnav {
+  background: var(--red-dark);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 2px solid var(--gold);
+}
+#topnav .site-title {
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 10px 16px 10px 0;
+  white-space: nowrap;
+  border-right: 1px solid rgba(212,149,107,0.3);
+  margin-right: 8px;
+}
+#topnav a {
+  color: #F5E6D3;
+  text-decoration: none;
+  padding: 10px 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+#topnav a:hover { color: #fff; border-bottom-color: var(--gold); }
+#topnav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+.nav-section {
+  color: rgba(212,149,107,0.55);
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 6px 10px 10px;
+  white-space: nowrap;
+  border-left: 1px solid rgba(212,149,107,0.25);
+  margin-left: 4px;
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+/* ── TYPOGRAFI ── */
+h1 { font-size: 2rem; color: var(--red); border-bottom: 3px solid var(--gold); padding-bottom: 10px; margin-bottom: 28px; }
+h2 { font-size: 1.4rem; color: var(--red-dark); margin: 32px 0 12px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.1rem; color: var(--red); margin: 22px 0 8px; }
+h4 { font-size: 1rem; font-weight: bold; margin: 16px 0 6px; }
+p  { line-height: 1.75; margin-bottom: 12px; }
+ul, ol { margin: 8px 0 14px 24px; line-height: 1.75; }
+li { margin-bottom: 4px; }
+
+/* ── WIKILÄNKAR ── */
+a { color: var(--link); }
+a:hover { text-decoration: underline; }
+a.wikilink { border-bottom: 1px dotted var(--gold); text-decoration: none; color: var(--link); }
+a.wikilink:hover { border-bottom-style: solid; }
+
+/* ── TABELLER ── */
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 400px; }
+th { background: var(--red); color: var(--gold); padding: 8px 10px; text-align: left; white-space: nowrap; }
+td { padding: 7px 10px; border-bottom: 1px solid var(--border); }
+tr:nth-child(even) td { background: rgba(196,144,122,0.08); }
+tr:hover td { background: rgba(196,144,122,0.16); }
+
+/* ── KAMPANJRUTA ── */
+.kampanj-ruta { background: rgba(107,26,26,0.07); border: 1px solid rgba(107,26,26,0.35); border-left: 4px solid var(--red); border-radius: 6px; padding: 18px 20px; margin: 24px 0 32px; }
+.kampanj-ruta .kr-rubrik { font-size: 0.72rem; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+.kampanj-ruta p { font-size: 0.92rem; line-height: 1.65; margin: 0 0 10px; }
+.kampanj-ruta p:last-child { margin-bottom: 0; }
+.kampanj-ruta ul { margin: 8px 0 10px 18px; padding: 0; }
+.kampanj-ruta li { font-size: 0.92rem; line-height: 1.6; margin-bottom: 4px; }
+
+/* ── KOD / BLOCKQUOTE ── */
+code { background: rgba(107,26,26,0.08); padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 0.88em; }
+pre  { background: rgba(107,26,26,0.06); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; overflow-x: auto; margin: 14px 0; }
+pre code { background: none; padding: 0; }
+blockquote { border-left: 4px solid var(--gold); padding: 10px 16px; margin: 14px 0; background: rgba(212,149,107,0.08); font-style: italic; }
+
+/* ── FOOTER ── */
+footer { margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer-meta { font-style: italic; }
+main img { max-width: 100%; height: auto; border: 1px solid var(--border); border-radius: 4px; margin: 16px 0; }
+
+/* ── NYCKELORDSINDEX ── */
+.kw-index { column-count: 3; column-gap: 32px; }
+@media (max-width: 600px) { .kw-index { column-count: 1; } main { padding: 24px 16px; } }
+.kw-entry { break-inside: avoid; margin-bottom: 10px; font-size: 0.9rem; line-height: 1.5; }
+.kw-entry .kw-term { font-weight: bold; color: var(--red); }
+.kw-entry .kw-pages a { font-size: 0.82rem; color: var(--link); margin-right: 6px; }
+</style>
+
+</head>
+<body>
+<nav id="topnav">
+  <span class="site-title">⚔ DoDE Expert</span>
+  <a href="index.html">📖 Index</a>
+<a href="grundegenskaper.html">💪 Grundegenskaper</a>
+<a href="strid.html" class="active">⚔️ Strid & Vapen</a>
+<a href="fardigheter.html">🎯 Färdigheter</a>
+<a href="raser.html">🧝 Raser</a>
+<a href="yrken.html">🛡️ Yrken</a>
+<a href="magi.html">✨ Magi</a>
+<a href="utrustning.html">🗡️ Utrustning</a>
+<a href="hjaltar.html">🌟 Hjältar</a>
+<a href="monster.html">🐉 Varelser</a>
+<a href="drakar.html">🔥 Drakar</a>
+<a href="demonologi.html">🔮 Demonologi</a>
+<a href="kallor.html">📚 Källor</a>
+
+</nav>
+<main>
+<h1>Strid &amp; Vapen — D&amp;DE Expert</h1>
+<blockquote>
+<p><strong>Källa:</strong> REG s.47–63 · RP s.35 (vapenfärdighet) · KH (detaljerade stridsregler)</p>
+</blockquote>
+<p>D&amp;DE Expert har <strong>två stridssystem</strong>: grundsystemet (snabbt, enkelt) och det alternativa (detaljerat, med kroppsdelar). SL väljer vilket som används — det alternativa rekommenderas inte för nybörjare.</p>
+<hr />
+<h2 id="snabbreferens-en-stridsrunda">Snabbreferens — En stridsrunda</h2>
+<pre><code>1. Bestäm turordning (initiativ)
+2. Anfallaren slår 1T20 ≤ FV → träff
+3. Försvararen slår 1T20 ≤ FV → parering (sköld/vapen)
+4. Om träff: slå vapenskada + SB − ABS = faktisk skada på KP
+5. Kontrollera KP-status
+</code></pre>
+<p><strong>1 Stridsrunda (SR) = ca 5 sekunder</strong></p>
+<hr />
+<h2 id="turordning-initiativ">Turordning (Initiativ)</h2>
+<ul>
+<li>Turordningen baseras på <strong>SMI</strong> — högst SMI agerar först</li>
+<li>Lika SMI: slå 1T6, högst slår först</li>
+<li><strong>Vapenlängd</strong> påverkar striden första SR: längre vapen slår ALLTID FÖRST i stridernas första SR; från SR 2 används normal turordning (REG s.56)</li>
+</ul>
+<h3 id="initiativmodifikationer">Initiativmodifikationer</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Modifikation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="wikilink" href="yrken.html#krigare">Krigare</a> (yrkesförmåga)</td>
+<td>+5 på alla initiativslag</td>
+</tr>
+<tr>
+<td>Karate (färdighet aktiv)</td>
+<td>+5 på SMI vid initiativ</td>
+</tr>
+<tr>
+<td>Hoppspark</td>
+<td>−2 på initiativslaget</td>
+</tr>
+<tr>
+<td>Rundspark</td>
+<td>−2 på initiativslaget</td>
+</tr>
+<tr>
+<td>Stridskonst: Initiativbonus (teknik)</td>
+<td>+5 till SMI</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="anfallsslag">Anfallsslag</h2>
+<p><strong>Slå 1T20 ≤ FV</strong> för att anfallet lyckas.</p>
+<p>FV = Färdighetsvärde i aktuellt vapen (modifierat av CL-modifikationer).</p>
+<h3 id="resultat">Resultat</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Tärningsutfall</th>
+<th>Resultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong> → slå igen ≤ FV</td>
+<td><strong>Perfekt träff</strong></td>
+</tr>
+<tr>
+<td><strong>1</strong> → slå igen &gt; FV</td>
+<td>Vanlig träff</td>
+</tr>
+<tr>
+<td>2–19 ≤ FV</td>
+<td>Lyckat anfallsslag — träff</td>
+</tr>
+<tr>
+<td>2–19 &gt; FV</td>
+<td>Misslyckat — miss</td>
+</tr>
+<tr>
+<td><strong>20</strong> → slå igen &gt; FV</td>
+<td><strong>Fummel</strong></td>
+</tr>
+<tr>
+<td><strong>20</strong> → slå igen ≤ FV</td>
+<td>Vanlig miss</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="cl-modifikationer-urval">CL-modifikationer (urval)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Modifikation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Siktar på specifik kroppsdel</td>
+<td>−5</td>
+</tr>
+<tr>
+<td>Anfaller liggande mål</td>
+<td>+5</td>
+</tr>
+<tr>
+<td>Sköldhand används (ej tränad)</td>
+<td>CL × 1/3</td>
+</tr>
+<tr>
+<td>Fiende bär metallrustning (Slagsmål)</td>
+<td>+1 KP extra skada vid träff</td>
+</tr>
+<tr>
+<td>Avståndsvapen: mål går</td>
+<td>CL × 3/4</td>
+</tr>
+<tr>
+<td>Avståndsvapen: mål springer</td>
+<td>CL × 1/2</td>
+</tr>
+<tr>
+<td>Avståndsvapen: mål flyger</td>
+<td>CL × 1/4</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="parering">Parering</h2>
+<ul>
+<li>Parering görs med samma FV som anfallet (vapenfärdigheten kombinerar anfall och parering)</li>
+<li><strong>Slå 1T20 ≤ FV</strong> för att parera</li>
+<li>Man kan bara parera <strong>en attack</strong> per SR (om inte FV 20+ ger extra bitar)</li>
+<li><strong>Sköld</strong> ger separat parering utöver vapnets</li>
+</ul>
+<h3 id="skoldar">Sköldar</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Sköldtyp</th>
+<th>Storlek</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Liten sköld</td>
+<td>−</td>
+</tr>
+<tr>
+<td>Medelstor sköld</td>
+<td>−</td>
+</tr>
+<tr>
+<td>Stor sköld</td>
+<td>−</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(I det alternativa stridssystemet täcker sköldar specifika kroppsdelar — REG s.56)</em></p>
+<h3 id="parering-av-kastvapen">Parering av kastvapen</h3>
+<ul>
+<li>Möjligt <strong>om</strong> sköldbäraren ser kastet utföras</li>
+<li>Fungerar som vanlig parering</li>
+</ul>
+<h3 id="skoldars-talighet">Sköldars tålighet</h3>
+<ul>
+<li>Om skölden framgångsrikt parerar ett anfall finns <strong>1/20 chans</strong> att skölden förstörs (slå 1T20 direkt efter pareringen — REG s.57)</li>
+</ul>
+<hr />
+<h2 id="skada-amp-absorption">Skada &amp; Absorption</h2>
+<h3 id="skada">Skada</h3>
+<ol>
+<li>Slå vapenskada (t.ex. Bredsvärd: 1T8+1)</li>
+<li>Lägg till <strong><a class="wikilink" href="grundegenskaper.html#skadebonus">Skadebonus</a> (SB)</strong> (baserat på STY + STO — se REGLER_EGENSKAPER.md)</li>
+<li>Dra av <strong>ABS</strong> (rustningens Absorption)</li>
+<li>Återstående minskar motståndarens <strong>KP</strong></li>
+</ol>
+<h3 id="absorption-abs">Absorption (ABS)</h3>
+<p>Rustning minskar skada med sitt Abs-värde VARJE GÅNG man träffas.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Rustning</th>
+<th>Abs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tjockt tyg</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Läder</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Nitläder</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Lätt fjällpansar</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Fjällpansar</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Ringbrynja</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Förstärkt ringbrynja</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Helrustning (metall)</td>
+<td>8</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(Fullständig tabell: REG s.53. Abs gäller för HELA kroppen i grundsystemet.)</em></p>
+<hr />
+<h2 id="kp-och-skadetillstand">KP och Skadetillstånd</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>KP</th>
+<th>Tillstånd</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>≥1</td>
+<td>Stridfärdig</td>
+</tr>
+<tr>
+<td>≤0</td>
+<td>Orkar krypa och göra Första Hjälpen (halverad CL). Faller till marken</td>
+</tr>
+<tr>
+<td>0 till −FYS</td>
+<td>Blöder: 1 KP extra var 6 SR (halvminut). Förblir medvetslös 40−FYS minuter</td>
+</tr>
+<tr>
+<td>≤ −FYS</td>
+<td><strong>Dör</strong> av skadorna</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Om ingen läkning:</strong> rollpersonen med KP ≤ 0 behöver <strong>Första Hjälpen</strong> för att stoppa blödning. Besvärjelsen HELA fungerar också.</p>
+<hr />
+<h2 id="fallen-rollperson-och-dodsfall">Fallen rollperson och dödsfall</h2>
+<h3 id="blodning">Blödning</h3>
+<p>En rollperson med Totala KP ≤ 0 faller till marken och är oförmögen att agera. Han blöder och tar <strong>1 KP extra var 6 SR</strong> (halvminut) tills:
+- Någon lyckas med <strong>Första Hjälpen</strong> (stoppar blödningen), eller
+- Besvärjelsen <strong>HELA</strong> läggs på honom</p>
+<p>Rollpersonen är medvetslös <strong>40 − FYS minuter</strong> efter att blödningen stoppats. När han vaknar kan han inte agera aktivt förrän huvudets KP är positivt igen.</p>
+<h3 id="kritiska-skador-alternativa-systemet">Kritiska skador (alternativa systemet)</h3>
+<ul>
+<li>En kroppsdel som tar <strong>dubbelt sin KP</strong> i skada är <strong>kritiskt skadad</strong> — arm/ben/vinge är avhuggen eller måste amputeras (slå 1T100 för procentandelen som tas bort)</li>
+<li>Kritiskt skadad <strong>bröstkorg/mage/kropp</strong> → omedelbar medvetslöshet, blöder inom FYS SR</li>
+<li>Kritiskt skadat <strong>huvud</strong> → rollpersonen dör omedelbart</li>
+</ul>
+<h3 id="infektion">Infektion</h3>
+<p>Vapen är sällan rena — varje gång en rollperson träffas av ett djurs naturliga vapen finns risk för sårinfektion. Alvfolk är immuna. SL slår hemligt; symptom och allvar varierar.</p>
+<hr />
+<h2 id="helande">Helande</h2>
+<h3 id="forsta-hjalpen">Första Hjälpen</h3>
+<p>En lyckad Första Hjälpen-kontroll stoppar blödning (KP ≤ 0). Kräver <strong>två fungerande armar</strong>. Rollpersonen kan försöka på sig själv med <strong>halverad CL</strong>.</p>
+<h3 id="lakekonst">Läkekonst</h3>
+<p>En person med Läkekonst kan påskynda tillfrisknandet. Slå ett färdighetsslag per patient per <strong>full vecka</strong> av vård. Lyckat slag → patienten läker <strong>dubbelt så många KP</strong> som normalt under veckan.</p>
+<h3 id="besvarjelsen-hela">Besvärjelsen HELA</h3>
+<p>Läggs på en specifik kroppsdel — den kroppsdelen läker. Överskjutande KP placeras valfritt på annan kroppsdel.</p>
+<h3 id="naturlig-lakning">Naturlig läkning</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Aktivitetsnivå</th>
+<th>Läkning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total vila (sängliggande)</td>
+<td>Normal takt per dag (⚠ exakt värde — verifiera mot REG)</td>
+</tr>
+<tr>
+<td>Lätt aktivitet</td>
+<td>Halverad takt</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(REG s.50–52, Läkekonst: REG s.23)</em></p>
+<hr />
+<h2 id="strid-i-morker">Strid i mörker</h2>
+<p>En rollperson <strong>utan mörkersyn</strong> måste reducera sin CL vid anfall och parering:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ljusförhållande</th>
+<th>CL-modifikation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Skymning / fackelsken</td>
+<td>−5</td>
+</tr>
+<tr>
+<td>Mörker</td>
+<td>−15</td>
+</tr>
+<tr>
+<td>Minsta möjliga CL</td>
+<td>1 (aldrig lägre)</td>
+</tr>
+</tbody>
+</table></div>
+<p>En varelse <strong>med mörkersyn</strong> som slåss mot varmblodiga varelser har <strong>inga</strong> av dessa modifikationer.</p>
+<h3 id="morkersyn-per-ras">Mörkersyn per ras</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ras</th>
+<th>Mörkersyn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="wikilink" href="raser.html#dvarg">Dvärg</a></td>
+<td>Mörkerseende (ser i kolmörker utan ljuskälla)</td>
+</tr>
+<tr>
+<td>Orch</td>
+<td>Perfekt mörkersyn</td>
+</tr>
+<tr>
+<td>Rese</td>
+<td>Begränsad mörkersyn (ser i kolmörker ungefär som människa med fackla)</td>
+</tr>
+<tr>
+<td><a class="wikilink" href="raser.html#halvorch">Halvorch</a></td>
+<td>Mörkersyn</td>
+</tr>
+<tr>
+<td>Grottalv, Mörkeralv</td>
+<td>Mörkersyn</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(SL-boken s.21, Strid i mörker s.21)</em></p>
+<hr />
+<h2 id="gift">Gift</h2>
+<p>Gift hanteras med ett <strong>motståndslag</strong>: offrets FYS mot giftets STY (Motståndstabellen).</p>
+<h3 id="effektnivaer">Effektnivåer</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Motståndslaget</th>
+<th>Effekt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lyckas</td>
+<td>Lindrig effekt</td>
+</tr>
+<tr>
+<td>Misslyckas med 1–5</td>
+<td>Måttlig effekt</td>
+</tr>
+<tr>
+<td>Misslyckas med 6–10</td>
+<td>Allvarlig effekt</td>
+</tr>
+<tr>
+<td>Misslyckas med mer än 10</td>
+<td>Dödlig effekt</td>
+</tr>
+</tbody>
+</table></div>
+<p>Effekterna är <strong>kumulativa</strong> — dödlig effekt innebär att alla lägre nivåers effekter också inträffar.</p>
+<h3 id="tidsfordrojning-sty-under-30">Tidsfördröjning (STY under 30)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Effektnivå</th>
+<th>Tid till debut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lindrig</td>
+<td>20 SR</td>
+</tr>
+<tr>
+<td>Måttlig</td>
+<td>+20 minuter</td>
+</tr>
+<tr>
+<td>Allvarlig</td>
+<td>+20 timmar</td>
+</tr>
+<tr>
+<td>Dödlig</td>
+<td>+20 dygn</td>
+</tr>
+</tbody>
+</table></div>
+<p>Från alla tider dras giftets <strong>STY</strong> bort (STY 15 → "20" byts mot "5").</p>
+<h3 id="tidsfordrojning-sty-30">Tidsfördröjning (STY 30+)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Effektnivå</th>
+<th>Tid till debut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lindrig</td>
+<td>1 SR</td>
+</tr>
+<tr>
+<td>Måttlig</td>
+<td>2 SR</td>
+</tr>
+<tr>
+<td>Allvarlig</td>
+<td>3 SR</td>
+</tr>
+<tr>
+<td>Dödlig</td>
+<td>1 minut</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="gifttyper">Gifttyper</h3>
+<ul>
+<li><strong>Muskelgift</strong> — förlamar, SMI-förlust, KP-förlust</li>
+<li><strong>Nervgift</strong> — påverkar FYS och STY (minskar med 50% under verkningstid)</li>
+<li><strong>Blodgift</strong> — feber, svullnad, SMI-förlust, KP per minut vid allvarlig nivå</li>
+</ul>
+<h3 id="motgift">Motgift</h3>
+<p>Specifika motgifter och örter kan minska ett gifts STY (t.ex. minskar ett örtemotgift STY med 15). Färdigheten <strong>Giftkunskap</strong> används för att tillverka och använda gifter; <strong>Örtkunskap</strong> för läkedroger.</p>
+<p><em>(SL-boken s.50–51)</em></p>
+<hr />
+<h2 id="perfekt-och-fummel">Perfekt och Fummel</h2>
+<h3 id="perfekt-traff-specialregler">Perfekt träff (specialregler)</h3>
+<ul>
+<li><strong>Alternativa stridssystemet:</strong> maximal vapenskada + maximal SB, och målet får inte tillgodoräkna sig rustning/skydd</li>
+<li><strong>Grundsystemet:</strong> SL ger någon form av bonus</li>
+</ul>
+<h3 id="fummeltabell-narstridsvapen-och-skoldar">Fummeltabell — Närstridsvapen och sköldar</h3>
+<p>Slå 1T20 när fummel inträffar:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>1T20</th>
+<th>Händelse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Tappar delar av rustningen</td>
+</tr>
+<tr>
+<td>2–7</td>
+<td>Vacklar — missar nästa attack eller parering</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Helt ur balans — missar nästa attacker OCH pareringar</td>
+</tr>
+<tr>
+<td>9–10</td>
+<td>Snubblar — tar 1 SR att resa sig</td>
+</tr>
+<tr>
+<td>11–13</td>
+<td>Snubblar (variant) — tar 1 SR att resa sig</td>
+</tr>
+<tr>
+<td>12–13</td>
+<td>Vrickar foten — förflyttning −1 resten av striden</td>
+</tr>
+<tr>
+<td>14–16</td>
+<td>Tappar vapnet/skölden i rutan</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Tappar vapnet — slungas 1T3 rutor bort</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Träffar närmaste vän med vapnet</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Klumpig rörelse — nästa fientliga attack träffar automatiskt</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Rejäl klantighet — slå DEUX gånger på tabellen</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(REG s.60–61)</em></p>
+<h3 id="fummeltabell-naturliga-vapen-navar-sparkar">Fummeltabell — Naturliga vapen (nävar/sparkar)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>1T20</th>
+<th>Händelse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Tappar delar av rustningen</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tappar delar av rustningen (se ovan för detaljer)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Vacklar — missar nästa attack</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Tappar delar av rustningen</td>
+</tr>
+<tr>
+<td>11–13</td>
+<td>Snubblar — tar 1 SR att resa sig</td>
+</tr>
+<tr>
+<td>14–15</td>
+<td>Vrickar foten</td>
+</tr>
+<tr>
+<td>16–17</td>
+<td>Alla fiender har +3 CL nästa SR (distraherad)</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Träffar närmaste vän</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Klumpig rörelse — nästa fiende-attack träffar automatiskt</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Rejäl klantighet — slå DEUX gånger</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(REG s.60)</em></p>
+<h3 id="fummeltabell-avstandsvapen">Fummeltabell — Avståndsvapen</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>1T20</th>
+<th>Händelse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–12</td>
+<td>Distraherad — kan inte agera denna SR</td>
+</tr>
+<tr>
+<td>13–15</td>
+<td>Tappar vapnet, kastvapen faller 1T6 rutor bort</td>
+</tr>
+<tr>
+<td>16–17</td>
+<td>Snubblar — tar 1 SR att resa sig</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Träffar närmaste vän i skottfältet</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Vapnet går sönder</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Rejäl klantighet — slå DEUX gånger</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(REG s.61)</em></p>
+<hr />
+<h2 id="flera-attacker">Flera attacker</h2>
+<p>En rollperson med <strong>FV 20+</strong> på ett vapen kan dela upp sin FV i flera "bitar":
+- Varje bit måste ha minst CL 10
+- Fördelas fritt mellan attacker och pareringar
+- Kan anfalla samma motståndare flera gånger
+- Kan parera <strong>en</strong> attack per motståndare, aldrig mer
+- Första attacken på sin sedvanliga plats i SR; resterande sist (REG s.57)</p>
+<hr />
+<h2 id="alternativa-stridssystemet-sammanfattning">Alternativa stridssystemet — Sammanfattning</h2>
+<p>Aktiveras av SL som ett val. Ger mer realism men tar längre tid.</p>
+<h3 id="totala-kp-vs-kroppsdelars-kp">Totala KP vs. kroppsdelars KP</h3>
+<ul>
+<li><strong>Totala KP</strong> = (STO + FYS) / 2 — same formula</li>
+<li>Varje kroppsdel har egna KP (beräknade från Totala KP enligt tabell)</li>
+<li>Skadan räknas BÅDE från Totala KP och från den träffade kroppsdelen</li>
+</ul>
+<h3 id="vilken-kroppsdel-traffas">Vilken kroppsdel träffas</h3>
+<p>SL slår tärning beroende på om anfallet är framifrån/bakifrån/projektil:</p>
+<p><strong>Humanoid (tabell 4 — REG s.49):</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>1T8 (A: projektil/bakifrån)</th>
+<th>1T10 (B: närstrid mot försvararare)</th>
+<th>Träffområde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>Höger ben</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>Vänster ben</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>Mage</td>
+</tr>
+<tr>
+<td>4–5</td>
+<td>4</td>
+<td>Bröstkorg</td>
+</tr>
+<tr>
+<td>6</td>
+<td>5–6</td>
+<td>Höger arm</td>
+</tr>
+<tr>
+<td>7</td>
+<td>7–8</td>
+<td>Vänster arm</td>
+</tr>
+<tr>
+<td>8</td>
+<td>9–10</td>
+<td>Huvud</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="effekter-av-skada-per-kroppsdel">Effekter av skada per kroppsdel</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>KP i kroppsdel</th>
+<th>Effekt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 eller lägre</td>
+<td>Kroppsdelen obrukbar (arm/ben/vinge ger inte mer skada)</td>
+</tr>
+<tr>
+<td>Bröstkorg/mage ≤ 0</td>
+<td>Faller, kan inte göra något, blöder 1 KP/halvminut</td>
+</tr>
+<tr>
+<td>Huvud ≤ 0</td>
+<td>Medvetslös 40−FYS minuter; kan inte göra något</td>
+</tr>
+<tr>
+<td>Dubbla kroppsdels-KP</td>
+<td>Kritisk skada (amputation/krossat)</td>
+</tr>
+<tr>
+<td>Huvud: kritisk</td>
+<td>Rollpersonen <strong>dör omedelbart</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="rustning-i-alternativa-systemet">Rustning i alternativa systemet</h3>
+<ul>
+<li>Rustningsdelar täcker specifika kroppsdelar</li>
+<li>Man kan bara ha en rustningsdel per kroppsdel</li>
+<li>Vikt beror på bärarens STO (vikttabell A–K, REG s.54)</li>
+</ul>
+<h3 id="smartpoang-sp">Smärtpoäng (SP)</h3>
+<p><em>(Krigarens Handbok, detaljerade regler)</em>
+SP tilläggs i KH:s utökade system — ⚠ verifiera mot KH.</p>
+<hr />
+<h2 id="strid-mot-flera-motstandare">Strid mot flera motståndare</h2>
+<ul>
+<li>Rollpersonen får normalt ett anfallsslag per SR</li>
+<li>Med FV 20+ kan man dela FV (se ovan)</li>
+<li>En motståndare med FV 20–29 "kräver" 2 FV-bitar för att hanteras; FV 30–39 kräver 3 bitar (REG s.57)</li>
+</ul>
+<hr />
+<h2 id="stridsmoral">Stridsmoral</h2>
+<p>Reglerar hur <strong>SLP:er</strong> (inte spelarpersoner) beter sig i strid.</p>
+<h3 id="grundmoral">Grundmoral</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Varelsetyp</th>
+<th>Grundmoral</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vanliga ointelligenta varelser</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Aggressiva ointelligenta varelser</td>
+<td>15</td>
+</tr>
+<tr>
+<td><a class="wikilink" href="raser.html#anka">Anka</a> (vit)</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Anka (svart/brun)</td>
+<td>12</td>
+</tr>
+<tr>
+<td><a class="wikilink" href="raser.html#manniska">Människa</a>, halvlängdsman</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Kattman</td>
+<td>14</td>
+</tr>
+<tr>
+<td>Kentaur</td>
+<td>13</td>
+</tr>
+<tr>
+<td>Orch, rese</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Svartalf, svartnisse</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Troll, varulv, vampyr</td>
+<td>18</td>
+</tr>
+<tr>
+<td>Vargman</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Alvfolk, karkion, enhörning</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Övriga intelligenta varelser</td>
+<td>14</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(REG s.61–62)</em></p>
+<h3 id="modifikationer">Modifikationer</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Mod</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fiendernas totala STO överstiger gruppens med minst 33%</td>
+<td>−5</td>
+</tr>
+<tr>
+<td>Gruppens totala STO överstiger fiendernas med minst 33%</td>
+<td>+5</td>
+</tr>
+<tr>
+<td>Angrips från två eller flera håll</td>
+<td>−5</td>
+</tr>
+<tr>
+<td>Ledaren sårats</td>
+<td>−3</td>
+</tr>
+<tr>
+<td>Ledaren stupar/ger sig/tas till fånga</td>
+<td>−5</td>
+</tr>
+<tr>
+<td>Hälften av gruppen oförmögna</td>
+<td>−5</td>
+</tr>
+<tr>
+<td>Hälften av fienderna oförmögna</td>
+<td>+5</td>
+</tr>
+<tr>
+<td>Förstärkning inom synhåll</td>
+<td>+3</td>
+</tr>
+<tr>
+<td>Fiendens förstärkning inom synhåll</td>
+<td>−3</td>
+</tr>
+<tr>
+<td>Varelsen har förlorat &gt;½ av sina KP</td>
+<td>−3</td>
+</tr>
+<tr>
+<td>Varelsen är en duglig kämpe</td>
+<td>+3</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="moralslag">Moralslag</h3>
+<p>Vid kritiska lägen: slå 1T20 ≤ moral. Misslyckas slag → flyr eller går bärsärk. Fummel → ger upp helt. Perfekt → gör bärsärkkontroll.</p>
+<hr />
+<h2 id="barsark">Bärsärk</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Varelse</th>
+<th>Bärsärksvärde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anka</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Människa</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Kentaur</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Minotaur</td>
+<td>13</td>
+</tr>
+<tr>
+<td>Reptilman</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Cyklop</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Dvärg</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Jätte</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Orch</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Rese</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Vargman</td>
+<td>2</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(REG s.63)</em></p>
+<p><strong>Bärsärkens regler:</strong>
+- Angriper vettlöst närmaste fiende
+- Bryr sig inte om skador (riskerar att förblöda)
+- <strong>Två attacker per SR</strong> (den andra sist i SR, efter alla andras attacker)
+- Parerar INTE, ens med sköld
+- Håller på tills alla fiender flyr/slås ut → ny bärsärkskontroll: lyckas = förföljer i FYS antal SR</p>
+<p><strong>Frivillig bärsärk:</strong> Spelaren kan låta rollpersonen stå stilla 1 SR och "arbeta upp sig". Slå bärsärkskontroll med <strong>dubbelt bärsärksvärde</strong>.</p>
+<hr />
+<h2 id="specialvapen-regler">Specialvapen — Regler</h2>
+<h3 id="judo">Judo</h3>
+<ul>
+<li>Kastomkullen: FV + SMI mot motståndarens STO + SMI (Motståndstabellen)</li>
+<li>Offret kastas 0–2 rutor; misslyckat SMI-slag → 1 KP skada</li>
+<li>Fasthållning: övervinner motståndarens SMI med egna FV</li>
+<li>Parerar 1T6 skada av ett närstridsvapen (absorbering, inte total parering)</li>
+<li>Kan inte bäras ringbrynja eller tyngre</li>
+</ul>
+<h3 id="karate">Karate</h3>
+<ul>
+<li>Slag/sparkar gör <strong>+1 skada</strong></li>
+<li>+5 på SMI för turordning</li>
+<li>Kan välja att blockera istället för att anfalla — minskar fientlig skada med 1T6</li>
+<li>Kan inte bäras läder eller tyngre</li>
+</ul>
+<h3 id="bola">Bola</h3>
+<ul>
+<li>Träff: slå normalt anfallsslag; sedan FV-slag</li>
+<li>FV-slag lyckas → det avsedda händer (snor kring ben = fall; arm = obrukbar; huvud = omtumlad 1T3 SR)</li>
+<li>FV-slag misslyckas → 1T4 skada, inget mer</li>
+<li>Snuren arm/huvud: 1T3 SR att ta bort</li>
+</ul>
+<h3 id="lasso">Lasso</h3>
+<ul>
+<li>Träff: slå anfallsslag, sedan FV-slag</li>
+<li>FV-slag lyckas → slå STY mot motståndarens medelvärde STO/SMI för att rycka omkull</li>
+<li>Lasso kring halsen eller kring <strong>två ben</strong> dubblerar STY</li>
+</ul>
+<h3 id="oxpiska">Oxpiska</h3>
+<ul>
+<li>1T2 skada även om FV-slag misslyckas</li>
+<li>Grepp varar bara den SR den träffar</li>
+</ul>
+<h3 id="spjut-mot-springande-varelser">Spjut mot springande varelser</h3>
+<ul>
+<li>Spjut/långspjut kan "stoppas upp" en springande varelse — ger vapnets skada + målets skadebonus</li>
+<li>Gäller bara stridernas första SR</li>
+</ul>
+<hr />
+<h2 id="avstandsvapen-modifikationer">Avståndsvapen — Modifikationer</h2>
+<h3 id="avstand-fv-0-15">Avstånd (FV 0–15)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Avstånd (rutor)</th>
+<th>Kastvapen</th>
+<th>Projektilvapen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Går ej</td>
+<td>Går ej</td>
+</tr>
+<tr>
+<td>2–3</td>
+<td>±0</td>
+<td>±0</td>
+</tr>
+<tr>
+<td>4–6</td>
+<td>−1</td>
+<td>±0</td>
+</tr>
+<tr>
+<td>7–10</td>
+<td>−2</td>
+<td>−1</td>
+</tr>
+<tr>
+<td>11–15</td>
+<td>−3</td>
+<td>−1</td>
+</tr>
+<tr>
+<td>16–20</td>
+<td>−4</td>
+<td>−2</td>
+</tr>
+<tr>
+<td>Varje +10m</td>
+<td>−1</td>
+<td>−1</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="avstand-fv-16">Avstånd (FV 16+)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Avstånd (rutor)</th>
+<th>Kastvapen</th>
+<th>Projektilvapen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2–3</td>
+<td>±0</td>
+<td>±0</td>
+</tr>
+<tr>
+<td>4–6</td>
+<td>−1</td>
+<td>±0</td>
+</tr>
+<tr>
+<td>7–10</td>
+<td>−2</td>
+<td>−1</td>
+</tr>
+<tr>
+<td>11–15</td>
+<td>−3</td>
+<td>−1</td>
+</tr>
+<tr>
+<td>16–20</td>
+<td>−4</td>
+<td>−2</td>
+</tr>
+<tr>
+<td>31–50</td>
+<td>−5</td>
+<td>−3</td>
+</tr>
+<tr>
+<td>51–75</td>
+<td>−6</td>
+<td>−4</td>
+</tr>
+<tr>
+<td>76–100</td>
+<td>−7</td>
+<td>−5</td>
+</tr>
+<tr>
+<td>101–150</td>
+<td>−8</td>
+<td>−6</td>
+</tr>
+<tr>
+<td>151–200</td>
+<td>−9</td>
+<td>−7</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(REG s.57)</em></p>
+<h3 id="malrorelse">Målrörelse</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Mål rör sig</th>
+<th>CL-modifikation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stilla</td>
+<td>× 1</td>
+</tr>
+<tr>
+<td>Går</td>
+<td>× 3/4</td>
+</tr>
+<tr>
+<td>Springer</td>
+<td>× 1/2</td>
+</tr>
+<tr>
+<td>Flyger</td>
+<td>× 1/4</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="vapentyngd">Vapentyngd</h2>
+<ul>
+<li>Om vapnets <strong>STY-grupp är 1 steg för hög</strong>: halveras CL</li>
+<li>Om vapnet är <strong>1-2H</strong> (kan tas med en eller två händer): STY-kravet är 1 steg lägre för tvåhandsvapen; som enhandsvapen är kravet 1 steg <strong>högre</strong> (REG s.57)</li>
+<li>Enhandsvapen med för högt STY-krav: kan användas som <strong>tvåhandsvapen</strong> om fästet räcker → ny separat färdighet</li>
+</ul>
+<hr />
+<h2 id="fasthallning">Fasthållning</h2>
+<ul>
+<li>Angriparen försöker hålla fast motståndaren</li>
+<li>Kräver lyckat anfallsslag (sker <strong>sist i SR</strong>)</li>
+<li>Sedan: anfallaren slår STY mot motståndarens STY (Motståndstabellen)</li>
+<li>Varje SR angriparen vill hålla fast: slå STY igen</li>
+<li>Motståndaren kan inte göra något under fasthållning</li>
+</ul>
+<hr />
+<h2 id="fotnot-grundsystemet-vs-alternativa">Fotnot: Grundsystemet vs. Alternativa</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Grundsystem</th>
+<th>Alternativt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kropp</td>
+<td>En samlad KP</td>
+<td>Tillgång till individuella kroppsdels-KP</td>
+</tr>
+<tr>
+<td>Skada</td>
+<td>Direkt mot KP</td>
+<td>Mot kroppsdel + totala KP</td>
+</tr>
+<tr>
+<td>Rustning</td>
+<td>En Abs siffra</td>
+<td>Rustningsdelar per kroppsdel</td>
+</tr>
+<tr>
+<td>Tid</td>
+<td>Snabbt</td>
+<td>Tar längre tid</td>
+</tr>
+<tr>
+<td>Rekommenderas</td>
+<td>Nybörjare / stora strider</td>
+<td>Viktiga dueller / dramatiska strider</td>
+</tr>
+</tbody>
+</table></div>
+</main>
+<footer><span>Drakar och Demoner Expert Wiki · Baserad på originalreglerna</span><span class="footer-meta">v2026.07.14 · Uppdaterad 2026-07-14</span></footer>
+</body>
+</html>

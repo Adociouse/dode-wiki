@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varelser i Ereb Altor — DoDE Wiki</title>
+<style>
+:root {
+  --red:      #6B1A1A;
+  --red-dark: #4A0E0E;
+  --paper:    #FAF3F0;
+  --text:     #2A0808;
+  --gold:     #D4956B;
+  --border:   #C4907A;
+  --link:     #6B1A1A;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --red:      #C05050;
+    --red-dark: #8B2020;
+    --paper:    #1E1010;
+    --text:     #F0DDD5;
+    --gold:     #D4956B;
+    --border:   #6B3A2A;
+    --link:     #E07070;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+  background: var(--paper);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── TOPPNAV ── */
+#topnav {
+  background: var(--red-dark);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 2px solid var(--gold);
+}
+#topnav .site-title {
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 10px 16px 10px 0;
+  white-space: nowrap;
+  border-right: 1px solid rgba(212,149,107,0.3);
+  margin-right: 8px;
+}
+#topnav a {
+  color: #F5E6D3;
+  text-decoration: none;
+  padding: 10px 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+#topnav a:hover { color: #fff; border-bottom-color: var(--gold); }
+#topnav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+.nav-section {
+  color: rgba(212,149,107,0.55);
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 6px 10px 10px;
+  white-space: nowrap;
+  border-left: 1px solid rgba(212,149,107,0.25);
+  margin-left: 4px;
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+/* ── TYPOGRAFI ── */
+h1 { font-size: 2rem; color: var(--red); border-bottom: 3px solid var(--gold); padding-bottom: 10px; margin-bottom: 28px; }
+h2 { font-size: 1.4rem; color: var(--red-dark); margin: 32px 0 12px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.1rem; color: var(--red); margin: 22px 0 8px; }
+h4 { font-size: 1rem; font-weight: bold; margin: 16px 0 6px; }
+p  { line-height: 1.75; margin-bottom: 12px; }
+ul, ol { margin: 8px 0 14px 24px; line-height: 1.75; }
+li { margin-bottom: 4px; }
+
+/* ── WIKILÄNKAR ── */
+a { color: var(--link); }
+a:hover { text-decoration: underline; }
+a.wikilink { border-bottom: 1px dotted var(--gold); text-decoration: none; color: var(--link); }
+a.wikilink:hover { border-bottom-style: solid; }
+
+/* ── TABELLER ── */
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 400px; }
+th { background: var(--red); color: var(--gold); padding: 8px 10px; text-align: left; white-space: nowrap; }
+td { padding: 7px 10px; border-bottom: 1px solid var(--border); }
+tr:nth-child(even) td { background: rgba(196,144,122,0.08); }
+tr:hover td { background: rgba(196,144,122,0.16); }
+
+/* ── KAMPANJRUTA ── */
+.kampanj-ruta { background: rgba(107,26,26,0.07); border: 1px solid rgba(107,26,26,0.35); border-left: 4px solid var(--red); border-radius: 6px; padding: 18px 20px; margin: 24px 0 32px; }
+.kampanj-ruta .kr-rubrik { font-size: 0.72rem; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+.kampanj-ruta p { font-size: 0.92rem; line-height: 1.65; margin: 0 0 10px; }
+.kampanj-ruta p:last-child { margin-bottom: 0; }
+.kampanj-ruta ul { margin: 8px 0 10px 18px; padding: 0; }
+.kampanj-ruta li { font-size: 0.92rem; line-height: 1.6; margin-bottom: 4px; }
+
+/* ── KOD / BLOCKQUOTE ── */
+code { background: rgba(107,26,26,0.08); padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 0.88em; }
+pre  { background: rgba(107,26,26,0.06); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; overflow-x: auto; margin: 14px 0; }
+pre code { background: none; padding: 0; }
+blockquote { border-left: 4px solid var(--gold); padding: 10px 16px; margin: 14px 0; background: rgba(212,149,107,0.08); font-style: italic; }
+
+/* ── FOOTER ── */
+footer { margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer-meta { font-style: italic; }
+main img { max-width: 100%; height: auto; border: 1px solid var(--border); border-radius: 4px; margin: 16px 0; }
+
+/* ── NYCKELORDSINDEX ── */
+.kw-index { column-count: 3; column-gap: 32px; }
+@media (max-width: 600px) { .kw-index { column-count: 1; } main { padding: 24px 16px; } }
+.kw-entry { break-inside: avoid; margin-bottom: 10px; font-size: 0.9rem; line-height: 1.5; }
+.kw-entry .kw-term { font-weight: bold; color: var(--red); }
+.kw-entry .kw-pages a { font-size: 0.82rem; color: var(--link); margin-right: 6px; }
+</style>
+
+</head>
+<body>
+<nav id="topnav">
+  <span class="site-title">⚔ DoDE Expert</span>
+  <a href="index.html">📖 Index</a>
+<a href="grundegenskaper.html">💪 Grundegenskaper</a>
+<a href="strid.html">⚔️ Strid & Vapen</a>
+<a href="fardigheter.html">🎯 Färdigheter</a>
+<a href="raser.html">🧝 Raser</a>
+<a href="yrken.html">🛡️ Yrken</a>
+<a href="magi.html">✨ Magi</a>
+<a href="utrustning.html">🗡️ Utrustning</a>
+<a href="hjaltar.html">🌟 Hjältar</a>
+<a href="monster.html" class="active">🐉 Varelser</a>
+<a href="drakar.html">🔥 Drakar</a>
+<a href="demonologi.html">🔮 Demonologi</a>
+<a href="kallor.html">📚 Källor</a>
+
+</nav>
+<main>
+<h1>Varelser i Ereb Altor</h1>
+<blockquote>
+<p><em>Sammanställt ur reseskildringer, krönikor och muntlig tradition. Vad gemene man vet — eller tror sig veta — om de varelser som befolkar världen.</em></p>
+</blockquote>
+<hr />
+<h2 id="om-varelser-och-deras-natur">Om varelser och deras natur</h2>
+<p>Ereb Altor är ingen trygg värld. Utanför städernas murar och byarnas eldar väntar en mängd farliga varelser — en del djur, en del något värre. Lärde män delar in dem i <em>intelligenta</em> (de som tänker och talar) och <em>ointelligenta</em> (de som bara drivs av hunger och instinkt), men bönder och soldater gör sällan den distinktionen när mörkret faller.</p>
+<hr />
+<h2 id="orcher">Orcher</h2>
+<p>Orcher är det folk gemene man fruktar mest i Ereb Altor. De är nästan lika stora som människor men bredare, med grågrön hud, huggtänder och ögon som glöder svagt i mörker. De lever i stammar under starka hövdingar och anfaller gårdar och byar i storskaliga räder.</p>
+<p><strong>Vad folk vet:</strong> Orcher hatar solljus och föredrar att anfalla i skymning eller mörker. De är inga vildar — de smedjer vapen, taktiserar och håller fångar som slavar. En orchstam med en stark ledare är ett verkligt hot mot hela regioner.</p>
+<p><strong>Rykten och vidskepelse:</strong> Man säger att salt i dörrtröskeln håller orcher borta. Det stämmer inte, men tron är utbredd i norra Kardien.</p>
+<hr />
+<h2 id="reser-jattar">Reser (Jättar)</h2>
+<p>Reser är gigantiska humanoider — tre till fyra gånger en människas storlek — med tjock hud och trög intelligens. De lever ensamma eller i små familjegrupper i bergsområden och ödsliga marker.</p>
+<p><strong>Vad folk vet:</strong> En rese kan lyfta en oxkärra. De kastar stenar med fruktansvärd kraft. Det bästa rådet om man möter en är att springa — eller om möjligt, förhandla. Reser respekterar styrka och har inget intresse av att döda om de inte är hungriga eller provocerade.</p>
+<p><strong>Rykten:</strong> Gamla reser sägs ibland ha kunskap om gömda skatter och urgamla händelser, om man kan vinna deras förtroende.</p>
+<hr />
+<h2 id="troll">Troll</h2>
+<p>Troll är de hemliga vaktarna i skogen, säger skogsbon — och de flesta överlever inte att testa teorin. De är stora, knöliga och hatfulla mot allt som är vackert eller välordnat. De läker skador med otrolig hastighet.</p>
+<p><strong>Vad folk vet:</strong> Eld och syra sägs vara de enda sätten att permanent skada ett troll — vanliga sår läker på sekunder. Troll är mer intelligenta än de ser ut och kan tala, om de vill.</p>
+<p><strong>Vidskepelse:</strong> En trädörr med trollkors minskar chansen att troll besöker en gård. Faktum är att troll sällan är intresserade av välbefolkade gårdar — de föredrar ensamhet.</p>
+<hr />
+<h2 id="varulvar">Varulvar</h2>
+<p>Varulvar är människor förbannade att förvandlas till halvvarg under fullmånen — eller så lyder den vanligaste teorin. Andra menar att det är en sjukdom, spridd via bett.</p>
+<p><strong>Vad folk vet:</strong> En varulv i varulvsform är övermänskligt stark och snabb. Silvervapen sägs skada dem på ett sätt vanliga vapen inte kan. Under dagen ser de ut som vanliga människor och vet ofta inte om sin egen natur.</p>
+<p><strong>Rykten:</strong> Man säger att varulvar inte kan korsa rinnande vatten. Sanningen är mer komplicerad.</p>
+<hr />
+<h2 id="vampyrer">Vampyrer</h2>
+<p>Vampyrer är odöda varelser som lever på blod. De är intelligent onda och ofta gamla — hundratals år, ibland äldre. De håller till i kryptor, övergivna slott och gamla torn.</p>
+<p><strong>Vad folk vet:</strong> Vampyrer kan inte träda in i ett hem utan att bjudas in. De bränns av solljus. Vitlök, rinnande vatten och heliga symboler håller dem på avstånd. Ett påle genom hjärtat förstör dem — tillfälligt. De måste begravas med huvudet avskuret och munnen fylld med vitlök för att verkligen förintas.</p>
+<p><strong>Viktigt:</strong> Vampyren är inte ensam — den skapar tjänare av de den biter och inte dödar. En vampyr i en region innebär snart flera.</p>
+<hr />
+<h2 id="skeletonger-och-gengangare">Skeletonger och Gengångare</h2>
+<p>Odöda finns i flera former i Ereb Altor. De vanligaste är:</p>
+<p><strong>Skeletonger</strong> — ben som gåtts upp ur gravar, ofta av nekromantiker. De tänker inte, de lyder bara. Vanliga vapen funkar, men de känner inte smärta.</p>
+<p><strong>Gengångare</strong> — en person som dött med oförrättat ärende eller under förbannelse, tvingad att vandra. De är farligare — de är intelligenta och hatar de levande.</p>
+<p><strong>Vad folk vet:</strong> Heliga platser och invigda marker håller odöda borta. En präst med rätt kunskaper kan driva bort dem. Att förstöra det som håller dem kvar — ett ouppfyllt löfte, en ohelig grav — är det enda sättet att bli av med dem permanent.</p>
+<hr />
+<h2 id="demoner">Demoner</h2>
+<p>Demoner är varelser från demonplanen — ett annat universum av kaos och mörker. De kan framkallas av oförsiktiga eller onda magiker. De finns i otaliga former, från smattrande litet demonhjon till fruktansvärda urgamla makter.</p>
+<p><strong>Vad folk vet:</strong> Demoner kan bindas av magiska cirklar och rätt ritualer. De är listig — de letar alltid efter kryphål i avtal. En demon som brytar sig fri ur sin besvarjares kontroll är ytterst farlig. Demonologer är illa sedda av folket och med rätta.</p>
+<p><strong>Rykten:</strong> Man säger att en demon aldrig kan ljuga — men det säger de själva, vilket borde vara varningens nog.</p>
+<hr />
+<h2 id="drakar">Drakar</h2>
+<p>Se sidan <strong><a class="wikilink" href="drakar.html">Drakar</a></strong> för vad folk berättar om dessa legendariska varelser.</p>
+<hr />
+<h2 id="andra-kanda-varelser">Andra kända varelser</h2>
+<h3 id="enhorningar">Enhörningar</h3>
+<p>Sällsynta och skygga. Sägs bara låta sig röras av oskyldiga. Deras horn har kraftfulla magiska egenskaper — vilket gör dem eftertraktade av magiker och jägare. De lever i avlägsna skogar.</p>
+<h3 id="gripar">Gripar</h3>
+<p>Halv örn, halvlejon. Kan tämjas men sällan. Härskar i bergstrakter och ses ibland ridas av krigare av rang. En grip i fångenskap är alltid farlig.</p>
+<h3 id="havsormar">Havsormar</h3>
+<p>Sjömän vittnar om enorma ormar i djuphavet — hundra meter långa, kapabla att dra ned ett skepp. Få återvänder för att bekräfta berättelserna.</p>
+<h3 id="kentaurer">Kentaurer</h3>
+<p>Halvmänniska, halvhäst. Lever i egna stammar på stäppen och i skogsland. De flesta är neutrala mot människor men reagerar häftigt på inkräktare i deras territorium. Kända som mästerskyttar.</p>
+</main>
+<footer><span>Drakar och Demoner Expert Wiki · Baserad på originalreglerna</span><span class="footer-meta">v2026.07.14 · Uppdaterad 2026-07-14</span></footer>
+</body>
+</html>

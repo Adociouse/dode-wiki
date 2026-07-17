@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demonologi — Förbjuden Kunskap — DoDE Wiki</title>
+<style>
+:root {
+  --red:      #6B1A1A;
+  --red-dark: #4A0E0E;
+  --paper:    #FAF3F0;
+  --text:     #2A0808;
+  --gold:     #D4956B;
+  --border:   #C4907A;
+  --link:     #6B1A1A;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --red:      #C05050;
+    --red-dark: #8B2020;
+    --paper:    #1E1010;
+    --text:     #F0DDD5;
+    --gold:     #D4956B;
+    --border:   #6B3A2A;
+    --link:     #E07070;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+  background: var(--paper);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── TOPPNAV ── */
+#topnav {
+  background: var(--red-dark);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 2px solid var(--gold);
+}
+#topnav .site-title {
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 10px 16px 10px 0;
+  white-space: nowrap;
+  border-right: 1px solid rgba(212,149,107,0.3);
+  margin-right: 8px;
+}
+#topnav a {
+  color: #F5E6D3;
+  text-decoration: none;
+  padding: 10px 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+#topnav a:hover { color: #fff; border-bottom-color: var(--gold); }
+#topnav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+.nav-section {
+  color: rgba(212,149,107,0.55);
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 6px 10px 10px;
+  white-space: nowrap;
+  border-left: 1px solid rgba(212,149,107,0.25);
+  margin-left: 4px;
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+/* ── TYPOGRAFI ── */
+h1 { font-size: 2rem; color: var(--red); border-bottom: 3px solid var(--gold); padding-bottom: 10px; margin-bottom: 28px; }
+h2 { font-size: 1.4rem; color: var(--red-dark); margin: 32px 0 12px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.1rem; color: var(--red); margin: 22px 0 8px; }
+h4 { font-size: 1rem; font-weight: bold; margin: 16px 0 6px; }
+p  { line-height: 1.75; margin-bottom: 12px; }
+ul, ol { margin: 8px 0 14px 24px; line-height: 1.75; }
+li { margin-bottom: 4px; }
+
+/* ── WIKILÄNKAR ── */
+a { color: var(--link); }
+a:hover { text-decoration: underline; }
+a.wikilink { border-bottom: 1px dotted var(--gold); text-decoration: none; color: var(--link); }
+a.wikilink:hover { border-bottom-style: solid; }
+
+/* ── TABELLER ── */
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 400px; }
+th { background: var(--red); color: var(--gold); padding: 8px 10px; text-align: left; white-space: nowrap; }
+td { padding: 7px 10px; border-bottom: 1px solid var(--border); }
+tr:nth-child(even) td { background: rgba(196,144,122,0.08); }
+tr:hover td { background: rgba(196,144,122,0.16); }
+
+/* ── KAMPANJRUTA ── */
+.kampanj-ruta { background: rgba(107,26,26,0.07); border: 1px solid rgba(107,26,26,0.35); border-left: 4px solid var(--red); border-radius: 6px; padding: 18px 20px; margin: 24px 0 32px; }
+.kampanj-ruta .kr-rubrik { font-size: 0.72rem; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+.kampanj-ruta p { font-size: 0.92rem; line-height: 1.65; margin: 0 0 10px; }
+.kampanj-ruta p:last-child { margin-bottom: 0; }
+.kampanj-ruta ul { margin: 8px 0 10px 18px; padding: 0; }
+.kampanj-ruta li { font-size: 0.92rem; line-height: 1.6; margin-bottom: 4px; }
+
+/* ── KOD / BLOCKQUOTE ── */
+code { background: rgba(107,26,26,0.08); padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 0.88em; }
+pre  { background: rgba(107,26,26,0.06); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; overflow-x: auto; margin: 14px 0; }
+pre code { background: none; padding: 0; }
+blockquote { border-left: 4px solid var(--gold); padding: 10px 16px; margin: 14px 0; background: rgba(212,149,107,0.08); font-style: italic; }
+
+/* ── FOOTER ── */
+footer { margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer-meta { font-style: italic; }
+main img { max-width: 100%; height: auto; border: 1px solid var(--border); border-radius: 4px; margin: 16px 0; }
+
+/* ── NYCKELORDSINDEX ── */
+.kw-index { column-count: 3; column-gap: 32px; }
+@media (max-width: 600px) { .kw-index { column-count: 1; } main { padding: 24px 16px; } }
+.kw-entry { break-inside: avoid; margin-bottom: 10px; font-size: 0.9rem; line-height: 1.5; }
+.kw-entry .kw-term { font-weight: bold; color: var(--red); }
+.kw-entry .kw-pages a { font-size: 0.82rem; color: var(--link); margin-right: 6px; }
+</style>
+
+</head>
+<body>
+<nav id="topnav">
+  <span class="site-title">⚔ DoDE Expert</span>
+  <a href="index.html">📖 Index</a>
+<a href="grundegenskaper.html">💪 Grundegenskaper</a>
+<a href="strid.html">⚔️ Strid & Vapen</a>
+<a href="fardigheter.html">🎯 Färdigheter</a>
+<a href="raser.html">🧝 Raser</a>
+<a href="yrken.html">🛡️ Yrken</a>
+<a href="magi.html">✨ Magi</a>
+<a href="utrustning.html">🗡️ Utrustning</a>
+<a href="hjaltar.html">🌟 Hjältar</a>
+<a href="monster.html">🐉 Varelser</a>
+<a href="drakar.html">🔥 Drakar</a>
+<a href="demonologi.html" class="active">🔮 Demonologi</a>
+<a href="kallor.html">📚 Källor</a>
+
+</nav>
+<main>
+<h1>Demonologi — Förbjuden Kunskap</h1>
+<blockquote>
+<p><strong>Varning:</strong> Denna sida beskriver demonologins historia och faror ur ett akademiskt perspektiv. Mekanik, besvärjelser och klassval för demonologer är INTE tillgängliga för spelare i denna kampanj.</p>
+</blockquote>
+<p>Demonologi är studiet av Demonicums väsen och de makter som härskar där. Den behandlas som förbjuden kunskap i Ereb Altor — inte för att den är omöjlig att lära sig, utan för att kostnaden för den som söker den nästan alltid överstiger vad som vinns.</p>
+<hr />
+<h2 id="vad-ar-demonicum">Vad är Demonicum?</h2>
+<p>De lärde talar om ett multiversum — en samling av existensplan staplade ovanpå varandra. Ereb Altor är ett av dessa plan. Demonicum är ett annat: ett plan av kaos, mörker och urgamla makter som föregår de flesta gudar.</p>
+<p>Demonicum är inte "helvetet" i moralisk mening. Det är snarare ett kosmologiskt faktum — ett plan där lagarnas natur skiljer sig från Ereb Altors, och där varelser av en helt annan ordning (eller oordning) härskar.</p>
+<p>Kontakt med Demonicum är möjlig. Det är just det som gör demonologi farlig.</p>
+<hr />
+<h2 id="de-tre-vaktarna">De tre Väktarna</h2>
+<p>I demonologisk folklore talar man om tre urgamla makter — ibland kallade Väktare, ibland Härskare — som anses kontrollera Demonicum:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Väktare</th>
+<th>Domän</th>
+<th>Folkets bild</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nehcrom</strong></td>
+<td>Död, Förruttnelse</td>
+<td>Skelett av is, tomma ögon som lyser svart</td>
+</tr>
+<tr>
+<td><strong>Bemoth</strong></td>
+<td>Kaos, Transformation</td>
+<td>Ständigt skiftande form, röst som river i luften</td>
+</tr>
+<tr>
+<td><strong>Caliban</strong></td>
+<td>Illusion, Manipulation</td>
+<td>Vacker mänsklig gestalt, aldrig densamma twice</td>
+</tr>
+</tbody>
+</table></div>
+<p>Dessa tre är inte gudar i ordinär mening. De är inte dyrkade i tempel och de lyssnar inte på böner. De är snarare kosmologiska krafter — om en storm kan sägas "vilja" något, vill dessa tre.</p>
+<p>Det som demonologiska berättelser nästan alltid betonar är att dessa väktare aldrig ger något gratis.</p>
+<hr />
+<h2 id="tecken-pa-demonisk-narvaro">Tecken på demonisk närvaro</h2>
+<p>Folktron i Ereb Altor har lång erfarenhet av att känna igen demonisk påverkan. Klassiska tecken inkluderar:</p>
+<ul>
+<li><strong>Köld utan källa</strong> — rumstemperaturen sjunker utan förklaring, ofta lokaliserad till en specifik person</li>
+<li><strong>Förändrade skuggor</strong> — skuggor som rör sig fel i förhållande till ljuskällan</li>
+<li><strong>Djur som flyr</strong> — hästar, hundar och fåglar drar sig undan utan uppenbara skäl</li>
+<li><strong>Förvrängd tid</strong> — känsla av att sekunder förlängs eller att timmar försvinner</li>
+<li><strong>Svart rök utan eld</strong> — observerat av vittnen i närheten av besatta individer</li>
+<li><strong>Spegelreflexer som halkar efter</strong> — en känd men sällan omtalad varningssignal</li>
+</ul>
+<p>Inga av dessa tecken är definitiva bevis. Var och en kan ha naturliga förklaringar. Men när flera uppträder tillsammans, rekommenderar folkliga traditioner att man tar sig därifrån.</p>
+<hr />
+<h2 id="besatthet">Besatthet</h2>
+<p>Besatthet — när en demonisk varelse tar plats i en levande persons kropp eller sinne — är den mest dramatiska formen av demonisk påverkan.</p>
+<p>Ur betraktarens perspektiv: en besatt person förändras. Inte alltid dramatiskt, inte alltid omedelbart. Personligheten förändras subtilt, styrkan kan öka märkbart, och personen kan visa kunskap om saker de inte borde kunna veta. Ögonfärgen förändras ibland. Rösten kan byta kvalitet.</p>
+<p>Det besatta medvetandet är inte alltid förlorat. Ibland strider det emot. Det gör situationen svårare, inte enklare.</p>
+<p>Det finns kända metoder för att driva ut en demonisk besättning — exorcism, ritual, ibland direktkonfrontation med den demoniska maktens ursprung. Ingen av dem är enkel.</p>
+<hr />
+<h2 id="kanda-demonologer-i-historien">Kända demonologer i historien</h2>
+<p>De flesta som studerat demonologi på allvar lämnar inga namn efter sig. Historien berättar om en handfull praktiker — mestadels genom vad som <em>gick fel</em>, sällan genom vad de åstadkom. Arkiven är fragmentariska av en anledning: de institutioner som dokumenterar sådant här bränner ofta dokumenten när de inser vad de håller i.</p>
+<p>Rykten om aktiva demonologer cirkulerar då och då. De brukar dö ut — ibland för att ryktet var falskt, ibland för att personen det gällde dog ut med det.</p>
+<hr />
+<h2 id="varfor-ar-demonologi-forbjudet">Varför är demonologi förbjudet?</h2>
+<p>Inte för att makterna i Demonicum är omöjliga att kontakta. Utan för att de kontaktar tillbaka.</p>
+<p>Den som börjar studera demonologi lämnar spår som dessa makter kan följa. Gränsen mellan att undersöka Demonicum och att locka det till sig är tunnare än de flesta förstår förrän det är för sent.</p>
+<p>Institutionell magi — gillen, akademier, tempel — behandlar demonologi som förbjudet inte primärt av moraliska skäl, utan för att den hotar systemet. En demonolog som tappar kontrollen är ett problem som drabbar alla runtomkring, inte bara hen själv.</p>
+</main>
+<footer><span>Drakar och Demoner Expert Wiki · Baserad på originalreglerna</span><span class="footer-meta">v2026.07.16 · Uppdaterad 2026-07-16</span></footer>
+</body>
+</html>
